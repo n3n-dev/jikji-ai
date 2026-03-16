@@ -1,4 +1,4 @@
 {
-  "title": "컨테이너 생성",
+  "title": "파드(Pod) 생성",
   "pages": ["index", "container-access"]
 }
