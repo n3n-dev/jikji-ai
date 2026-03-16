@@ -1,41 +1,44 @@
 ---
 title: 멤버 초대
-description: 조직에 멤버를 초대하는 방법
+description: 조직 계정에서 권한에 따라 멤버를 초대하는 방법
 ---
 
 # 멤버 초대
 
 ## 1. 권한별 초대 범위
 
-멤버 초대는 권한에 따라 초대할 수 있는 범위가 다릅니다.
+멤버 초대 범위는 권한에 따라 다릅니다.
 
-- **org_admin**: team_admin, developer(팀 없음), viewer 초대 가능
-  - viewer는 org_admin과 동일한 범위를 열람할 수 있습니다.
-- **team_admin**: 자신의 팀에 한해 developer 초대 가능
+- `org_admin`: `team_admin`, 팀이 없는 `developer`, `viewer`를 초대할 수 있습니다.
+- `team_admin`: 자신의 팀에 한해 `developer`를 초대할 수 있습니다.
 
-## 2. team_admin 초대
+<Callout type="info">
+  `viewer`는 `org_admin`과 동일한 범위를 열람할 수 있습니다.
+</Callout>
 
-team_admin은 팀 생성 시 자동으로 초대 링크가 생성됩니다.
+## 2. `team_admin` 초대 링크 안내
+
+`team_admin` 초대 링크는 팀 생성 시 자동으로 생성됩니다.
 초대 링크 생성 및 복사 방법은 [팀 생성](/docs/organization-creation/team-creation)을 참고하세요.
 
 ## 3. 일반 팀원 초대 방법
 
-org_admin이 일반 개발자를 초대하거나, team_admin이 팀원을 초대할 때 사용합니다.
+`org_admin`이 일반 개발자를 초대하거나, `team_admin`이 자신의 팀원을 초대할 때 사용합니다.
 
-### a. Invite New Member 클릭
+### a. 멤버 초대 시작
 
-**Invite New Member** ① 버튼을 클릭합니다.
+① **Invite New Member** 버튼을 클릭합니다.
 
-![Invite New Member 클릭](/docs/3-3-1.svg)
+![멤버 초대 시작](/docs/3-3-1.svg)
 
-### b. Create Invite 클릭
+### b. 초대 링크 생성
 
-**Create Invite** ① 버튼을 클릭합니다.
+① **Create Invite** 버튼을 클릭합니다.
 
-![Create Invite 클릭](/docs/3-3-2.svg)
+![초대 링크 생성](/docs/3-3-2.svg)
 
 ### c. 초대 링크 복사 및 공유
 
-생성된 초대 링크 ①을 클릭하여 복사한 후 초대할 멤버에게 공유합니다.
+생성된 초대 링크에서 ① 복사 아이콘을 클릭한 후 초대할 멤버에게 공유합니다.
 
 ![초대 링크 복사](/docs/3-3-3.svg)
