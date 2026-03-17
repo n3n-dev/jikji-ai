@@ -193,7 +193,7 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
 
 1. 이미지 기준으로 실제 UI 흐름을 먼저 확인한다.
 2. frontmatter `title`과 `description`을 정한다.
-3. H1과 단계 제목을 문서형으로 정리한다.
+3. frontmatter `title`과 단계 제목을 문서형으로 정리한다.
 4. 본문은 UI 라벨 중심으로 짧게 쓴다.
 5. 확인 단계와 Callout을 보강한다.
 6. 마지막으로 alt 텍스트를 단계 제목과 맞춘다.
