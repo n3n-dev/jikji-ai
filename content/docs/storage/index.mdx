@@ -1,0 +1,42 @@
+---
+title: 스토리지 관리
+description: 파일시스템을 생성하고 사용 상태를 확인하는 방법
+---
+
+## 1. Storage 메뉴 진입 및 Create Filesystem 선택
+
+좌측 **Resources** 영역에서 ① **Storage**를 선택한 후 **Filesystems** 페이지에서 ② **Create Filesystem**을 클릭합니다.
+
+![Storage 메뉴 진입 및 Create Filesystem 선택](/docs/5-1-1.png)
+
+## 2. 파일시스템 이름 입력 및 지역 선택
+
+팝업에서 ① 파일시스템 이름(`Identifier/Subdomain`)을 입력하고 ② 생성할 지역을 선택합니다.
+
+<Callout type="info">
+  현재 화면 기준으로 `Sinsa`는 선택할 수 있고 `Gangnam`은 비활성화되어 있습니다.
+</Callout>
+
+![파일시스템 이름 입력 및 지역 선택](/docs/5-1-2.png)
+
+## 3. 파일시스템 생성 확인
+
+**Filesystems** 목록에서 ① 파일시스템 이름과 ② Region이 표시되는지 확인합니다.
+
+![파일시스템 생성 확인](/docs/5-1-3.png)
+
+## 4. Status 확인
+
+파드와 연결되지 않은 스토리지는 **Status**가 `Not-in-use`로 표시되며, 파드에 연결된 스토리지는 **Mount Point**가 표시되고 **Status**가 `In-use`로 표시됩니다.
+
+<Callout type="info">
+  스토리지는 파드 없이 단독으로 생성되어 존재할 수 있습니다. `Status`는 현재 스토리지가 파드에서 점유되고 있는지 나타냅니다.
+</Callout>
+
+![Status 확인](/docs/5-1-4.png)
+
+## 5. 스토리지 삭제
+
+목록 우측 더보기 메뉴에서 ① **Delete**를 선택합니다.
+
+![스토리지 삭제](/docs/5-1-5.png)

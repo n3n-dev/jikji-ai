@@ -205,6 +205,7 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
 - `content/docs/container-creation/*`
 - `content/docs/organization-creation/*`
 - `content/docs/account-creation.mdx`
+- `content/docs/storage/*`
 
 새 가이드 문서를 추가할 때도 동일한 규칙을 기본값으로 사용한다.
 
