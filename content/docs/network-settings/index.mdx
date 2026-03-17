@@ -1,0 +1,49 @@
+---
+title: 네트워크 설정
+description: 방화벽에서 ICMP와 Inbound Rule을 설정하는 방법
+---
+
+## 1. Firewall 메뉴 진입 및 ICMP 설정
+좌측 **Resources** 영역에서 ① **Firewall**을 선택한 후 **ICMP Setting** 영역에서 ② **Allow ICMP traffic (ping)** 토글로 ping 허용 여부를 설정합니다.
+
+<Callout type="info">
+  이 설정은 ping 진단을 위한 ICMP echo request 허용 여부를 제어합니다.
+</Callout>
+
+![Firewall 메뉴 진입 및 ICMP 설정](/docs/6-1-1.png)
+
+## 2. Inbound Rule 생성 시작
+
+**Inbound Rules Management** 영역에서 ① **Create Rule**을 클릭해 **Edit Inbound Rules** 팝업을 엽니다.
+
+![Inbound Rules Management 영역에서 Create Rule 클릭](/docs/6-1-1.png)
+
+![Edit Inbound Rules 팝업 열기](/docs/6-1-2.png)
+
+## 3. 규칙 행 추가
+
+**Edit Inbound Rules** 팝업에서 ① **Add Rule**을 클릭해 규칙 행을 추가합니다.
+
+<Callout type="info">
+  팝업에 `You do not have an SSH rule. Without one, instances cannot be accessed via SSH.` 안내가 표시되면 현재 SSH 접근용 규칙이 없는 상태입니다.
+</Callout>
+
+![Edit Inbound Rules 팝업에서 Add Rule 클릭](/docs/6-1-2.png)
+
+![규칙 행 추가](/docs/6-1-3.png)
+
+## 4. 포트와 출발지 입력 및 저장
+
+생성된 규칙 행에서 ① **Port Range**를 입력하고 ② **Source**를 입력한 후 ③ **Description**을 입력합니다. 입력을 완료한 후 ④ **Update and save**를 클릭합니다.
+
+<Callout type="info">
+  화면 안내 기준으로 포트는 `22`, `8000-8999`, `30000-39999` 범위만 사용할 수 있습니다. 단일 포트 또는 `8000-8099`처럼 범위로 입력할 수 있습니다.
+</Callout>
+
+![포트와 출발지 입력 및 저장](/docs/6-1-4.png)
+
+## 5. 설정된 규칙 확인
+
+**Inbound Rules Management** 목록에서 ① **Protocol**, ② **Port Range**, ③ **Source**, ④ **Description**이 표시되는지 확인합니다.
+
+![설정된 규칙 확인](/docs/6-1-5.png)
