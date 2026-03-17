@@ -3,6 +3,7 @@
 이 문서는 `content/docs` 아래 가이드 문서를 작성하거나 수정할 때 따르는 기준이다.
 
 기준 문서:
+- `content/docs/account-creation.mdx`
 - `content/docs/container-creation/index.mdx`
 - `content/docs/container-creation/container-access.mdx`
 
@@ -196,5 +197,6 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
 
 - `content/docs/container-creation/*`
 - `content/docs/organization-creation/*`
+- `content/docs/account-creation.mdx`
 
 새 가이드 문서를 추가할 때도 동일한 규칙을 기본값으로 사용한다.
