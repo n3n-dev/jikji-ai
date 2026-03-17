@@ -1,16 +1,16 @@
 ---
 title: 네트워크 설정
-description: 방화벽에서 ICMP와 Inbound Rule을 설정하는 방법
+description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정하는 방법
 ---
 
-## 1. Firewall 메뉴 진입 및 ICMP 설정
-좌측 **Resources** 영역에서 ① **Firewall**을 선택한 후 **ICMP Setting** 영역에서 ② **Allow ICMP traffic (ping)** 토글로 ping 허용 여부를 설정합니다.
+## 1. Firewall 메뉴 진입 및 ICMP 설정 확인
+좌측 **Resources** 영역에서 ① **Firewall**을 선택한 후 **ICMP Setting** 영역의 ② **Allow ICMP traffic (ping)** 항목을 확인합니다.
 
 <Callout type="info">
-  이 설정은 ping 진단을 위한 ICMP echo request 허용 여부를 제어합니다.
+  **Allow ICMP traffic (ping)** 기능은 현재 제공하고 있지 않습니다. 화면에 토글이 표시되더라도 실제 설정 변경은 지원되지 않습니다.
 </Callout>
 
-![Firewall 메뉴 진입 및 ICMP 설정](/docs/6-1-1.png)
+![Firewall 메뉴 진입 및 ICMP 설정 확인](/docs/6-1-1.png)
 
 ## 2. Inbound Rule 생성 시작
 
@@ -44,6 +44,6 @@ description: 방화벽에서 ICMP와 Inbound Rule을 설정하는 방법
 
 ## 5. 설정된 규칙 확인
 
-**Inbound Rules Management** 목록에서 ① **Protocol**, ② **Port Range**, ③ **Source**, ④ **Description**이 표시되는지 확인합니다.
+**Inbound Rules Management** 목록에서 추가한 규칙이 표시되는지 확인합니다.
 
 ![설정된 규칙 확인](/docs/6-1-5.png)
