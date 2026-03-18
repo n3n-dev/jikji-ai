@@ -10,15 +10,15 @@ description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정�
   **Allow ICMP traffic (ping)** 기능은 현재 제공하고 있지 않습니다. 화면에 토글이 표시되더라도 실제 설정 변경은 지원되지 않습니다.
 </Callout>
 
-![Firewall 메뉴 진입 및 ICMP 설정 확인](/docs/6-1-1.png)
+![Firewall 메뉴 진입 및 ICMP 설정 확인](/docs/network-settings/firewall-menu-and-icmp-setting.png)
 
 ## 2. Inbound Rule 생성 시작
 
 **Inbound Rules Management** 영역에서 ① **Create Rule**을 클릭해 **Edit Inbound Rules** 팝업을 엽니다.
 
-![Inbound Rules Management 영역에서 Create Rule 클릭](/docs/6-1-2-1.png)
+![Inbound Rules Management 영역에서 Create Rule 클릭](/docs/network-settings/create-rule-button.png)
 
-![Edit Inbound Rules 팝업 열기](/docs/6-1-2.png)
+![Edit Inbound Rules 팝업 열기](/docs/network-settings/edit-inbound-rules-popup.png)
 
 ## 3. 규칙 행 추가
 
@@ -28,7 +28,7 @@ description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정�
   규칙이 없는 상태에서는 `Your instance has no rules defined. All ports are currently blocked from external traffic.` 안내가 표시될 수 있습니다. 규칙 행이 추가되면 해당 안내 아래에 입력 가능한 항목이 표시됩니다.
 </Callout>
 
-![규칙 행 추가 및 기본 항목 확인](/docs/6-1-3.png)
+![규칙 행 추가 및 기본 항목 확인](/docs/network-settings/add-rule-row.png)
 
 ## 4. 포트와 출발지 입력 및 저장
 
@@ -38,7 +38,7 @@ description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정�
   화면 안내 기준으로 포트는 `22`, `8000-8999`, `30000-39999` 범위만 사용할 수 있습니다. 단일 포트 또는 `8000-8099`처럼 범위로 입력할 수 있습니다.
 </Callout>
 
-![포트와 출발지 입력 및 저장](/docs/6-1-4.png)
+![포트와 출발지 입력 및 저장](/docs/network-settings/port-range-source-and-save.png)
 
 ## 5. 설정된 규칙 확인
 
@@ -48,7 +48,7 @@ description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정�
   방화벽에서 특정 포트를 개방하면 모든 파드에서 해당 포트가 열립니다. 특정 파드의 포트만 개방할 수 없습니다.
 </Callout>
 
-![설정된 규칙 확인](/docs/6-1-5.png)
+![설정된 규칙 확인](/docs/network-settings/inbound-rule-list.png)
 
 ## 6. Subdomain 확인 및 외부 접속
 
@@ -58,4 +58,4 @@ description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정�
   예를 들어 방화벽에서 `8000` 포트를 개방했고 **Subdomain** 값이 `guidecontainer-f5c88cf0`이면 `https://guidecontainer-f5c88cf0.jikjicloud.io:8000` 형식으로 접속합니다.
 </Callout>
 
-![GPU Pods 목록에서 Subdomain 확인](/docs/4-1-8.png)
+![GPU Pods 목록에서 Subdomain 확인](/docs/shared/gpu-pods-list-with-subdomain.png)
