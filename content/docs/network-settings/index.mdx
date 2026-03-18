@@ -1,6 +1,6 @@
 ---
 title: 방화벽 설정
-description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정하는 방법
+description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정해 외부 접근 포트를 여는 방법
 ---
 
 ## 1. Firewall 메뉴 진입 및 ICMP 설정 확인
@@ -32,7 +32,7 @@ description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정�
 
 ## 4. 포트와 출발지 입력 및 저장
 
-생성된 규칙 행에서 ① **Port Range**를 입력하고 **Source**를 입력한 후 **Description**을 입력합니다. 입력을 완료한 후 ② **Update and save**를 클릭합니다.
+생성된 규칙 행에서 ① **Port Range**에 `8000`을 입력하고 **Source**에 `0.0.0.0/0`을 입력한 후 **Description**을 입력합니다. 입력을 완료한 후 ② **Update and save**를 클릭합니다.
 
 <Callout type="info">
   화면 안내 기준으로 포트는 `22`, `8000-8999`, `30000-39999` 범위만 사용할 수 있습니다. 단일 포트 또는 `8000-8099`처럼 범위로 입력할 수 있습니다.
@@ -44,4 +44,18 @@ description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정�
 
 **Inbound Rules Management** 목록에서 ① 추가한 규칙이 표시되는지 확인합니다.
 
+<Callout type="warning">
+  방화벽에서 특정 포트를 개방하면 모든 파드에서 해당 포트가 열립니다. 특정 파드의 포트만 개방할 수 없습니다.
+</Callout>
+
 ![설정된 규칙 확인](/docs/6-1-5.png)
+
+## 6. Subdomain 확인 및 외부 접속
+
+**GPU Pods** 목록에서 ① 접속할 파드의 **Subdomain** 값을 확인한 후, 파드가 실행 중일 때 브라우저에서 `https://{Subdomain 값}.jikjicloud.io:{개방한 포트}` 주소로 접속합니다.
+
+<Callout type="info">
+  예를 들어 방화벽에서 `8000` 포트를 개방했고 **Subdomain** 값이 `guidecontainer-f5c88cf0`이면 `https://guidecontainer-f5c88cf0.jikjicloud.io:8000` 형식으로 접속합니다.
+</Callout>
+
+![GPU Pods 목록에서 Subdomain 확인](/docs/4-1-8.png)
