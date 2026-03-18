@@ -27,10 +27,10 @@ description: 파일시스템을 생성하고 사용 상태를 확인하는 방�
 
 ## 4. 파일시스템 사용 상태 확인
 
-파드와 연결되지 않은 스토리지는 <DocNote note="1" description="파일시스템이 현재 파드에 연결되어 사용 중인지 보여주는 상태 값입니다."><strong>Status</strong></DocNote>가 <DocNote note="2" description="어떤 파드에도 연결되지 않은 상태입니다."><code>Not-in-use</code></DocNote>로 표시되며, 파드에 연결된 스토리지는 <DocNote note="3" description="파일시스템이 파드에 연결되면 함께 표시되는 연결 경로 정보입니다."><strong>Mount Point</strong></DocNote>가 표시되고 <DocNote note="4" description="파일시스템이 파드에 연결되어 사용 중인 상태입니다."><code>In-use</code></DocNote>로 표시됩니다.
+파드와 연결되지 않은 스토리지는 <DocNote note="1" description="파일시스템이 현재 파드에 연결되어 사용 중인지 보여주는 상태 값입니다."><strong>Status</strong></DocNote>가 `Not-in-use`로 표시되며, 파드에 연결된 스토리지는 <DocNote note="2" description="파일시스템이 파드에 연결되면 함께 표시되는 연결 경로 정보입니다."><strong>Mount Point</strong></DocNote>가 표시되고 `In-use`로 표시됩니다.
 
 <Callout type="info">
-  스토리지는 파드 없이 단독으로 생성되어 존재할 수 있습니다. `Status`는 현재 스토리지가 파드에서 점유되고 있는지 나타냅니다.
+  스토리지는 파드 없이 단독으로 생성되어 존재할 수 있습니다. `Status`가 `Not-in-use`이면 아직 어떤 파드에도 연결되지 않은 상태입니다.
 </Callout>
 
 ![파일시스템 사용 상태 확인](/docs/storage/filesystem-status.png)
