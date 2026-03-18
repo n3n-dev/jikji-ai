@@ -10,6 +10,7 @@ import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Callout } from 'fumadocs-ui/components/callout';
 import type { InferPageType } from 'fumadocs-core/source';
+import { DocNote } from '@/components/docs/doc-note';
 
 type Page = InferPageType<typeof source>;
 
@@ -27,7 +28,15 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents, Card, Cards, Callout }} />
+        <MDX
+          components={{
+            ...defaultMdxComponents,
+            Card,
+            Cards,
+            Callout,
+            DocNote,
+          }}
+        />
       </DocsBody>
     </DocsPage>
   );
