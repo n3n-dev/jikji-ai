@@ -25,11 +25,37 @@ export function DocNote({
   const tooltipId = useId();
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [open, setOpen] = useState(false);
+  const [canHover, setCanHover] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const mediaQueryWithLegacyApi = mediaQuery as MediaQueryList & {
+      addListener?: (listener: () => void) => void;
+      removeListener?: (listener: () => void) => void;
+    };
+    const updateCanHover = () => {
+      setCanHover(mediaQuery.matches);
+    };
+    const supportsEventListener =
+      typeof mediaQueryWithLegacyApi.addEventListener === 'function';
+
+    updateCanHover();
+
+    if (supportsEventListener) {
+      mediaQueryWithLegacyApi.addEventListener('change', updateCanHover);
+    } else {
+      mediaQueryWithLegacyApi.addListener?.(updateCanHover);
+    }
+
     return () => {
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
+      }
+
+      if (supportsEventListener) {
+        mediaQueryWithLegacyApi.removeEventListener('change', updateCanHover);
+      } else {
+        mediaQueryWithLegacyApi.removeListener?.(updateCanHover);
       }
     };
   }, []);
@@ -53,19 +79,23 @@ export function DocNote({
     }, 120);
   }
 
+  function handleOpenChange(nextOpen: boolean) {
+    clearCloseTimer();
+    setOpen(nextOpen);
+  }
+
   return (
     <span className={cn('inline', className)}>
       <span>{children}</span>
-      <Popover open={open} onOpenChange={setOpen}>
+      <Popover open={open} onOpenChange={handleOpenChange}>
         <PopoverTrigger asChild>
           <button
             type="button"
             aria-describedby={tooltipId}
             aria-label="용어 설명 열기"
-            onPointerEnter={openPopover}
-            onPointerLeave={scheduleClose}
-            onFocus={openPopover}
-            onBlur={scheduleClose}
+            aria-expanded={open}
+            onPointerEnter={canHover ? openPopover : undefined}
+            onPointerLeave={canHover ? scheduleClose : undefined}
             className="relative -top-1 ml-0.5 inline-flex cursor-help appearance-none rounded-sm bg-transparent p-0 align-super text-[0.7em] font-medium leading-none text-fd-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-primary/30"
           >
             [{note}]
@@ -78,8 +108,8 @@ export function DocNote({
           sideOffset={8}
           onOpenAutoFocus={(event) => event.preventDefault()}
           onCloseAutoFocus={(event) => event.preventDefault()}
-          onPointerEnter={openPopover}
-          onPointerLeave={scheduleClose}
+          onPointerEnter={canHover ? openPopover : undefined}
+          onPointerLeave={canHover ? scheduleClose : undefined}
           className="w-72 max-w-[calc(100vw-2rem)] px-3 py-2 text-left text-sm leading-5"
         >
           {description}
