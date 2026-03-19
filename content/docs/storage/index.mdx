@@ -5,29 +5,29 @@ description: 파일시스템을 생성하고 사용 상태를 확인하는 방�
 
 ## 1. Storage 메뉴 진입 및 Create Filesystem 선택
 
-좌측 **Resources** 영역에서 ① **Storage**를 선택한 후 **Filesystems** 페이지에서 ② **Create Filesystem**을 클릭합니다.
+좌측 메뉴에서 ① **Storage**를 선택한 후 **Filesystems** 페이지에서 ② **Create Filesystem**을 클릭합니다.
 
 ![Storage 메뉴 진입 및 Create Filesystem 선택](/docs/storage/storage-menu-and-create-filesystem.png)
 
-## 2. 파일시스템 이름 입력 및 Location 선택
+## 2. 파일시스템 이름 입력 및 Region 선택
 
-팝업에서 ① 파일시스템 이름(`Name (Identifier/Subdomain)`)을 입력하고 ② `Location`을 선택합니다.
+팝업에서 ① 파일시스템 이름인 **Identifier**를 입력하고 ② **Region**을 선택한 후 ③ **Create Filesystem**을 클릭합니다.
 
 <Callout type="info">
   현재 화면 기준으로 `Sinsa`는 선택할 수 있고 `Gangnam`은 비활성화되어 있습니다.
 </Callout>
 
-![파일시스템 이름 입력 및 지역 선택](/docs/storage/filesystem-name-and-region.png)
+![파일시스템 이름 입력 및 Region 선택](/docs/storage/filesystem-name-and-region.png)
 
 ## 3. 파일시스템 생성 확인
 
-**Filesystems** 목록에서 ① 파일시스템 이름, ② Region, ③ Status가 표시되는지 확인합니다.
+**Filesystems** 목록에서 ① 생성한 파일시스템의 **Name**, **Region**, **Status**가 표시되는지 확인합니다.
 
 ![파일시스템 생성 확인](/docs/storage/filesystem-created.png)
 
 ## 4. 파일시스템 사용 상태 확인
 
-파드와 연결되지 않은 스토리지는 <DocNote note="1" description="파일시스템이 현재 파드에 연결되어 사용 중인지 보여주는 상태 값입니다."><strong>Status</strong></DocNote>가 `Not-in-use`로 표시되며, 파드에 연결된 스토리지는 <DocNote note="2" description="파일시스템이 파드에 연결되면 함께 표시되는 연결 경로 정보입니다."><strong>Mount Point</strong></DocNote>가 표시되고 `In-use`로 표시됩니다.
+파드에 연결된 파일시스템은 ① <DocNote note="1" description="파일시스템이 파드에 연결되면 함께 표시되는 연결 경로 정보입니다."><strong>Mount Point</strong></DocNote>가 표시됩니다. 현재 파드와 연결되지 않은 파일시스템은 ② <DocNote note="2" description="파일시스템이 현재 파드에 연결되어 사용 중인지 보여주는 상태 값입니다."><strong>Status</strong></DocNote>가 `Not-in-use`로 표시되며, 파드에 연결되면 `In-use`로 표시됩니다.
 
 <Callout type="info">
   스토리지는 파드 없이 단독으로 생성되어 존재할 수 있습니다. `Status`가 `Not-in-use`이면 아직 어떤 파드에도 연결되지 않은 상태입니다.
