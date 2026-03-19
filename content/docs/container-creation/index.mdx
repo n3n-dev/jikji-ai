@@ -7,13 +7,13 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
 
 ① Pods 메뉴에 진입한 후 ② **Deploy**를 클릭해 파드 생성 화면으로 이동합니다.
 
-![Pods 메뉴 진입 및 생성 시작](/docs/container-creation/pods-menu-and-deploy.svg)
+![Pods 메뉴 진입 및 생성 시작](/docs/container-creation/pods-menu-and-deploy.png)
 
 ## 2. 파드 유형 선택
 
 ① 원하는 파드 유형을 선택합니다.
 
-![파드 유형 선택](/docs/container-creation/pod-type-selection.svg)
+![파드 유형 선택](/docs/container-creation/pod-type-selection.png)
 
 ## 3. 파드 이름 및 요금제 선택
 
@@ -23,7 +23,7 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
   요금제를 선택해도 현재 즉시 과금되지는 않습니다.
 </Callout>
 
-![파드 이름 및 요금제 선택](/docs/container-creation/pod-name-and-plan-selection.svg)
+![파드 이름 및 요금제 선택](/docs/container-creation/pod-name-and-plan-selection.png)
 
 ## 4. 배포 위치 선택
 
@@ -33,7 +33,7 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
   현재는 신사만 선택 가능합니다.
 </Callout>
 
-![배포 위치 선택](/docs/container-creation/deployment-region-selection.svg)
+![배포 위치 선택](/docs/container-creation/deployment-region-selection.png)
 
 ## 5. 파일시스템 설정
 
@@ -43,22 +43,16 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
   Skip Filesystem을 선택하면 별도 파일시스템을 사용하지 않습니다. 이 경우 파드를 삭제하면 파드에서 사용하던 파일도 함께 삭제됩니다.
 </Callout>
 
-![파일시스템 설정](/docs/container-creation/filesystem-selection.svg)
-
-## 6. 파드 생성 실행
-
-설정을 완료한 후 ① <DocNote note="2" description="현재 UI의 Launch Instance 버튼은 파드 생성을 실행하는 버튼입니다."><strong>Launch Instance</strong></DocNote> 버튼을 클릭합니다.
-
-![파드 생성 실행](/docs/container-creation/launch-instance-button.svg)
+![파일시스템 설정](/docs/container-creation/filesystem-selection.png)
 
 ## 7. 약관 확인 및 동의
 
 팝업에서 약관 내용을 확인한 후 동의할 경우 ① **I agree to the above**를 클릭합니다.
 
-![약관 확인 및 동의](/docs/container-creation/terms-agreement.svg)
+![약관 확인 및 동의](/docs/container-creation/terms-agreement.png)
 
 ## 8. 생성된 파드 및 Subdomain 확인
 
 **GPU Pods** 목록에서 ① 생성한 파드와 **Subdomain** 값이 표시되는지 확인합니다.
 
-![GPU Pods 목록에서 생성된 파드 및 Subdomain 확인](/docs/shared/gpu-pods-list-with-subdomain.png)
+![GPU Pods 목록에서 생성된 파드 및 Subdomain 확인](/docs/container-creation/deployed-pod.png)
