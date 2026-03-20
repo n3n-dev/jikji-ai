@@ -1,5 +1,12 @@
 @import 'tailwindcss';
 
+/* fumadocs-ui 테마 (Tailwind 번들 없이 색상/컴포넌트 스타일만) */
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/* fumadocs-ui 컴포넌트 클래스를 Tailwind가 감지하도록 */
+@source '../node_modules/fumadocs-ui/dist/**/*.js';
+
 @font-face {
   font-family: 'ChosunIlboMyungjo';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');

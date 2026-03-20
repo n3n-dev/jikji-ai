@@ -1,5 +1,3 @@
-@import "fumadocs-ui/style.css";
-
 /* Override root layout overflow-x-hidden for docs pages.
    Use clip instead of visible: clip trims overflow without creating a scroll container,
    so position:sticky works correctly and the mobile sidebar drawer stays hidden. */
