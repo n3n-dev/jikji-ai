@@ -33,7 +33,7 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
 
 ## 5. 파일시스템 선택
 
-**Select Filesystem** 화면에서 ① **Skip Filesystem**을 선택해 파일시스템 없이 진행하거나, ② 새 파일시스템을 생성한 뒤 ③ 목록에서 연결할 파일시스템을 선택합니다.
+파일시스템 없이 진행하려면 **Select Filesystem** 화면에서 ① **Skip Filesystem**을 선택하고, 파일시스템이 필요하면 ② 새 파일시스템을 생성한 후 ③ 목록에서 연결할 파일시스템을 선택합니다.
 
 <Callout type="warning">
   별도 파일시스템을 연결하지 않고 파드 내부에만 저장한 파일은 파드를 삭제할 때 함께 사라질 수 있습니다. 작업 데이터를 보존해야 하면 파일시스템을 연결하세요.
@@ -49,6 +49,6 @@ description: 할당된 GPU 자원으로 파드(Pod)를 생성하는 방법
 
 ## 7. 생성된 파드 확인
 
-**GPU Pods** 목록에서 ① 생성한 파드의 **Name**, **Subdomain**, **Region**, **Status**가 표시되는지 확인합니다.
+**GPU Pods** 목록에서 ① 생성한 파드 행에 **Name**, **Subdomain**, **Region**, **Status**가 표시되는지 확인합니다.
 
 ![GPU Pods 목록에서 생성된 파드 확인](/docs/container-creation/deployed-pod.png)
