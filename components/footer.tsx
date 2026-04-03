@@ -4,7 +4,7 @@ import { useI18n } from './i18n-provider';
 import { Globe } from 'lucide-react';
 
 export function Footer() {
-  const { locale, setLocale } = useI18n();
+  const { locale, setLocale, t } = useI18n();
 
   const toggleLocale = () => {
     setLocale(locale === 'ko' ? 'en' : 'ko');
@@ -49,10 +49,7 @@ export function Footer() {
           {/* Info */}
           <div className="flex flex-col gap-4 text-sm text-white/50">
             <div className="flex flex-col gap-1">
-              <p>
-                41-18, Gangnam-daero 162-gil, Gangnam-gu, Seoul, Republic of
-                Korea
-              </p>
+              <p>{t.footer.address}</p>
               <p>
                 Tel. 82-2-761-5805 <span className="mx-2 text-white/20">|</span>{' '}
                 Fax. 82-2-554-5803 <span className="mx-2 text-white/20">|</span>{' '}
