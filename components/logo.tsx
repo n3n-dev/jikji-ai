@@ -1,8 +1,20 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function Logo({ light }: { light?: boolean }) {
+  const pathname = usePathname();
+
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
   return (
-    <Link href="/" className="flex items-center">
+    <Link href="/" className="flex items-center" onClick={handleClick}>
       {light ? (
         <svg
           width="110"
