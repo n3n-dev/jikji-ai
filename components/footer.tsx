@@ -1,7 +1,7 @@
 'use client';
 
 import { useI18n } from './i18n-provider';
-import { Globe } from 'lucide-react';
+import { Globe, ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
   const { locale, setLocale, t } = useI18n();
@@ -56,7 +56,18 @@ export function Footer() {
                 Email. business@n3n.co.kr
               </p>
             </div>
-            <p>Copyright © 2025 N3N All Rights Reserved.</p>
+            <p>
+              Copyright © 2025 N3N All Rights Reserved.{' '}
+              <a
+                href="https://n3n.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium text-white/70 underline hover:text-white transition-colors"
+              >
+                엔쓰리엔 사이트
+                <ArrowUpRight className="w-3 h-3" />
+              </a>
+            </p>
           </div>
         </div>
 
