@@ -302,7 +302,7 @@
         {
           "index": "02",
           "title": "Power Capacity",
-          "desc": "Total power: 4MW\nIT power: 2.72MW\n---\n**Racks: 40kW × 60ea, 16kW × 20ea\n10 modules per rack\nPer module: 400kW×6, 160kW×2"
+          "desc": "Total power: 4MW\nIT power: 2.72MW\n---\n**Racks: 50kW × 50ea\n10 modules per rack\nPer module: 1350kW×2"
         },
         {
           "index": "03",
@@ -362,11 +362,7 @@
         {
           "title": "AI Cloud",
           "subtitle": "AI Cloud Service",
-          "items": [
-            "GPU Instance",
-            "Inference Service",
-            "Agent Service"
-          ]
+          "items": ["GPU Instance", "Inference Service", "Agent Service"]
         }
       ],
       "cluster": {

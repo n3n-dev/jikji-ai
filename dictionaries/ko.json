@@ -301,7 +301,7 @@
         {
           "index": "02",
           "title": "전력 수용량",
-          "desc": "전체 소비전력 4MW\nIT 소비전력 2.72MW\n---\n**랙 40kW × 60ea, 16kW × 20ea\n모듈당 10개\n모듈당 400kW×6, 160kW×2"
+          "desc": "전체 소비전력 4MW\nIT 소비전력 2.72MW\n---\n**랙 50kW × 50ea\n모듈당 10개\n모듈당 1350kW×2"
         },
         {
           "index": "03",
@@ -361,11 +361,7 @@
         {
           "title": "AI Cloud",
           "subtitle": "직지랩스 AI Cloud Service",
-          "items": [
-            "GPU Instance",
-            "Inference Service",
-            "Agent Service"
-          ]
+          "items": ["GPU Instance", "Inference Service", "Agent Service"]
         }
       ],
       "cluster": {
