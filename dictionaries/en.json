@@ -472,40 +472,88 @@
           "ondemand": "₩7,477",
           "1month": "₩6,654",
           "1year": "₩5,832"
+        },
+        {
+          "name": "B200 180GB SXM MIG 3g-90GB",
+          "vram": "90GB",
+          "vcpu": "12vCore",
+          "ondemand": "₩5,159",
+          "1month": "₩4,592",
+          "1year": "₩4,024"
+        },
+        {
+          "name": "B200 180GB SXM MIG 2g-45GB",
+          "vram": "45GB",
+          "vcpu": "8vCore",
+          "ondemand": "₩2,617",
+          "1month": "₩2,329",
+          "1year": "₩2,041"
+        },
+        {
+          "name": "B200 180GB SXM MIG 1g-23GB",
+          "vram": "23GB",
+          "vcpu": "4vCore",
+          "ondemand": "₩1,271",
+          "1month": "₩1,131",
+          "1year": "₩991"
         }
       ],
       "h200": [
         {
-          "name": "8 x H200 80GB SXM",
-          "vram": "1440GB",
+          "name": "8 x H200 141GB SXM",
+          "vram": "1128GB",
           "vcpu": "192vCore",
           "ondemand": "₩43,274",
           "1month": "₩38,514",
           "1year": "₩33,754"
         },
         {
-          "name": "4 x H200 80GB SXM",
-          "vram": "720GB",
+          "name": "4 x H200 141GB SXM",
+          "vram": "564GB",
           "vcpu": "96vCore",
           "ondemand": "₩21,748",
           "1month": "₩19,356",
           "1year": "₩16,964"
         },
         {
-          "name": "2 x H200 80GB SXM",
-          "vram": "360GB",
+          "name": "2 x H200 141GB SXM",
+          "vram": "282GB",
           "vcpu": "48vCore",
           "ondemand": "₩10,902",
           "1month": "₩9,703",
           "1year": "₩8,503"
         },
         {
-          "name": "H200 80GB SXM",
-          "vram": "180GB",
+          "name": "H200 141GB SXM",
+          "vram": "141GB",
           "vcpu": "24vCore",
           "ondemand": "₩5,458",
           "1month": "₩4,857",
           "1year": "₩4,257"
+        },
+        {
+          "name": "H200 141GB SXM MIG 3g-71GB",
+          "vram": "71GB",
+          "vcpu": "12vCore",
+          "ondemand": "₩3,766",
+          "1month": "₩3,352",
+          "1year": "₩2,937"
+        },
+        {
+          "name": "H200 141GB SXM MIG 2g-35GB",
+          "vram": "35GB",
+          "vcpu": "8vCore",
+          "ondemand": "₩1,910",
+          "1month": "₩1,700",
+          "1year": "₩1,490"
+        },
+        {
+          "name": "H200 141GB SXM MIG 1g-18GB",
+          "vram": "18GB",
+          "vcpu": "4vCore",
+          "ondemand": "₩928",
+          "1month": "₩826",
+          "1year": "₩724"
         }
       ],
       "h100": [
@@ -540,6 +588,30 @@
           "ondemand": "₩4,057",
           "1month": "₩3,610",
           "1year": "₩3,164"
+        },
+        {
+          "name": "H100 SXM 80GB MIG 3g-40GB",
+          "vram": "40GB",
+          "vcpu": "12vCore",
+          "ondemand": "₩2,799",
+          "1month": "₩2,491",
+          "1year": "₩2,183"
+        },
+        {
+          "name": "H100 SXM 80GB MIG 2g-20GB",
+          "vram": "20GB",
+          "vcpu": "8vCore",
+          "ondemand": "₩1,420",
+          "1month": "₩1,264",
+          "1year": "₩1,108"
+        },
+        {
+          "name": "H100 SXM 80GB MIG 1g-10GB",
+          "vram": "10GB",
+          "vcpu": "4vCore",
+          "ondemand": "₩690",
+          "1month": "₩614",
+          "1year": "₩538"
         }
       ],
       "rtx": [
