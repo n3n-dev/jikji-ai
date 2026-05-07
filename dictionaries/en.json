@@ -466,7 +466,7 @@
           "1year": "₩11,649"
         },
         {
-          "name": "B200 180GB SXM",
+          "name": "1 x B200 180GB SXM",
           "vram": "180GB",
           "vcpu": "24vCore",
           "ondemand": "₩7,477",
@@ -524,7 +524,7 @@
           "1year": "₩8,503"
         },
         {
-          "name": "H200 141GB SXM",
+          "name": "1 x H200 141GB SXM",
           "vram": "141GB",
           "vcpu": "24vCore",
           "ondemand": "₩5,458",
