@@ -9,8 +9,9 @@ env:
   NAMESPACE: homepage-jikji-ai
 
 jobs:
+  # 1. 빌드 단계: GitHub 서버에서 빠르게 빌드 후 푸시
   build-and-push:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
@@ -32,25 +33,28 @@ jobs:
         with:
           context: .
           push: true
+          platforms: linux/amd64 # 서버 환경에 맞춤
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
 
+  # 2. 배포 단계: 내부망에 접근 가능한 서버에서 kubectl 실행
   deploy:
     needs: build-and-push
-    runs-on: self-hosted
+    runs-on: self-hosted # 내부망 서버에 설치된 러너가 담당
     steps:
       - uses: actions/checkout@v4
 
       - name: Deploy to K8s
         run: |
-          # jikji-cloud 패턴 적용: 이미지 태그 업데이트
+          # 이미지 태그 업데이트 (새로운 SHA 태그 사용)
           kubectl -n ${{ env.NAMESPACE }} set image \
             deployment/jikji-homepage \
             jikji-homepage=${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
-          
-          # 전체 매니페스트 적용
-          kubectl apply -f k8s/ -n ${{ env.NAMESPACE }}
-          
-          # 배포 상태 확인
+
+          # 전체 설정 동기화
+          kubectl apply -f k8s/combined.yaml -n ${{ env.NAMESPACE }}
+
+          # 배포 완료 대기
           kubectl -n ${{ env.NAMESPACE }} rollout status deployment/jikji-homepage --timeout=120s
+
