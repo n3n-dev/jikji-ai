@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
@@ -26,20 +26,11 @@ jobs:
 
   deploy:
     needs: build-and-push
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
-      - name: Set Kubernetes context
-        uses: azure/k8s-set-context@v4
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBECONFIG_CONTENT }}
-      
       - name: Deploy to K8s
-        uses: azure/k8s-deploy@v4
-        with:
-          manifests: |
-            k8s/deployment.yaml
-            k8s/service.yaml
-            k8s/ingress.yaml
-          namespace: homepage-jikji.ai
+        run: |
+          kubectl apply -f k8s/deployment.yaml -n homepage-jikji.ai
+          kubectl apply -f k8s/service.yaml -n homepage-jikji.ai
+          kubectl apply -f k8s/ingress.yaml -n homepage-jikji.ai
