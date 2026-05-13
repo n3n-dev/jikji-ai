@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: jikji-homepage
-        image: ghcr.io/n3n-dev/jikji:latest
+        image: ghcr.io/n3n-dev/jikji-homepage:latest
         ports:
         - containerPort: 3000
