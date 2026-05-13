@@ -10,7 +10,7 @@ env:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
@@ -38,24 +38,18 @@ jobs:
 
   deploy:
     needs: build-and-push
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Kubeconfig
-        run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBECONFIG_CONTENT }}" > ~/.kube/config
-          chmod 600 ~/.kube/config
-
       - name: Deploy to K8s
         run: |
-          # 이미지 태그 업데이트 및 배포
+          # jikji-cloud 패턴 적용: 이미지 태그 업데이트
           kubectl -n ${{ env.NAMESPACE }} set image \
             deployment/jikji-homepage \
             jikji-homepage=${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
           
-          # 전체 매니페스트 적용 (필요시)
+          # 전체 매니페스트 적용
           kubectl apply -f k8s/ -n ${{ env.NAMESPACE }}
           
           # 배포 상태 확인
