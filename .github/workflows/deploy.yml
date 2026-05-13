@@ -6,7 +6,7 @@ on:
 
 env:
   IMAGE_NAME: ghcr.io/n3n-dev/jikji-homepage
-  NAMESPACE: homepage-jikji.ai
+  NAMESPACE: homepage-jikji-ai
 
 jobs:
   build-and-push:

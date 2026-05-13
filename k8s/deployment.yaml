@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jikji-homepage
-  namespace: homepage-jikji.ai
+  namespace: homepage-jikji-ai
 spec:
   replicas: 1
   selector:
