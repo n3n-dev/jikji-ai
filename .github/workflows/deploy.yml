@@ -45,6 +45,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.28.0' # 클러스터 버전에 맞춰 설치
+
       - name: Deploy to K8s
         run: |
           # 이미지 태그 업데이트 (새로운 SHA 태그 사용)
