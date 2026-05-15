@@ -100,7 +100,7 @@ function DesktopDropdown({
         <ChevronDown className="w-3 h-3 opacity-50 group-hover/nav:rotate-180 transition-transform" />
       </NavLink>
 
-      <div className="absolute top-full left-0 hidden group-hover/nav:block w-56 pt-2">
+      <div className="absolute top-full left-0 hidden group-hover/nav:block w-64 pt-2">
         <div className={`border rounded-2xl p-2 ${isLight ? 'bg-white/80 border-black/10' : ''}`} style={{ background: isLight ? undefined : 'rgba(26,27,30,0.98)', borderColor: isLight ? undefined : 'rgba(159,122,94,0.18)', boxShadow: '0 4px 12px 0 rgba(0,0,0,0.4), 0 24px 48px 0 rgba(0,0,0,0.36), inset 0 1px 0 rgba(159,122,94,0.06)' }}>
           {section.items.map((item, idx) =>
             item.subItem ? (

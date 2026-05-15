@@ -3,24 +3,364 @@
 import { useI18n } from './i18n-provider';
 import { motion, AnimatePresence } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import { X } from 'lucide-react';
+import {
+  Activity,
+  Boxes,
+  Cloud,
+  CreditCard,
+  Cpu,
+  Database,
+  FolderKanban,
+  HardDrive,
+  KeyRound,
+  Laptop,
+  PlugZap,
+  Route,
+  ShieldCheck,
+  X,
+} from 'lucide-react';
 import Image from 'next/image';
 import { AnimatedFeatureCard } from './ui/animated-feature-card';
 import { cn } from '@/lib/utils';
 
 export function ProductsSection() {
-  const gpuCloudRef = useRef<HTMLDivElement>(null);
+  const jikjiCloudRef = useRef<HTMLDivElement>(null);
+  const aiCloudRef = useRef<HTMLDivElement>(null);
   const platformRef = useRef<HTMLDivElement>(null);
 
   return (
     <section id="products" className="relative" style={{ background: 'linear-gradient(180deg, #0E0E10 0%, #0a0a0c 60%, #0c0c0e 100%)' }}>
-      <div ref={gpuCloudRef} id="gpucloud">
-        <GpuCloudContent />
+      <div ref={jikjiCloudRef} id="jikji-cloud" className="scroll-mt-24">
+        <JikjiCloudContent />
       </div>
-      <div ref={platformRef} id="platform">
+      <div ref={aiCloudRef} id="ai-cloud" className="scroll-mt-24">
+        <AICloudContent />
+      </div>
+      <div ref={platformRef} id="platform" className="scroll-mt-24">
         <PlatformContent />
       </div>
     </section>
+  );
+}
+
+const cloudServiceIcons = [
+  Boxes,
+  Route,
+  Database,
+  FolderKanban,
+  HardDrive,
+] as const;
+
+const cloudServiceMedia = [
+  '/images/feature-oneclick.png',
+  '/images/optimize2.png',
+  '/images/feature-storage.png',
+  '/images/optimize.png',
+  '/images/feature-oneclick.png',
+] as const;
+
+const aiCloudServiceIcons = [
+  Laptop,
+  Cpu,
+  ShieldCheck,
+] as const;
+
+const aiCloudServiceMedia = [
+  '/images/feature-framework.png',
+  '/images/optimize2.png',
+  '/images/jikjiaidc.png',
+] as const;
+
+const platformScopeIcons = [
+  ShieldCheck,
+  KeyRound,
+  CreditCard,
+  Activity,
+] as const;
+
+/* ─────────────────────────────────────────
+   JIKJI CLOUD CONTENT
+   ───────────────────────────────────────── */
+function JikjiCloudContent() {
+  const { t } = useI18n();
+
+  return (
+    <div className="relative overflow-hidden pt-24 pb-20">
+      <div
+        className="absolute inset-x-0 top-0 h-[620px] pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 70% 48% at 50% 10%, rgba(77, 139, 255, 0.16) 0%, rgba(159,122,94,0.08) 38%, transparent 72%)',
+        }}
+      />
+      <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto flex max-w-4xl flex-col items-center text-center"
+        >
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[12px] font-medium md:text-sm">
+            <Cloud className="h-4 w-4 text-white/55" />
+            <span className="text-white/30">PRODUCT</span>
+            <span className="text-white/30">-</span>
+            <span className="text-white/70">JIKJI CLOUD</span>
+          </div>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-[#8fb8ff]">
+            {t.products.jikjicloud.eyebrow}
+          </p>
+          <h2 className="text-[32px] font-bold leading-tight tracking-tight text-white md:text-[56px]">
+            {t.products.jikjicloud.title}
+          </h2>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/58 md:text-lg">
+            {t.products.jikjicloud.subtitle}
+          </p>
+        </motion.div>
+
+        <div className="mt-14 grid gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#14161b] p-6 md:p-8"
+            style={{
+              boxShadow:
+                'inset 0 1px 0 rgba(255,255,255,0.12), 0 24px 80px rgba(0,0,0,0.28)',
+            }}
+          >
+            <div
+              className="absolute inset-x-0 top-0 h-1/2 pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(ellipse 90% 60% at 50% -10%, rgba(255,255,255,0.11) 0%, rgba(143,184,255,0.06) 46%, transparent 76%)',
+              }}
+            />
+            <div className="relative z-10">
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/35">
+                {t.products.jikjicloud.flow.label}
+              </p>
+              <h3 className="mt-3 text-2xl font-bold text-white md:text-3xl">
+                {t.products.jikjicloud.flow.title}
+              </h3>
+            </div>
+
+            <div className="relative z-10 mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+              {t.products.jikjicloud.flow.steps.map((step, idx) => (
+                <div
+                  key={step.title}
+                  className="grid grid-cols-[44px_1fr] gap-4 rounded-xl border border-white/8 bg-white/[0.035] p-4 lg:grid-cols-1"
+                >
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#0e1117] text-sm font-mono text-[#8fb8ff]">
+                    {String(idx + 1).padStart(2, '0')}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">{step.title}</h4>
+                    <p className="mt-1 text-sm leading-relaxed text-white/50">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 }}
+            className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#101114] p-6 md:p-8"
+            style={{
+              boxShadow:
+                'inset 0 1px 0 rgba(255,255,255,0.12), 0 24px 80px rgba(0,0,0,0.22)',
+            }}
+          >
+            <div className="relative z-10">
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/35">
+                {t.products.jikjicloud.services.label}
+              </p>
+              <h3 className="mt-3 text-2xl font-bold text-white md:text-3xl">
+                {t.products.jikjicloud.services.title}
+              </h3>
+            </div>
+            <div className="relative z-10 mt-8 grid grid-cols-1 gap-5">
+              {t.products.jikjicloud.services.items.map((service, idx) => {
+                const Icon = cloudServiceIcons[idx] ?? Boxes;
+                const mediaSrc = cloudServiceMedia[idx] ?? cloudServiceMedia[0];
+
+                return (
+                  <div
+                    key={service.title}
+                    id={service.id}
+                    className="group scroll-mt-28 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] transition-colors hover:border-[#8fb8ff]/35 hover:bg-white/[0.065]"
+                  >
+                    <div className="grid min-h-[280px] grid-cols-1 lg:grid-cols-[380px_1fr]">
+                      <div className="flex flex-col justify-between p-6 md:p-7">
+                        <div>
+                          <div className="mb-5 flex items-center gap-3">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#8fb8ff]/20 bg-[#8fb8ff]/10">
+                              <Icon className="h-5 w-5 text-[#8fb8ff]" />
+                            </div>
+                            <p className="text-xs font-mono text-white/30">
+                              RESOURCE {String(idx + 1).padStart(2, '0')}
+                            </p>
+                          </div>
+                          <h4 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+                            {service.title}
+                          </h4>
+                          <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-white/55">
+                            {service.desc}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="relative min-h-[260px] overflow-hidden border-t border-white/10 bg-[#080a0d] lg:border-l lg:border-t-0">
+                        <div
+                          className="absolute inset-0 pointer-events-none"
+                          style={{
+                            background:
+                              'radial-gradient(ellipse 80% 70% at 50% 0%, rgba(143,184,255,0.18) 0%, rgba(255,255,255,0.05) 42%, transparent 78%)',
+                          }}
+                        />
+                        <Image
+                          src={mediaSrc}
+                          alt=""
+                          fill
+                          sizes="(min-width: 1024px) 520px, 100vw"
+                          className="object-contain p-5 transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-6 rounded-2xl border border-white/10 bg-white/[0.035] p-5"
+        >
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+            {t.products.jikjicloud.platform.items.map((item, idx) => {
+              const Icon = platformScopeIcons[idx] ?? ShieldCheck;
+
+              return (
+                <div key={item.title} className="rounded-xl bg-black/20 p-4">
+                  <Icon className="mb-3 h-4 w-4 text-[#d4a579]" />
+                  <h4 className="text-sm font-semibold text-white">
+                    {item.title}
+                  </h4>
+                  <p className="mt-1 text-xs leading-relaxed text-white/45">
+                    {item.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────
+   AI CLOUD CONTENT
+   ───────────────────────────────────────── */
+function AICloudContent() {
+  const { t } = useI18n();
+
+  return (
+    <div className="border-t border-white/10">
+      <div className="mx-auto max-w-[1200px] px-4 pt-24 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto flex max-w-4xl flex-col items-center text-center"
+        >
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[12px] font-medium md:text-sm">
+            <Cloud className="h-4 w-4 text-white/55" />
+            <span className="text-white/30">PRODUCT GROUP</span>
+            <span className="text-white/30">-</span>
+            <span className="text-white/70">AI CLOUD</span>
+          </div>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-[#8fb8ff]">
+            {t.products.aiCloud.eyebrow}
+          </p>
+          <h2 className="text-[32px] font-bold leading-tight tracking-tight text-white md:text-[56px]">
+            {t.products.aiCloud.title}
+          </h2>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/58 md:text-lg">
+            {t.products.aiCloud.subtitle}
+          </p>
+        </motion.div>
+      </div>
+
+      <div id="gpucloud" className="scroll-mt-28">
+        <GpuCloudContent />
+      </div>
+
+      <div className="mx-auto max-w-[1200px] px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-5">
+          {t.products.aiCloud.items.map((service, idx) => {
+            const Icon = aiCloudServiceIcons[idx] ?? Cloud;
+            const mediaSrc = aiCloudServiceMedia[idx] ?? aiCloudServiceMedia[0];
+
+            return (
+              <motion.div
+                key={service.title}
+                id={service.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="group scroll-mt-28 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] transition-colors hover:border-[#8fb8ff]/35 hover:bg-white/[0.065]"
+              >
+                <div className="grid min-h-[280px] grid-cols-1 lg:grid-cols-[380px_1fr]">
+                  <div className="flex flex-col justify-between p-6 md:p-7">
+                    <div>
+                      <div className="mb-5 flex items-center gap-3">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#8fb8ff]/20 bg-[#8fb8ff]/10">
+                          <Icon className="h-5 w-5 text-[#8fb8ff]" />
+                        </div>
+                        <p className="text-xs font-mono text-white/30">
+                          AI CLOUD {String(idx + 2).padStart(2, '0')}
+                        </p>
+                      </div>
+                      <h4 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+                        {service.title}
+                      </h4>
+                      <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-white/55">
+                        {service.desc}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative min-h-[260px] overflow-hidden border-t border-white/10 bg-[#080a0d] lg:border-l lg:border-t-0">
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          'radial-gradient(ellipse 80% 70% at 50% 0%, rgba(143,184,255,0.18) 0%, rgba(255,255,255,0.05) 42%, transparent 78%)',
+                      }}
+                    />
+                    <Image
+                      src={mediaSrc}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 520px, 100vw"
+                      className="object-contain p-5 transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -29,7 +369,6 @@ export function ProductsSection() {
    ───────────────────────────────────────── */
 function GpuCloudContent() {
   const { t } = useI18n();
-  const [shieldActive, setShieldActive] = useState(false);
 
   return (
     <>
@@ -55,7 +394,7 @@ function GpuCloudContent() {
       </div> */}
 
       {/* OneClick Start */}
-      <div className="pt-8 pb-6">
+      <div className="pt-16 pb-6">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -64,9 +403,9 @@ function GpuCloudContent() {
             className="flex flex-col items-center gap-6"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-[12px] md:text-sm font-medium">
-              <span className="text-white/30">GPU CLOUD</span>
+              <span className="text-white/30">AI CLOUD</span>
               <span className="text-white/30">-</span>
-              <span className="text-white/60">JIKJI GPUaaS</span>
+              <span className="text-white/60">GPU CLOUD</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <h3 className="text-[28px] md:text-[48px] font-bold leading-tight text-center text-white">
@@ -229,13 +568,12 @@ function GpuCloudContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.12 }}
-              className="relative rounded-2xl overflow-hidden flex flex-col p-6 min-h-[160px] cursor-pointer"
+              className="relative rounded-2xl overflow-hidden flex flex-col p-6 min-h-[160px]"
               style={{
                 background: 'linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%)',
                 border: '1px solid rgba(255,255,255,0.1)',
                 boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
               }}
-              onClick={() => setShieldActive((v) => !v)}
             >
               <div
                 className="absolute inset-x-0 top-0 h-1/2 pointer-events-none rounded-t-2xl"
@@ -556,10 +894,10 @@ function PlatformContent() {
       : null;
 
   return (
-    <div>
+    <div className="border-t border-white/10">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-24">
         {/* AI Inference Platform */}
-        <div id="ai-inference" className="mb-32">
+        <div id="ai-inference" className="mb-32 scroll-mt-28">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -567,7 +905,7 @@ function PlatformContent() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-[12px] md:text-sm font-medium mb-6">
-              <span className="text-white/30">PLATFORM</span>
+              <span className="text-white/30">PRODUCT</span>
               <span className="text-white/30">-</span>
               <span className="text-white/60">AI INFERENCE</span>
             </div>
@@ -872,7 +1210,7 @@ function PlatformContent() {
         </div>
 
         {/* Enterprise AI Agents */}
-        <div id="chat-agent" className="mb-32">
+        <div id="chat-agent" className="mb-32 scroll-mt-28 border-t border-white/10 pt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -880,7 +1218,7 @@ function PlatformContent() {
             className="text-center mb-12"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-[12px] md:text-sm font-medium mb-6">
-              <span className="text-white/30">PLATFORM</span>
+              <span className="text-white/30">PRODUCT</span>
               <span className="text-white/30">-</span>
               <span className="text-white/60">CHAT AGENT</span>
             </div>
@@ -963,8 +1301,80 @@ function PlatformContent() {
           </div>
         </div>
 
+        {/* MCP Platform */}
+        <div id="mcp-platform" className="mb-32 scroll-mt-28 border-t border-white/10 pt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-[12px] md:text-sm font-medium mb-6">
+              <span className="text-white/30">PRODUCT</span>
+              <span className="text-white/30">-</span>
+              <span className="text-white/60">MCP</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <h2 className="text-[28px] md:text-[48px] font-bold tracking-tight max-w-4xl mx-auto leading-tight text-white">
+                {t.products.platform.mcp.heading}
+              </h2>
+              <p className="text-base text-white/50">
+                {t.products.platform.mcp.heading_sub}
+              </p>
+            </div>
+          </motion.div>
+
+          <div
+            className="rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2"
+            style={{
+              background: 'linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+            }}
+          >
+            {t.products.platform.mcp.features.map((item, idx, arr) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className={cn(
+                  'relative overflow-hidden px-7 py-6 flex flex-col gap-1',
+                  idx > 0 && 'border-t border-white/10',
+                  idx === 1 && 'md:border-t-0',
+                  idx % 2 === 1 && 'md:border-l border-white/10',
+                  arr.length % 2 === 1 &&
+                  idx === arr.length - 1 &&
+                  'md:col-span-2',
+                )}
+              >
+                {idx < 2 && (
+                  <div
+                    className="absolute inset-x-0 top-0 pointer-events-none"
+                    style={{
+                      height: '55%',
+                      background:
+                        'radial-gradient(ellipse 90% 60% at 50% -10%, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.04) 45%, transparent 70%)',
+                    }}
+                  />
+                )}
+                <div className="relative z-10 mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-[#8fb8ff]/20 bg-[#8fb8ff]/10">
+                  <PlugZap className="h-5 w-5 text-[#8fb8ff]" />
+                </div>
+                <h4 className="relative z-10 text-base font-bold text-white">
+                  {item.title}
+                </h4>
+                <p className="relative z-10 text-sm text-white/50 leading-relaxed">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         {/* N3N Video AI Platform */}
-        <div id="n3n-video-ai" className="flex flex-col gap-12">
+        <div id="n3n-video-ai" className="flex scroll-mt-28 flex-col gap-12 border-t border-white/10 pt-24">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -973,7 +1383,7 @@ function PlatformContent() {
             className="text-center flex flex-col items-center gap-6"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-[12px] md:text-sm font-medium">
-              <span className="text-white/30">PLATFORM</span>
+              <span className="text-white/30">PRODUCT</span>
               <span className="text-white/30">-</span>
               <span className="text-white/60">N3N VIDEO AI</span>
             </div>

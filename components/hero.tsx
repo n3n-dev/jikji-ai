@@ -60,7 +60,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-lg md:text-xl max-w-2xl mx-auto mb-2 leading-relaxed font-normal"
+          className="text-lg md:text-xl max-w-2xl mx-auto mb-2 leading-relaxed font-normal whitespace-pre-line"
           style={{ color: '#ffffff' }}
         >
           {t.hero.description}

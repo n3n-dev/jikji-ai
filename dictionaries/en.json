@@ -9,11 +9,60 @@
       "href": "#products",
       "items": [
         {
-          "label": "GPU Cloud",
-          "href": "#gpucloud"
+          "label": "JIKJI Cloud",
+          "href": "#jikji-cloud"
         },
         {
-          "label": "Platform",
+          "label": "Container",
+          "href": "#cloud-container",
+          "subItem": true
+        },
+        {
+          "label": "Endpoint",
+          "href": "#cloud-endpoint",
+          "subItem": true
+        },
+        {
+          "label": "Postgres",
+          "href": "#cloud-postgres",
+          "subItem": true
+        },
+        {
+          "label": "Shared Filesystem",
+          "href": "#cloud-shared-filesystem",
+          "subItem": true
+        },
+        {
+          "label": "Object Storage",
+          "href": "#cloud-object-storage",
+          "subItem": true
+        },
+        {
+          "label": "AI Cloud",
+          "href": "#ai-cloud"
+        },
+        {
+          "label": "GPU Cloud",
+          "href": "#gpucloud",
+          "subItem": true
+        },
+        {
+          "label": "Mac Cloud",
+          "href": "#cloud-mac",
+          "subItem": true
+        },
+        {
+          "label": "Edge Device Cloud",
+          "href": "#cloud-edge-device",
+          "subItem": true
+        },
+        {
+          "label": "Private AI Cloud",
+          "href": "#cloud-private-ai",
+          "subItem": true
+        },
+        {
+          "label": "AI Platform",
           "href": "#platform"
         },
         {
@@ -22,8 +71,13 @@
           "subItem": true
         },
         {
-          "label": "CHAT AGENT",
+          "label": "Agent",
           "href": "#chat-agent",
+          "subItem": true
+        },
+        {
+          "label": "MCP",
+          "href": "#mcp-platform",
           "subItem": true
         },
         {
@@ -133,6 +187,106 @@
     }
   },
   "products": {
+    "jikjicloud": {
+      "eyebrow": "cloud control plane",
+      "title": "JIKJI Cloud for creating and operating resources by organization and project",
+      "subtitle": "JIKJI Cloud is a control plane that connects cloud resource creation, access, operations, and billing status in one workflow. It focuses on creating and managing user resources inside a Project.",
+      "flow": {
+        "label": "cloud operation flow",
+        "title": "Project-centered create-access-operate-bill workflow",
+        "steps": [
+          {
+            "title": "Organization",
+            "desc": "Define teams, members, permissions, and the operating boundary for projects."
+          },
+          {
+            "title": "Project",
+            "desc": "The user workspace where service resources, network context, and billing status come together."
+          },
+          {
+            "title": "User Resource",
+            "desc": "Create cloud resources such as Container, Endpoint, Postgres, Filesystem, and Object Storage inside a project."
+          },
+          {
+            "title": "Operate & Bill",
+            "desc": "Review access, status, usage, and billing signals so teams can make operating decisions quickly."
+          }
+        ]
+      },
+      "services": {
+        "label": "user resource services",
+        "title": "Cloud resources for AI development and operations",
+        "items": [
+          {
+            "id": "cloud-container",
+            "title": "Container",
+            "desc": "Create image-based runtime environments and manage access and status by project."
+          },
+          {
+            "id": "cloud-endpoint",
+            "title": "Endpoint",
+            "desc": "Issue externally callable service endpoints and monitor their operating status."
+          },
+          {
+            "id": "cloud-postgres",
+            "title": "Postgres",
+            "desc": "Provide managed database resources for project applications."
+          },
+          {
+            "id": "cloud-shared-filesystem",
+            "title": "Shared Filesystem",
+            "desc": "Attach file-based storage shared across multiple runtime resources."
+          },
+          {
+            "id": "cloud-object-storage",
+            "title": "Object Storage",
+            "desc": "Store datasets, outputs, and application objects in project-scoped storage."
+          }
+        ]
+      },
+      "platform": {
+        "items": [
+          {
+            "title": "IAM",
+            "desc": "Organization, project, member permissions"
+          },
+          {
+            "title": "API",
+            "desc": "Resource creation and operation interfaces"
+          },
+          {
+            "title": "Billing",
+            "desc": "Usage and billing status visibility"
+          },
+          {
+            "title": "Audit",
+            "desc": "Backoffice, notification, change history"
+          }
+        ]
+      }
+    },
+    "aiCloud": {
+      "eyebrow": "ai cloud portfolio",
+      "title": "AI Cloud",
+      "subtitle": "Choose from GPU, Apple Silicon, edge device, and customer-dedicated installed environments for AI development and validation.",
+      "items": [
+        {
+          "id": "cloud-mac",
+          "title": "Mac Cloud",
+          "desc": "Create Apple Silicon environments instantly for AI model and app validation. Core ML conversion, on-device AI, and Xcode build testing in one workflow"
+        },
+        {
+          "id": "cloud-edge-device",
+          "title": "Edge Device Cloud",
+          "desc": "Provision Raspberry Pi-based Edge AI environments instantly. Validate lightweight inference, latency, and resource usage before field deployment"
+        },
+        {
+          "id": "cloud-private-ai",
+          "title": "Private AI Cloud",
+          "desc": "Install a dedicated AI cloud on customer-owned GPU servers. Operate AI infrastructure under internal security standards when public cloud is not an option"
+        }
+      ]
+    },
     "gpucloud": {
       "title": "JIKJI Labs GPU Instance when you need it, as much as you need",
       "subtitle": "Speed up your AI with JIKJI Labs GPU instances",
@@ -228,12 +382,12 @@
         ]
       },
       "agents": {
-        "heading": "Connect the endpoint, works right away",
-        "title": "Just connect the endpoint, and the latest Agentic Workflow runs immediately",
+        "heading": "Create an Agent, connect the endpoint, and it works right away",
+        "title": "From Agent creation to runtime tracking, the latest Agentic Workflow runs immediately",
         "features": [
           {
-            "title": "Model Selection",
-            "desc": "Supports Qwen / Exaone, optimized for Korean"
+            "title": "Agent Creation & Operations",
+            "desc": "Create Agent resources connected to workflows and track their runtime status"
           },
           {
             "title": "Private Cloud/VPC Deployment",
@@ -250,6 +404,28 @@
           {
             "title": "Operation/Observability",
             "desc": "Latency/accuracy/error rate dashboard, logs/alerts, zero-downtime rollout"
+          }
+        ]
+      },
+      "mcp": {
+        "heading": "Make AI integration easy with MCP",
+        "heading_sub": "Connect internal tools, data, and APIs to Agents through a standard protocol",
+        "features": [
+          {
+            "title": "Standard Protocol Integration",
+            "desc": "Standardize tool and data connections with Model Context Protocol"
+          },
+          {
+            "title": "Internal System Connection",
+            "desc": "Expose internal APIs, documents, and databases as context Agents can use"
+          },
+          {
+            "title": "Access & Security Control",
+            "desc": "Manage connection scope and access policies by organization and project permissions"
+          },
+          {
+            "title": "Agent Workflow Extension",
+            "desc": "Add search, lookup, and execution tasks naturally into Agent workflows"
           }
         ]
       },
