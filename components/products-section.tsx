@@ -30,11 +30,11 @@ export function ProductsSection() {
 
   return (
     <section id="products" className="relative" style={{ background: 'linear-gradient(180deg, #0E0E10 0%, #0a0a0c 60%, #0c0c0e 100%)' }}>
-      <div ref={jikjiCloudRef} id="jikji-cloud" className="scroll-mt-24">
-        <JikjiCloudContent />
-      </div>
       <div ref={aiCloudRef} id="ai-cloud" className="scroll-mt-24">
         <AICloudContent />
+      </div>
+      <div ref={jikjiCloudRef} id="jikji-cloud" className="scroll-mt-24">
+        <JikjiCloudContent />
       </div>
       <div ref={platformRef} id="platform" className="scroll-mt-24">
         <PlatformContent />

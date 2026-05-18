@@ -9,6 +9,30 @@
       "href": "#products",
       "items": [
         {
+          "label": "AI Cloud",
+          "href": "#ai-cloud"
+        },
+        {
+          "label": "GPU Cloud",
+          "href": "#gpucloud",
+          "subItem": true
+        },
+        {
+          "label": "FuriosaAI NPU",
+          "href": "#cloud-mac",
+          "subItem": true
+        },
+        {
+          "label": "Edge Device Cloud",
+          "href": "#cloud-edge-device",
+          "subItem": true
+        },
+        {
+          "label": "Private AI Cloud",
+          "href": "#cloud-private-ai",
+          "subItem": true
+        },
+        {
           "label": "AI Infra",
           "href": "#jikji-cloud"
         },
@@ -35,30 +59,6 @@
         {
           "label": "Object Storage",
           "href": "#cloud-object-storage",
-          "subItem": true
-        },
-        {
-          "label": "AI Cloud",
-          "href": "#ai-cloud"
-        },
-        {
-          "label": "GPU Cloud",
-          "href": "#gpucloud",
-          "subItem": true
-        },
-        {
-          "label": "FuriosaAI NPU",
-          "href": "#cloud-mac",
-          "subItem": true
-        },
-        {
-          "label": "Edge Device Cloud",
-          "href": "#cloud-edge-device",
-          "subItem": true
-        },
-        {
-          "label": "Private AI Cloud",
-          "href": "#cloud-private-ai",
           "subItem": true
         },
         {
