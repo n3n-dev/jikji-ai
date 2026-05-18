@@ -104,7 +104,7 @@ function JikjiCloudContent() {
             <Cloud className="h-4 w-4 text-white/55" />
             <span className="text-white/30">PRODUCT</span>
             <span className="text-white/30">-</span>
-            <span className="text-white/70">JIKJI CLOUD</span>
+            <span className="text-white/70">AI INFRA</span>
           </div>
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-[#8fb8ff]">
             {t.products.jikjicloud.eyebrow}

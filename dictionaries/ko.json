@@ -47,7 +47,7 @@
           "subItem": true
         },
         {
-          "label": "Mac Cloud",
+          "label": "FuriosaAI NPU",
           "href": "#cloud-mac",
           "subItem": true
         },
@@ -188,7 +188,7 @@
   },
   "products": {
     "jikjicloud": {
-      "eyebrow": "Intelligent Orchestration",
+      "eyebrow": "AI Infra",
       "title": "필요한 순간, 필요한 만큼",
       "subtitle": "리소스 생성부터 운영·과금까지, 하나의 흐름으로",
       "flow": {
@@ -266,7 +266,7 @@
       }
     },
     "aiCloud": {
-      "eyebrow": "ai cloud portfolio",
+      "eyebrow": "AI Cloud",
       "title": "필요한 순간, 필요한 만큼",
       "subtitle": "GPU부터 Edge Device까지, AI 실행 환경을 하나의 제품군으로",
       "items": [
