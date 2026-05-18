@@ -66,8 +66,8 @@ const aiCloudServiceIcons = [
 ] as const;
 
 const aiCloudServiceMedia = [
-  '/images/feature-framework.png',
-  '/images/optimize2.png',
+  '/images/edge-device-cloud.png',
+  '/images/furiosa-npu.png',
   '/images/jikjiaidc.png',
 ] as const;
 
