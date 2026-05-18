@@ -56,7 +56,7 @@ const cloudServiceMedia = [
   '/images/optimize2.png',
   '/images/feature-storage.png',
   '/images/optimize.png',
-  '/images/feature-oneclick.png',
+  '/images/object-storage.png',
 ] as const;
 
 const aiCloudServiceIcons = [
