@@ -272,8 +272,8 @@
       "items": [
         {
           "id": "cloud-mac",
-          "title": "Mac Cloud",
-          "desc": "Apple Silicon on Demand: Xcode 빌드부터 Core ML 최적화까지, 온디바이스 AI 개발의 모든 과정을 즉시 가속화."
+          "title": "FuriosaAI NPU",
+          "desc": "엔비디아 대비 높은 전성비를 갖춘 국산 NPU 기반으로, LLM 추론 및 대규모 워크로드에 최적화된 고성능 연산 환경을 제공합니다."
         },
         {
           "id": "cloud-edge-device",
