@@ -1,29 +1,32 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Database, Cpu, Activity, Code2, MessageSquare, Play } from 'lucide-react';
+import { Database, Cpu, Activity, Boxes, Laptop, MessageSquare, PlugZap, Route, Zap } from 'lucide-react';
 import { useI18n } from './i18n-provider';
 
 const diagramGroups = [
   {
-    title: 'AI Infrastructure',
+    title: 'AI Cloud',
     items: [
-      { title: '직지 Edge 데이터센터', subtitle: '데이터센터 물리 인프라 및 운영', Icon: Database },
-      { title: 'GPUaaS', subtitle: '구독형 GPU Cloud 서비스', Icon: Cpu },
+      { title: 'GPU Cloud', subtitle: '고성능 GPU 인스턴스', Icon: Cpu },
+      { title: 'FuriosaAI NPU', subtitle: '국산 NPU 기반 고효율 연산', Icon: Zap },
+      { title: 'Edge Device Cloud', subtitle: '엣지 환경 AI 검증', Icon: Laptop },
+    ],
+  },
+  {
+    title: 'AI Infra',
+    items: [
+      { title: 'Container', subtitle: '컨테이너 기반 실행 환경', Icon: Boxes },
+      { title: 'Endpoint', subtitle: 'Serverless API 배포', Icon: PlugZap },
+      { title: 'Storage', subtitle: 'AI 특화 스토리지', Icon: Database },
     ],
   },
   {
     title: 'AI Platform',
     items: [
-      { title: 'AI & MLOps Platform', subtitle: '모델 학습, 관리, 배포 플랫폼', Icon: Activity },
-      { title: 'AI 추론 및 API 서비스', subtitle: 'AI 배포 및 실시간 추론 API', Icon: Code2 },
-    ],
-  },
-  {
-    title: 'AI Applications',
-    items: [
-      { title: 'Chat Agent', subtitle: '대화형 AI 인터페이스 서비스', Icon: MessageSquare },
-      { title: 'N3N Video', subtitle: 'AI 영상 분석 및 특화 서비스', Icon: Play },
+      { title: 'AI INFERENCE', subtitle: 'Serverless MLOps', Icon: Activity },
+      { title: 'Agent', subtitle: '대화형 AI 에이전트', Icon: MessageSquare },
+      { title: 'MCP', subtitle: 'AI 도구 통합 프로토콜', Icon: Route },
     ],
   },
 ];
