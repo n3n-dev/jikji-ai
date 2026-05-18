@@ -122,52 +122,6 @@ function JikjiCloudContent() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#14161b] p-6 md:p-8"
-            style={{
-              boxShadow:
-                'inset 0 1px 0 rgba(255,255,255,0.12), 0 24px 80px rgba(0,0,0,0.28)',
-            }}
-          >
-            <div
-              className="absolute inset-x-0 top-0 h-1/2 pointer-events-none"
-              style={{
-                background:
-                  'radial-gradient(ellipse 90% 60% at 50% -10%, rgba(255,255,255,0.11) 0%, rgba(143,184,255,0.06) 46%, transparent 76%)',
-              }}
-            />
-            <div className="relative z-10">
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/35">
-                {t.products.jikjicloud.flow.label}
-              </p>
-              <h3 className="mt-3 text-2xl font-bold text-white md:text-3xl">
-                {t.products.jikjicloud.flow.title}
-              </h3>
-            </div>
-
-            <div className="relative z-10 mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-              {t.products.jikjicloud.flow.steps.map((step, idx) => (
-                <div
-                  key={step.title}
-                  className="grid grid-cols-[44px_1fr] gap-4 rounded-xl border border-white/8 bg-white/[0.035] p-4 lg:grid-cols-1"
-                >
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#0e1117] text-sm font-mono text-[#8fb8ff]">
-                    {String(idx + 1).padStart(2, '0')}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">{step.title}</h4>
-                    <p className="mt-1 text-sm leading-relaxed text-white/50">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ delay: 0.08 }}
             className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#101114] p-6 md:p-8"
             style={{
