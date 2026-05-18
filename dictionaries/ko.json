@@ -189,15 +189,15 @@
   "products": {
     "jikjicloud": {
       "eyebrow": "AI Infra",
-      "title": "필요한 순간, 필요한 만큼",
-      "subtitle": "리소스 생성부터 운영·과금까지, 하나의 흐름으로",
+      "title": "온전히 연구에 집중할 수 있도록",
+      "subtitle": "안전하고 유연한 환경으로 연구·개발에만 집중할 수 있는 환경 제공",
       "flow": {
         "label": "cloud operation flow",
         "title": "",
         "steps": [
           {
             "title": "Governance & Identity",
-            "desc": "조직의 정책과 권한을 설계하는 거버넌스의 시작점"
+            "desc": "조직의 정책과 권한 관리"
           },
           {
             "title": "Dynamic Workspace",
@@ -215,7 +215,7 @@
       },
       "services": {
         "label": "user resource services",
-        "title": "AI 개발과 운영을 위한 클라우드 리소스",
+        "title": "",
         "items": [
           {
             "id": "cloud-container",
@@ -410,7 +410,7 @@
       },
       "mcp": {
         "heading": "AI 연동을 쉽게, MCP로 연결합니다",
-        "heading_sub": "분산된 데이터와 도구를 하나의 지능형 컨텍스트로 통합하는 표준 프로토콜",
+        "heading_sub": "학습없이 일상의 언어로 클라우드를 만드는 연결점 MCP",
         "features": [
           {
             "title": "표준 프로토콜 연동",
