@@ -24,7 +24,7 @@ const diagramGroups = [
   {
     title: 'AI Platform',
     items: [
-      { title: 'AI INFERENCE', subtitle: 'Serverless MLOps', Icon: Activity },
+      { title: 'AI Inference', subtitle: 'Serverless MLOps', Icon: Activity },
       { title: 'Agent', subtitle: '대화형 AI 에이전트', Icon: MessageSquare },
       { title: 'MCP', subtitle: 'AI 도구 통합 프로토콜', Icon: Route },
     ],
