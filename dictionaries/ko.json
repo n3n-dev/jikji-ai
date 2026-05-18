@@ -336,6 +336,7 @@
       }
     },
     "platform": {
+      "eyebrow": "AI Platform",
       "inference": {
         "heading": "Serverless MLOps, 배포하면 바로 API",
         "heading_sub": "자동 배포부터 추론 Endpoint 연동까지 한 번에",

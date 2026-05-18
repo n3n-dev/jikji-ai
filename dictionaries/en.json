@@ -336,6 +336,7 @@
       }
     },
     "platform": {
+      "eyebrow": "AI Platform",
       "inference": {
         "heading": "Serverless MLOps, Instant API",
         "heading_sub": "Auto-deploy to inference endpoint in one step",
