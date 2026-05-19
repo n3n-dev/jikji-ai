@@ -86,13 +86,7 @@ function JikjiCloudContent() {
 
   return (
     <div className="relative overflow-hidden pt-24 pb-20">
-      <div
-        className="absolute inset-x-0 top-0 h-[620px] pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 48% at 50% 10%, rgba(77, 139, 255, 0.16) 0%, rgba(159,122,94,0.08) 38%, transparent 72%)',
-        }}
-      />
+
       <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
