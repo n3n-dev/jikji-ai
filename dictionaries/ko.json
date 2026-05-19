@@ -189,8 +189,8 @@
   "products": {
     "jikjicloud": {
       "eyebrow": "AI Infra",
-      "title": "연구·개발에만 집중할 수 있는 인프라",
-      "subtitle": "안전하고 유연한 인프라로 연구·개발에 집중할 수 있는 환경 제공",
+      "title": "연구·개발에 집중할 수 있도록 설계된 인프라",
+      "subtitle": "안정성과 확장성을 갖춘 인프라로 AI 개발을 가속",
       "services": {
         "label": "user resource services",
         "title": "",
@@ -246,7 +246,7 @@
     "aiCloud": {
       "eyebrow": "AI Cloud",
       "title": "필요한 순간, 필요한 만큼",
-      "subtitle": "GPU부터 Edge Device까지, AI 실행에 필요한 환경을 하나의 제품군으로",
+      "subtitle": "GPU부터 Edge Device까지, AI 실행 환경을 하나의 제품군으로",
       "items": [
         {
           "id": "cloud-mac",
@@ -297,7 +297,7 @@
       },
       "oneclick": {
         "title": "",
-        "subtitle": "준비된 성능으로 즉시 투입되는 엔터프라이즈 GPU 인프라",
+        "subtitle": "Production-Ready 엔터프라이즈 GPU 인프라",
         "items": [
           {
             "title": "원클릭 개발 환경",
