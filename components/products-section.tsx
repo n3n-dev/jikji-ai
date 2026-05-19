@@ -54,7 +54,7 @@ const cloudServiceIcons = [
 const cloudServiceMedia = [
   '/images/feature-oneclick.png',
   '/images/endpoint.png',
-  '/images/feature-storage.png',
+  '/images/postgres.png',
   '/images/shared-filesystem.png',
   '/images/object-storage.png',
 ] as const;
