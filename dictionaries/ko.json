@@ -66,7 +66,7 @@
           "href": "#platform"
         },
         {
-          "label": "AI INFERENCE",
+          "label": "AI Inference",
           "href": "#ai-inference",
           "subItem": true
         },
@@ -181,7 +181,7 @@
     },
     "promotion": {
       "title": "필요한 순간 필요한 만큼 직지랩스 GPU 인스턴스",
-      "subtitle": "직지랩스 GPU 인스턴스로 업무 속도를 올리세요 자동배포 추론 Endpoint 어렵지 않아요 ~~ MLOps 를 탑재한 강력한 Serverless API 생성 툴입니다용~",
+      "subtitle": "직지랩스 GPU 인스턴스로 AI 개발 속도를 높이세요. 자동 배포부터 추론 Endpoint 연동까지, MLOps를 탑재한 강력한 Serverless API 생성 툴입니다.",
       "btn_free": "무료 신청하기",
       "btn_inquiry": "도입문의"
     }
@@ -268,26 +268,27 @@
     "aiCloud": {
       "eyebrow": "AI Cloud",
       "title": "필요한 순간, 필요한 만큼",
-      "subtitle": "GPU부터 Edge Device까지, AI 실행 환경을 하나의 제품군으로",
+      "subtitle": "GPU부터 Edge Device까지, AI 실행에 필요한 환경을 하나의 제품군으로",
       "items": [
         {
           "id": "cloud-mac",
           "title": "FuriosaAI NPU",
-          "desc": "NVIDIA 대비 우수한 전력 효율을 갖춘 국산 NPU 기반으로, LLM 추론 및 대규모 워크로드에 최적화된 고성능 연산 환경을 제공합니다."
+          "desc": "국산 NPU 기반으로 LLM 추론과 대규모 AI 워크로드에 최적화된 고효율 연산 환경"
         },
         {
           "id": "cloud-edge-device",
           "title": "Edge Device Cloud",
-          "desc": "Edge AI Sandbox: 현장 배포 전, 실제 엣지 디바이스 환경에서 모델의 지연 시간과 효율성을 완벽하게 시뮬레이션"
+          "desc": "현장 배포 전, 실제 엣지 디바이스 환경에서 지연 시간과 처리 성능을 사전 검증"
         },
         {
           "id": "cloud-private-ai",
           "title": "Private AI Cloud",
-          "desc": "Sovereign Private AI: 보안과 성능을 타협할 수 없는 기업을 위해, 고객만의 폐쇄형 인프라에 최적화된 AI 환경 구축"
+          "desc": "보안이 중요한 기업을 위한 폐쇄형 인프라 기반 전용 AI 클라우드 환경 구축"
         }
       ]
     },
     "gpucloud": {
+      "eyebrow": "GPU Cloud",
       "title": "Ready-to-Scale Acceleration",
       "subtitle": "직지랩스 GPU 인스턴스로 AI 속도를 올리세요",
       "contact": "견적 및 기술 상담: business@jikji.ai",
@@ -410,7 +411,7 @@
       },
       "mcp": {
         "heading": "AI 연동을 쉽게, MCP로 연결합니다",
-        "heading_sub": "학습 없이 일상의 언어로 클라우드를 만드는 연결점 MCP",
+        "heading_sub": "일상의 언어로 클라우드 리소스를 생성하고 운영할 수 있는 MCP 기반 AI 연결 환경",
         "features": [
           {
             "title": "표준 프로토콜 연동",
@@ -825,7 +826,7 @@
     "consulting": {
       "title": "Custom Architecture & Consulting",
       "desc1": "필요한 순간, 필요한 만큼. 직지랩스 GPU 인스턴스로 AI 속도를 올리세요",
-      "desc2": "자동 배포 → 추론 Endpoint 연동\nMLOps를 탑재한 강력한 Serverless API 생성 Tool",
+      "desc2": "자동 배포 → 추론 Endpoint 연동\nMLOps를 탑재한 강력한 Serverless API 생성 툴",
       "contact": "견적 및 기술 상담: business@jikji.ai"
     }
   },
@@ -833,7 +834,7 @@
     "title": "지금 바로 AI 인프라를 경험하세요",
     "subtitle": "H100 GPU · MIG 가상화, 최대 1개월 무료 체험",
     "btn_inquiry": "프로모션 신청하기",
-    "disclaimer": "신청 후 개별 연락 · 상담 후 순차 할당 · No Credit Card Required"
+    "disclaimer": "신청 후 개별 연락 · 상담 후 순차 할당 · 신용카드 불필요"
   },
   "support_page": {
     "title": "프로모션을 신청하신 고객사에는 개별적으로 연락을 드립니다.\n상담 이후 GPU 자원을 순차적으로 할당해 드립니다.",

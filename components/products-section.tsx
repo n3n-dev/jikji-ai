@@ -326,6 +326,28 @@ function GpuCloudContent() {
 
   return (
     <>
+      {/* GPU Cloud Group Header */}
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-24 pb-0 flex flex-col items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center"
+          >
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[12px] font-medium md:text-sm">
+              <Cloud className="h-4 w-4 text-white/55" />
+              <span className="text-white/30">PRODUCT GROUP</span>
+              <span className="text-white/30">-</span>
+              <span className="text-white/70">GPU CLOUD</span>
+            </div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-[#8fb8ff]">
+              {t.products.gpucloud.eyebrow}
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Tagline */}
       {/* <div className="flex flex-col items-center justify-center py-[72px] gap-4 bg-[#01071B]">
         <motion.h2
