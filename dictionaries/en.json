@@ -191,28 +191,6 @@
       "eyebrow": "AI Infra",
       "title": "JIKJI Cloud for creating and operating resources by organization and project",
       "subtitle": "JIKJI Cloud is a control plane that connects cloud resource creation, access, operations, and billing status in one workflow. It focuses on creating and managing user resources inside a Project.",
-      "flow": {
-        "label": "cloud operation flow",
-        "title": "Project-centered create-access-operate-bill workflow",
-        "steps": [
-          {
-            "title": "Organization",
-            "desc": "Define teams, members, permissions, and the operating boundary for projects."
-          },
-          {
-            "title": "Project",
-            "desc": "The user workspace where service resources, network context, and billing status come together."
-          },
-          {
-            "title": "User Resource",
-            "desc": "Create cloud resources such as Container, Endpoint, Postgres, Filesystem, and Object Storage inside a project."
-          },
-          {
-            "title": "Operate & Bill",
-            "desc": "Review access, status, usage, and billing signals so teams can make operating decisions quickly."
-          }
-        ]
-      },
       "services": {
         "label": "user resource services",
         "title": "Cloud resources for AI development and operations",

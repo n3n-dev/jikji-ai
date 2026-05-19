@@ -189,30 +189,8 @@
   "products": {
     "jikjicloud": {
       "eyebrow": "AI Infra",
-      "title": "온전히 연구에 집중할 수 있도록",
-      "subtitle": "안전하고 유연한 환경으로 연구·개발에만 집중할 수 있는 환경 제공",
-      "flow": {
-        "label": "cloud operation flow",
-        "title": "",
-        "steps": [
-          {
-            "title": "Governance & Identity",
-            "desc": "조직의 정책과 권한 관리"
-          },
-          {
-            "title": "Dynamic Workspace",
-            "desc": "리소스와 비용을 가시화하여 의사결정을 돕는 전략적 작업 공간"
-          },
-          {
-            "title": "User Resource",
-            "desc": "클라우드 리소스 통합 관리"
-          },
-          {
-            "title": "Real-time Insight",
-            "desc": "실시간 사용량 추적과 비용 최적화를 통한 기민한 운영 판단"
-          }
-        ]
-      },
+      "title": "연구·개발에만 집중할 수 있는 인프라",
+      "subtitle": "안전하고 유연한 인프라로 연구·개발에 집중할 수 있는 환경 제공",
       "services": {
         "label": "user resource services",
         "title": "",
