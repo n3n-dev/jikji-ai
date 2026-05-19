@@ -235,12 +235,12 @@
           {
             "id": "cloud-shared-filesystem",
             "title": "Shared Filesystem",
-            "desc": "복사, 이동 없이 바로 사용하는 저장소"
+            "desc": "복사·이동 없이 바로 사용하는 저장소"
           },
           {
             "id": "cloud-object-storage",
             "title": "Object Storage",
-            "desc": "AI 특화된 오브젝트를 담는 저장 공간"
+            "desc": "AI에 최적화된 오브젝트 데이터를 안전하게 저장하는 공간"
           }
         ]
       },
@@ -260,7 +260,7 @@
           },
           {
             "title": "Audit",
-            "desc": "Backoffice, 알림, 변경 이력"
+            "desc": "백오피스, 알림, 변경 이력"
           }
         ]
       }
@@ -273,7 +273,7 @@
         {
           "id": "cloud-mac",
           "title": "FuriosaAI NPU",
-          "desc": "엔비디아 대비 높은 전성비를 갖춘 국산 NPU 기반으로, LLM 추론 및 대규모 워크로드에 최적화된 고성능 연산 환경을 제공합니다."
+          "desc": "NVIDIA 대비 우수한 전력 효율을 갖춘 국산 NPU 기반으로, LLM 추론 및 대규모 워크로드에 최적화된 고성능 연산 환경을 제공합니다."
         },
         {
           "id": "cloud-edge-device",
@@ -283,7 +283,7 @@
         {
           "id": "cloud-private-ai",
           "title": "Private AI Cloud",
-          "desc": "Sovereign Private AI: 보안과 성능을 타협할 수 없는 기업을 위해, 고객만의 폐쇄형 인프라에 최적화된 AI 환경 이식"
+          "desc": "Sovereign Private AI: 보안과 성능을 타협할 수 없는 기업을 위해, 고객만의 폐쇄형 인프라에 최적화된 AI 환경 구축"
         }
       ]
     },
@@ -410,7 +410,7 @@
       },
       "mcp": {
         "heading": "AI 연동을 쉽게, MCP로 연결합니다",
-        "heading_sub": "학습없이 일상의 언어로 클라우드를 만드는 연결점 MCP",
+        "heading_sub": "학습 없이 일상의 언어로 클라우드를 만드는 연결점 MCP",
         "features": [
           {
             "title": "표준 프로토콜 연동",
@@ -571,7 +571,7 @@
     "isolation": {
       "tag": "WHY PMDC",
       "title": "AI First 설계로 차세대 인프라 완성",
-      "subtitle": "설계·구축·운영까지 대학교·기업을 위한 원스톱 서비스",
+      "subtitle": "설계·구축·운영까지 대학·기업을 위한 원스톱 서비스",
       "desc": "\u201cAI First 설계로, 기존 데이터센터의 한계를 뛰어넘는 차세대 AI 인프라를 완성합니다..\u201d",
       "features": [
         {
@@ -856,7 +856,7 @@
     "title": "AI Built from Infrastructure",
     "description": "데이터센터부터 AI 서비스까지, 한 번에",
     "cta_primary": "지금 시작하기",
-    "cta_secondary": "시작하기"
+    "cta_secondary": "상담하기"
   },
   "features": {
     "title": "모든 것을 갖춘 AI 플랫폼",
