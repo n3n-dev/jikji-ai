@@ -126,14 +126,14 @@
   },
   "company": {
     "about": {
-      "title": "JIKJI Labs' Vision and Core Business Areas",
-      "subtitle": "Reducing the burden of building and operating AI infrastructure, allowing customers to fully focus on AI innovation.",
+      "title": "Full-Stack AI, Built by Us.",
+      "subtitle": "From GPU to deployment, one platform",
       "desc1": "The pace of AI industry development is faster than ever. Many companies are leveraging AI technology to innovate productivity and strengthen competitiveness. Companies need more powerful computing power and flexible infrastructure. However, the biggest practical barrier for companies trying to apply AI technology to their business is the difficulty of building and operating AI infrastructure.",
       "desc2": "JIKJI Labs provides AI infrastructure solutions that can immediately respond to the rapidly changing AI environment. We present a direction for customers to build and utilize a computing environment that can be immediately expanded in line with the latest AI trends, and we aim to be the infrastructure partner that most strongly supports customers' AI innovation.",
       "heritage_title": "Continuing the Innovation of Knowledge",
       "heritage_desc": "IT JIKJI Labs inherits that spirit, designing a new 'printing press' for the digital age. We are a group of digital craftsmen who connect humanity's thoughts most quickly, accurately, and meaningfully through technology.",
       "fullstack_title": "From Data Center to AI Full Stack Services",
-      "fullstack_desc": "Infrastructure-native AI Full Stack company. We provide private isolation, SLA guarantees, transparent observability, and robust security on a single platform."
+      "fullstack_desc": "Train, Build, Deploy — On One Platform"
     },
     "path": {
       "title": "Our Path",
@@ -189,36 +189,36 @@
   "products": {
     "jikjicloud": {
       "eyebrow": "AI Infra",
-      "title": "JIKJI Cloud for creating and operating resources by organization and project",
-      "subtitle": "JIKJI Cloud is a control plane that connects cloud resource creation, access, operations, and billing status in one workflow. It focuses on creating and managing user resources inside a Project.",
+      "title": "Infrastructure that lets you focus solely on R&D",
+      "subtitle": "Providing an environment where you can focus on R&D with safe, flexible infrastructure",
       "services": {
         "label": "user resource services",
-        "title": "Cloud resources for AI development and operations",
+        "title": "",
         "items": [
           {
             "id": "cloud-container",
             "title": "Container",
-            "desc": "Create image-based runtime environments and manage access and status by project."
+            "desc": "One-click runtime environment based on container images"
           },
           {
             "id": "cloud-endpoint",
             "title": "Endpoint",
-            "desc": "Issue externally callable service endpoints and monitor their operating status."
+            "desc": "Deploy and serve with ease"
           },
           {
             "id": "cloud-postgres",
             "title": "Postgres",
-            "desc": "Provide managed database resources for project applications."
+            "desc": "Manage data securely with a managed database"
           },
           {
             "id": "cloud-shared-filesystem",
             "title": "Shared Filesystem",
-            "desc": "Attach file-based storage shared across multiple runtime resources."
+            "desc": "Storage ready to use instantly without copying or moving"
           },
           {
             "id": "cloud-object-storage",
             "title": "Object Storage",
-            "desc": "Store datasets, outputs, and application objects in project-scoped storage."
+            "desc": "A space to safely store AI-optimized object data"
           }
         ]
       },
@@ -245,8 +245,8 @@
     },
     "aiCloud": {
       "eyebrow": "AI Cloud",
-      "title": "AI Cloud",
-      "subtitle": "Choose from FuriosaAI NPU, GPU, edge device, and customer-dedicated installed environments for AI development and validation.",
+      "title": "When You Need It, As Much As You Need",
+      "subtitle": "From GPU to Edge Device, everything you need to run AI in one product group",
       "items": [
         {
           "id": "cloud-mac",
@@ -256,18 +256,18 @@
         {
           "id": "cloud-edge-device",
           "title": "Edge Device Cloud",
-          "desc": "Provision Raspberry Pi-based Edge AI environments instantly. Validate lightweight inference, latency, and resource usage before field deployment"
+          "desc": "Pre-validate latency and processing performance in real edge device environments before field deployment"
         },
         {
           "id": "cloud-private-ai",
           "title": "Private AI Cloud",
-          "desc": "Install a dedicated AI cloud on customer-owned GPU servers. Operate AI infrastructure under internal security standards when public cloud is not an option"
+          "desc": "Dedicated AI cloud environment built on closed infrastructure for enterprises where security is critical"
         }
       ]
     },
     "gpucloud": {
       "eyebrow": "GPU Cloud",
-      "title": "JIKJI Labs GPU Instance when you need it, as much as you need",
+      "title": "Ready-to-Scale Acceleration",
       "subtitle": "Speed up your AI with JIKJI Labs GPU instances",
       "contact": "Quote & Technical Consultation: business@jikji.ai",
       "features": {
@@ -296,8 +296,8 @@
         ]
       },
       "oneclick": {
-        "title": "OneClick Start",
-        "subtitle": "Standard toolchain ready to use from development to operation",
+        "title": "",
+        "subtitle": "Enterprise GPU infrastructure ready to deploy at peak performance",
         "items": [
           {
             "title": "One-click Development Environment",
@@ -805,16 +805,15 @@
     "consulting": {
       "title": "Custom Architecture & Consulting",
       "desc1": "JIKJI Labs GPU Instance when you need it, as much as you need",
-      "desc2": "Auto Deployment \u2192 Inference Endpoint Integration\nPowerful Serverless API Generation Tool with MLOps",
+      "desc2": "Auto Deployment → Inference Endpoint Integration\nPowerful Serverless API Generation Tool with MLOps",
       "contact": "Quote & Technical Consultation: business@jikji.ai"
     }
   },
   "cta_banner": {
-    "title": "Production-Ready AI Infrastructure. Try It Free.",
+    "title": "Experience AI Infrastructure Right Now",
     "subtitle": "H100 GPU · MIG Virtualization · 1-Month Free Trial",
-    "btn_free": "Apply for Free",
-    "btn_inquiry": "Contact Sales",
-    "disclaimer": "We'll reach out personally to get you started. No credit card required."
+    "btn_inquiry": "Apply for Promotion",
+    "disclaimer": "Individual contact after application · Sequential allocation after consultation · No credit card required"
   },
   "support_page": {
     "title": "We will contact customers who have applied for the promotion individually.\nAfter consultation, GPU resources will be allocated sequentially.",
@@ -833,11 +832,11 @@
     }
   },
   "hero": {
-    "badge": "Introducing JIKJI AI 2.0",
-    "title": "Accelerate Your AI Solutions with N3N",
+    "badge": "Next-Gen AI Infrastructure Standard",
+    "title": "AI Built from Infrastructure",
     "description": "From data centers to AI services, all in one.",
-    "cta_primary": "Start for free",
-    "cta_secondary": "View demo"
+    "cta_primary": "Get Started",
+    "cta_secondary": "Contact Sales"
   },
   "features": {
     "title": "The all-in-one AI platform",
@@ -872,6 +871,6 @@
   },
   "footer": {
     "address": "411, Bongeunsa-ro, Gangnam-gu, Seoul, Republic of Korea",
-    "copyright": "\u00a9 2026 JIKJI Labs. All rights reserved."
+    "copyright": "© 2026 JIKJI Labs. All rights reserved."
   }
 }
