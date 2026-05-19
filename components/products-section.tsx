@@ -155,9 +155,6 @@ function JikjiCloudContent() {
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#8fb8ff]/20 bg-[#8fb8ff]/10">
                               <Icon className="h-5 w-5 text-[#8fb8ff]" />
                             </div>
-                            <p className="text-xs font-mono text-white/30">
-                              RESOURCE {String(idx + 1).padStart(2, '0')}
-                            </p>
                           </div>
                           <h4 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                             {service.title}
@@ -280,9 +277,6 @@ function AICloudContent() {
                         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#8fb8ff]/20 bg-[#8fb8ff]/10">
                           <Icon className="h-5 w-5 text-[#8fb8ff]" />
                         </div>
-                        <p className="text-xs font-mono text-white/30">
-                          AI CLOUD {String(idx + 2).padStart(2, '0')}
-                        </p>
                       </div>
                       <h4 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                         {service.title}
