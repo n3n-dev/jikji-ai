@@ -85,7 +85,7 @@ function JikjiCloudContent() {
   const { t } = useI18n();
 
   return (
-    <div className="relative overflow-hidden pt-24 pb-20">
+    <div className="relative overflow-hidden border-t border-white/10 pt-24 pb-20">
 
       <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <motion.div
