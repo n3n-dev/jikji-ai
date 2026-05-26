@@ -2,7 +2,7 @@ name: Build and Deploy to K8s
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 env:
   IMAGE_NAME: ghcr.io/n3n-dev/jikji-homepage
