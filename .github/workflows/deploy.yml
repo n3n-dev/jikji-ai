@@ -2,11 +2,12 @@ name: Build and Deploy to K8s
 
 on:
   push:
-    branches: [main]
+    branches: [develop, main]
 
 env:
   IMAGE_NAME: ghcr.io/n3n-dev/jikji-homepage
   NAMESPACE: homepage-jikji-ai
+  APP_NAME: jikji-homepage
 
 jobs:
   # 1. 빌드 단계: GitHub 서버에서 빠르게 빌드 후 푸시
@@ -38,28 +39,68 @@ jobs:
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
 
-  # 2. 배포 단계: 내부망에 접근 가능한 서버에서 kubectl 실행
+  # 2. 배포 단계: org ARC 러너(d2 클러스터 내 ephemeral Pod)에서 kubectl 실행
   deploy:
     needs: build-and-push
-    runs-on: self-hosted # 내부망 서버에 설치된 러너가 담당
+    runs-on: arc-runner-set
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
         with:
-          version: 'v1.28.0' # 클러스터 버전에 맞춰 설치
+          version: 'v1.28.0'
 
-      - name: Deploy to K8s
+      - name: Resolve target env
+        id: target
         run: |
-          # 이미지 태그 업데이트 (새로운 SHA 태그 사용)
-          kubectl -n ${{ env.NAMESPACE }} set image \
-            deployment/jikji-homepage \
-            jikji-homepage=${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          if [ "${{ github.ref }}" = "refs/heads/develop" ]; then
+            echo "env=d2" >> "$GITHUB_OUTPUT"
+            echo "manifest=k8s/combined.yaml" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "env=prod" >> "$GITHUB_OUTPUT"
+            echo "manifest=k8s/combined-prod.yaml" >> "$GITHUB_OUTPUT"
+          else
+            echo "Unknown ref: ${{ github.ref }}" >&2
+            exit 1
+          fi
 
-          # 전체 설정 동기화
-          kubectl apply -f k8s/combined.yaml -n ${{ env.NAMESPACE }}
+      - name: Write kubeconfig
+        env:
+          KUBECONFIG_D2: ${{ secrets.KUBECONFIG_D2 }}
+          KUBECONFIG_PROD: ${{ secrets.KUBECONFIG_PROD }}
+          CONTEXT: ${{ steps.target.outputs.env }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/.kube"
+          if [ "$CONTEXT" = "d2" ]; then
+            echo "$KUBECONFIG_D2" | base64 -d > "$RUNNER_TEMP/.kube/config"
+          elif [ "$CONTEXT" = "prod" ]; then
+            echo "$KUBECONFIG_PROD" | base64 -d > "$RUNNER_TEMP/.kube/config"
+          else
+            echo "Unknown CONTEXT: $CONTEXT" >&2; exit 1
+          fi
+          chmod 600 "$RUNNER_TEMP/.kube/config"
 
-          # 배포 완료 대기
-          kubectl -n ${{ env.NAMESPACE }} rollout status deployment/jikji-homepage --timeout=120s
+      - name: Deploy
+        env:
+          KUBECONFIG: ${{ runner.temp }}/.kube/config
+          CONTEXT: ${{ steps.target.outputs.env }}
+          MANIFEST: ${{ steps.target.outputs.manifest }}
+        run: |
+          kubectl --context "$CONTEXT" -n $NAMESPACE apply -f "$MANIFEST"
+          kubectl --context "$CONTEXT" -n $NAMESPACE set image \
+            deployment/$APP_NAME \
+            $APP_NAME=$IMAGE_NAME:sha-${{ github.sha }}
+          kubectl --context "$CONTEXT" -n $NAMESPACE rollout status \
+            deployment/$APP_NAME --timeout=120s
 
+      - name: Rollback on failure
+        if: failure()
+        env:
+          KUBECONFIG: ${{ runner.temp }}/.kube/config
+          CONTEXT: ${{ steps.target.outputs.env }}
+        run: |
+          kubectl --context "$CONTEXT" -n $NAMESPACE rollout undo deployment/$APP_NAME || true
+          exit 1
