@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css'; // Global styles
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import { Providers } from '@/components/providers';
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     default: 'JIKJI',
-    template: '%s | JIKJI'
+    template: '%s | JIKJI',
   },
   description:
     'Accelerate Your AI Solutions with N3N. 복잡한 인프라 관리 없이 데이터센터부터 AI 서비스까지 한 번에 구축하세요.',
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
     other: {
       'naver-site-verification': '8c3b171d238ec6e4b4df0343e961ed2f5afc29ac',
     },
-  }
+  },
 };
 
 export default function RootLayout({
@@ -90,14 +91,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={`${inter.variable} dark overflow-x-hidden`} suppressHydrationWarning>
+    <html
+      lang="ko"
+      className={`${inter.variable} dark overflow-x-hidden`}
+      suppressHydrationWarning
+    >
       <body className="bg-[#01071B] text-white antialiased font-sans selection:bg-white/30 overflow-x-hidden">
-        <Providers>
-          {children}
-        </Providers>
+        {/* Umami analytics */}
+        <Script
+          src="https://umami.n3n.ai/script.js"
+          data-website-id="a348eb51-bf3d-43f8-830a-594ba035c4ed"
+          strategy="afterInteractive"
+        />
+        <Providers>{children}</Providers>
         {/* Figma capture script — remove after handoff */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+        <script
+          src="https://mcp.figma.com/mcp/html-to-design/capture.js"
+          async
+        ></script>
       </body>
     </html>
   );
