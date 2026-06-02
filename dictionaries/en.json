@@ -6,30 +6,31 @@
     },
     "products": {
       "label": "Products",
-      "href": "#products",
+      "href": "/products",
       "items": [
         {
           "label": "GPU Cloud",
-          "href": "#gpucloud"
+          "href": "/products#compute"
         },
         {
-          "label": "Platform",
-          "href": "#platform"
+          "label": "AI Platform",
+          "href": "/products#ai-platform"
         },
         {
-          "label": "AI INFERENCE",
-          "href": "#ai-inference",
-          "subItem": true
+          "label": "MLOps",
+          "href": "/products#mlops"
         },
         {
-          "label": "CHAT AGENT",
-          "href": "#chat-agent",
-          "subItem": true
+          "label": "Tools",
+          "href": "/products#tools"
         },
         {
-          "label": "N3N VIDEO AI",
-          "href": "#n3n-video-ai",
-          "subItem": true
+          "label": "Media Intelligence",
+          "href": "/products#media-intelligence"
+        },
+        {
+          "label": "Infrastructure",
+          "href": "/products#infrastructure"
         }
       ]
     },
