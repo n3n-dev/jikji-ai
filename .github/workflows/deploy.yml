@@ -5,9 +5,9 @@ on:
     branches: [develop, main]
 
 env:
-  IMAGE_NAME: ghcr.io/n3n-dev/jikji-homepage
-  NAMESPACE: homepage-jikji-ai
-  APP_NAME: jikji-homepage
+  IMAGE_NAME: ghcr.io/n3n-dev/jikji-ai
+  NAMESPACE: jikji-ai
+  APP_NAME: jikji-ai
 
 jobs:
   # 1. 빌드 단계: GitHub 서버에서 빠르게 빌드 후 푸시

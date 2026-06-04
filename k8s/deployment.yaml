@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jikji-homepage
-  namespace: homepage-jikji-ai
+  name: jikji-ai
+  namespace: jikji-ai
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jikji-homepage
+      app: jikji-ai
   template:
     metadata:
       labels:
-        app: jikji-homepage
+        app: jikji-ai
     spec:
       containers:
-      - name: jikji-homepage
-        image: ghcr.io/n3n-dev/jikji-homepage:latest
-        ports:
-        - containerPort: 3000
+        - name: jikji-ai
+          image: ghcr.io/n3n-dev/jikji-ai:latest
+          ports:
+            - containerPort: 3000

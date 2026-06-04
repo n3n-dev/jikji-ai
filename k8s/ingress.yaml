@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jikji-homepage-ingress
-  namespace: homepage-jikji-ai
+  name: jikji-ai-ingress
+  namespace: jikji-ai
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: 'nginx'
 spec:
   rules:
-  - host: jikji.ai
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: jikji-homepage-svc
-            port:
-              number: 80
+    - host: jikji.ai
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jikji-ai-svc
+                port:
+                  number: 80

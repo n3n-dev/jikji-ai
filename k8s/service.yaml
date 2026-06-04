@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jikji-homepage-svc
-  namespace: homepage-jikji-ai
+  name: jikji-ai-svc
+  namespace: jikji-ai
 spec:
   selector:
-    app: jikji-homepage
+    app: jikji-ai
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 3000
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
