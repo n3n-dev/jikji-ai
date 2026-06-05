@@ -418,7 +418,7 @@ export function ProductCatalog() {
               {groupedProducts.map((group) => (
                 <section key={group.id} id={group.id} className="scroll-mt-28">
                   <h2 className="mb-5 text-2xl font-bold tracking-normal text-white">
-                    {group.label} ({group.products.length})
+                    {group.label}
                   </h2>
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                     {group.products.map((product) => (
