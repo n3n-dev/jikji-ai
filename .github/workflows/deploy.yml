@@ -2,7 +2,8 @@ name: Build and Deploy to K8s
 
 on:
   push:
-    branches: [develop, main]
+    branches: [main] # main merge → dev(d2) 배포
+    tags: ['v*'] # 릴리즈 태그 → 이미지 버전 태깅 + prod 배포
 
 env:
   IMAGE_NAME: ghcr.io/n3n-dev/jikji-ai
@@ -29,15 +30,30 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Resolve image tags
+        id: meta
+        run: |
+          case "$GITHUB_REF" in
+            refs/heads/main)
+              tags="$IMAGE_NAME:latest,$IMAGE_NAME:sha-$GITHUB_SHA"
+              ;;
+            refs/tags/v*)
+              tags="$IMAGE_NAME:$GITHUB_REF_NAME,$IMAGE_NAME:sha-$GITHUB_SHA"
+              ;;
+            *)
+              echo "Unknown ref: $GITHUB_REF" >&2
+              exit 1
+              ;;
+          esac
+          echo "tags=$tags" >> "$GITHUB_OUTPUT"
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           platforms: linux/amd64 # 서버 환경에 맞춤
-          tags: |
-            ${{ env.IMAGE_NAME }}:latest
-            ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          tags: ${{ steps.meta.outputs.tags }}
 
   # 2. 배포 단계: org ARC 러너(d2 클러스터 내 ephemeral Pod)에서 kubectl 실행
   deploy:
@@ -56,19 +72,21 @@ jobs:
       - name: Resolve target env
         id: target
         run: |
-          case "${{ github.ref }}" in
-            refs/heads/develop)
+          case "$GITHUB_REF" in
+            refs/heads/main)
               env_name=d2
               manifest=k8s/combined.yaml
               app_name=jikji-ai-dev
+              image_tag=sha-$GITHUB_SHA
               ;;
-            refs/heads/main)
+            refs/tags/v*)
               env_name=prod
               manifest=k8s/combined-prod.yaml
               app_name=jikji-ai
+              image_tag=$GITHUB_REF_NAME
               ;;
             *)
-              echo "Unknown ref: ${{ github.ref }}" >&2
+              echo "Unknown ref: $GITHUB_REF" >&2
               exit 1
               ;;
           esac
@@ -77,6 +95,7 @@ jobs:
             echo "env=$env_name"
             echo "manifest=$manifest"
             echo "app_name=$app_name"
+            echo "image_tag=$image_tag"
           } >> "$GITHUB_OUTPUT"
 
       - name: Write kubeconfig
@@ -101,11 +120,12 @@ jobs:
           CONTEXT: ${{ steps.target.outputs.env }}
           MANIFEST: ${{ steps.target.outputs.manifest }}
           APP_NAME: ${{ steps.target.outputs.app_name }}
+          IMAGE_TAG: ${{ steps.target.outputs.image_tag }}
         run: |
           kubectl --context "$CONTEXT" -n "$NAMESPACE" apply -f "$MANIFEST"
           kubectl --context "$CONTEXT" -n "$NAMESPACE" set image \
             "deployment/$APP_NAME" \
-            "$APP_NAME=$IMAGE_NAME:sha-${{ github.sha }}"
+            "$APP_NAME=$IMAGE_NAME:$IMAGE_TAG"
           kubectl --context "$CONTEXT" -n "$NAMESPACE" rollout status \
             "deployment/$APP_NAME" --timeout=120s
 
