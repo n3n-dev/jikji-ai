@@ -56,18 +56,28 @@ jobs:
       - name: Resolve target env
         id: target
         run: |
-          if [ "${{ github.ref }}" = "refs/heads/develop" ]; then
-            echo "env=d2" >> "$GITHUB_OUTPUT"
-            echo "manifest=k8s/combined.yaml" >> "$GITHUB_OUTPUT"
-            echo "app_name=jikji-ai-dev" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            echo "env=prod" >> "$GITHUB_OUTPUT"
-            echo "manifest=k8s/combined-prod.yaml" >> "$GITHUB_OUTPUT"
-            echo "app_name=jikji-ai" >> "$GITHUB_OUTPUT"
-          else
-            echo "Unknown ref: ${{ github.ref }}" >&2
-            exit 1
-          fi
+          case "${{ github.ref }}" in
+            refs/heads/develop)
+              env_name=d2
+              manifest=k8s/combined.yaml
+              app_name=jikji-ai-dev
+              ;;
+            refs/heads/main)
+              env_name=prod
+              manifest=k8s/combined-prod.yaml
+              app_name=jikji-ai
+              ;;
+            *)
+              echo "Unknown ref: ${{ github.ref }}" >&2
+              exit 1
+              ;;
+          esac
+
+          {
+            echo "env=$env_name"
+            echo "manifest=$manifest"
+            echo "app_name=$app_name"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Write kubeconfig
         env:
@@ -92,12 +102,12 @@ jobs:
           MANIFEST: ${{ steps.target.outputs.manifest }}
           APP_NAME: ${{ steps.target.outputs.app_name }}
         run: |
-          kubectl --context "$CONTEXT" -n $NAMESPACE apply -f "$MANIFEST"
-          kubectl --context "$CONTEXT" -n $NAMESPACE set image \
-            deployment/$APP_NAME \
-            $APP_NAME=$IMAGE_NAME:sha-${{ github.sha }}
-          kubectl --context "$CONTEXT" -n $NAMESPACE rollout status \
-            deployment/$APP_NAME --timeout=120s
+          kubectl --context "$CONTEXT" -n "$NAMESPACE" apply -f "$MANIFEST"
+          kubectl --context "$CONTEXT" -n "$NAMESPACE" set image \
+            "deployment/$APP_NAME" \
+            "$APP_NAME=$IMAGE_NAME:sha-${{ github.sha }}"
+          kubectl --context "$CONTEXT" -n "$NAMESPACE" rollout status \
+            "deployment/$APP_NAME" --timeout=120s
 
       - name: Rollback on failure
         if: failure()
@@ -106,5 +116,5 @@ jobs:
           CONTEXT: ${{ steps.target.outputs.env }}
           APP_NAME: ${{ steps.target.outputs.app_name }}
         run: |
-          kubectl --context "$CONTEXT" -n $NAMESPACE rollout undo deployment/$APP_NAME || true
+          kubectl --context "$CONTEXT" -n "$NAMESPACE" rollout undo "deployment/$APP_NAME" || true
           exit 1
