@@ -52,6 +52,16 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
+    - host: jikji.ai
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jikji-ai-svc
+                port:
+                  number: 80
     - host: jikji-ai-prod.prod.nthreen.com
       http:
         paths:
