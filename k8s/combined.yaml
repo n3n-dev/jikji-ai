@@ -1,43 +1,48 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jikji-ai
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jikji-ai
+  name: jikji-ai-dev
   namespace: jikji-ai
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jikji-ai
+      app: jikji-ai-dev
   template:
     metadata:
       labels:
-        app: jikji-ai
+        app: jikji-ai-dev
     spec:
       imagePullSecrets:
         - name: ghcr-secret
       containers:
-        - name: jikji-ai
+        - name: jikji-ai-dev
           image: ghcr.io/n3n-dev/jikji-ai:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: jikji-ai-svc
+  name: jikji-ai-dev-svc
   namespace: jikji-ai
 spec:
   selector:
-    app: jikji-ai
+    app: jikji-ai-dev
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 3000
+      targetPort: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jikji-ai-ingress
+  name: jikji-ai-dev-ingress
   namespace: jikji-ai
 spec:
   ingressClassName: traefik
@@ -49,6 +54,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: jikji-ai-svc
+                name: jikji-ai-dev-svc
                 port:
                   number: 80

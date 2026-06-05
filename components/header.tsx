@@ -23,6 +23,7 @@ type NavSection = {
   label: string;
   href: string;
   items?: NavItem[];
+  hideChevron?: boolean;
 };
 
 function NavLink({
@@ -97,7 +98,9 @@ function DesktopDropdown({
     <div className="relative group/nav">
       <NavLink href={section.href} className={linkCls}>
         {section.label}
-        <ChevronDown className="w-3 h-3 opacity-50 group-hover/nav:rotate-180 transition-transform" />
+        {!section.hideChevron && (
+          <ChevronDown className="w-3 h-3 opacity-50 group-hover/nav:rotate-180 transition-transform" />
+        )}
       </NavLink>
 
       <div className="absolute top-full left-0 hidden group-hover/nav:block w-56 pt-2">
@@ -349,7 +352,7 @@ export function Header() {
   }, []);
 
   const navSections = [
-    t.nav.products,
+    { label: t.nav.products.label, href: '/products' },
     t.nav.ai_infrastructure,
     t.nav.pricing,
     t.nav.company,
