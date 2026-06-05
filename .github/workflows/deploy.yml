@@ -59,9 +59,11 @@ jobs:
           if [ "${{ github.ref }}" = "refs/heads/develop" ]; then
             echo "env=d2" >> "$GITHUB_OUTPUT"
             echo "manifest=k8s/combined.yaml" >> "$GITHUB_OUTPUT"
+            echo "app_name=jikji-ai-dev" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
             echo "env=prod" >> "$GITHUB_OUTPUT"
             echo "manifest=k8s/combined-prod.yaml" >> "$GITHUB_OUTPUT"
+            echo "app_name=jikji-ai" >> "$GITHUB_OUTPUT"
           else
             echo "Unknown ref: ${{ github.ref }}" >&2
             exit 1
@@ -88,6 +90,7 @@ jobs:
           KUBECONFIG: ${{ runner.temp }}/.kube/config
           CONTEXT: ${{ steps.target.outputs.env }}
           MANIFEST: ${{ steps.target.outputs.manifest }}
+          APP_NAME: ${{ steps.target.outputs.app_name }}
         run: |
           kubectl --context "$CONTEXT" -n $NAMESPACE apply -f "$MANIFEST"
           kubectl --context "$CONTEXT" -n $NAMESPACE set image \
@@ -101,6 +104,7 @@ jobs:
         env:
           KUBECONFIG: ${{ runner.temp }}/.kube/config
           CONTEXT: ${{ steps.target.outputs.env }}
+          APP_NAME: ${{ steps.target.outputs.app_name }}
         run: |
           kubectl --context "$CONTEXT" -n $NAMESPACE rollout undo deployment/$APP_NAME || true
           exit 1

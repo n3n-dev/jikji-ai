@@ -252,40 +252,50 @@ function ProductCard({ product }: { product: Product }) {
 
 export function ProductCatalog() {
   const [query, setQuery] = useState('');
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([featuredCategory]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const selectedCategorySet = useMemo(() => new Set(selectedCategories), [selectedCategories]);
+  const isShowingAllCategories = selectedCategories.length === 0;
+  const isShowingFeaturedSection = isShowingAllCategories || selectedCategorySet.has(featuredCategory);
 
-  const visibleProducts = useMemo(() => {
+  const queryMatchedProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
 
     return products.filter((product) => {
-      const matchesQuery =
+      return (
         normalizedQuery.length === 0 ||
         product.name.toLowerCase().includes(normalizedQuery) ||
         product.description.toLowerCase().includes(normalizedQuery) ||
-        getCategoryLabel(product.category).toLowerCase().includes(normalizedQuery);
-
-      const matchesCategory =
-        selectedCategories.length === 0 ||
-        selectedCategories.includes(product.category) ||
-        (selectedCategories.includes(featuredCategory) && product.featured);
-
-      return matchesQuery && matchesCategory;
+        getCategoryLabel(product.category).toLowerCase().includes(normalizedQuery)
+      );
     });
-  }, [query, selectedCategories]);
+  }, [query]);
+
+  const visibleProducts = useMemo(() => {
+    return queryMatchedProducts.filter((product) => {
+      return (
+        isShowingAllCategories ||
+        selectedCategorySet.has(product.category) ||
+        (selectedCategorySet.has(featuredCategory) && product.featured)
+      );
+    });
+  }, [isShowingAllCategories, queryMatchedProducts, selectedCategorySet]);
+
+  const featuredProducts = useMemo(() => {
+    if (!isShowingFeaturedSection) return [];
+
+    return queryMatchedProducts.filter((product) => product.featured);
+  }, [isShowingFeaturedSection, queryMatchedProducts]);
 
   const groupedProducts = useMemo(() => {
-    const groupedSource = selectedCategories.includes(featuredCategory)
-      ? visibleProducts.filter((product) => !product.featured)
-      : visibleProducts;
-
     return categories
       .filter((category) => category.id !== featuredCategory)
+      .filter((category) => isShowingAllCategories || selectedCategorySet.has(category.id))
       .map((category) => ({
         ...category,
-        products: groupedSource.filter((product) => product.category === category.id),
+        products: queryMatchedProducts.filter((product) => product.category === category.id),
       }))
       .filter((group) => group.products.length > 0);
-  }, [selectedCategories, visibleProducts]);
+  }, [isShowingAllCategories, queryMatchedProducts, selectedCategorySet]);
 
   const toggleCategory = (categoryId: string) => {
     setSelectedCategories((current) =>
@@ -297,7 +307,7 @@ export function ProductCatalog() {
 
   const resetCatalog = () => {
     setQuery('');
-    setSelectedCategories([featuredCategory]);
+    setSelectedCategories([]);
   };
 
   return (
@@ -379,7 +389,7 @@ export function ProductCatalog() {
 
           <div className="mb-7">
             <p className="text-[17px] font-bold text-white">
-              총 {visibleProducts.length}개의 서비스가 있습니다.
+              AI 도입부터 서비스 구현까지 End-to-End AI 솔루션을 제공합니다.
             </p>
           </div>
 
@@ -389,7 +399,7 @@ export function ProductCatalog() {
             </div>
           ) : (
             <div className="space-y-12">
-              {selectedCategories.includes(featuredCategory) && (
+              {featuredProducts.length > 0 && (
                 <section id="featured" className="scroll-mt-28">
                   <div className="mb-5 flex items-center gap-4">
                     <Sparkles className="h-10 w-10 fill-[#00c4cc] stroke-[#00c4cc]" />
@@ -398,11 +408,9 @@ export function ProductCatalog() {
                     </h1>
                   </div>
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-                    {visibleProducts
-                      .filter((product) => product.featured)
-                      .map((product) => (
-                        <ProductCard key={`${product.category}-${product.name}`} product={product} />
-                      ))}
+                    {featuredProducts.map((product) => (
+                      <ProductCard key={`featured-${product.category}-${product.name}`} product={product} />
+                    ))}
                   </div>
                 </section>
               )}

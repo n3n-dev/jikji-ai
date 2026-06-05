@@ -352,7 +352,7 @@ export function Header() {
   }, []);
 
   const navSections = [
-    { ...t.nav.products, href: '/products', hideChevron: true },
+    { label: t.nav.products.label, href: '/products' },
     t.nav.ai_infrastructure,
     t.nav.pricing,
     t.nav.company,

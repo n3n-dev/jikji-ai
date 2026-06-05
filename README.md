@@ -21,6 +21,15 @@ npx serve out
 
 접속: http://localhost:3000
 
+## Kubernetes 배포 매니페스트
+
+Kubernetes 배포는 합쳐진 매니페스트만 사용합니다.
+
+- `k8s/combined.yaml`: develop 브랜치용 dev 배포
+- `k8s/combined-prod.yaml`: main 브랜치용 prod 배포
+
+두 파일 모두 Namespace, Deployment, Service, Ingress를 포함합니다.
+
 ## 배포
 
 ### 1. 빌드
