@@ -35,7 +35,6 @@ type Product = {
   category: string;
   description: string;
   icon: LucideIcon;
-  badge?: 'Update' | 'BETA' | 'New' | '준비중';
   featured?: boolean;
 };
 
@@ -61,7 +60,6 @@ const products: Product[] = [
     category: 'compute',
     description: '클라우드 환경에서 NVIDIA GPU 서버를 빠르게 생성하고 확장하는 서비스',
     icon: Cpu,
-    badge: 'Update',
     featured: true,
   },
   {
@@ -69,14 +67,12 @@ const products: Product[] = [
     category: 'compute',
     description: '국산 AI 반도체 기반의 고효율 추론 워크로드 실행 환경',
     icon: BrainCircuit,
-    badge: '준비중',
   },
   {
     name: 'Bare Metal GPU',
     category: 'compute',
     description: '전용 물리 서버 기반의 고성능 학습 및 추론 워크로드 실행 환경',
     icon: Server,
-    badge: '준비중',
     featured: true,
   },
   {
@@ -84,14 +80,12 @@ const products: Product[] = [
     category: 'compute',
     description: '컨테이너 기반 AI 워크로드를 위한 GPU 클러스터 오케스트레이션',
     icon: Boxes,
-    badge: '준비중',
   },
   {
     name: 'AI Inference',
     category: 'mlops',
     description: '모델을 배포하면 자동으로 확장되는 추론 API 엔드포인트 서비스',
     icon: Workflow,
-    badge: 'Update',
     featured: true,
   },
   {
@@ -105,7 +99,6 @@ const products: Product[] = [
     category: 'ai-platform',
     description: '사내 데이터와 도구를 연결해 업무용 에이전트를 설계하는 개발 도구',
     icon: Bot,
-    badge: 'BETA',
     featured: true,
   },
   {
@@ -113,7 +106,6 @@ const products: Product[] = [
     category: 'storage',
     description: '대용량 데이터셋과 모델 아티팩트를 위한 확장형 오브젝트 스토리지',
     icon: Cloud,
-    badge: 'Update',
   },
   {
     name: 'File Storage',
@@ -132,21 +124,18 @@ const products: Product[] = [
     category: 'tools',
     description: '외부 도구와 AI 에이전트가 안전하게 연결되도록 지원하는 MCP 연동 기능',
     icon: Plug,
-    badge: 'BETA',
   },
   {
     name: 'API Key',
     category: 'tools',
     description: '외부 서비스 연동과 자동화를 위한 API 키를 발급하고 관리하는 도구',
     icon: KeyRound,
-    badge: 'New',
   },
   {
     name: 'Firewall Policy',
     category: 'security',
     description: '인바운드와 아웃바운드 접근 규칙을 세밀하게 제어하는 보안 정책',
     icon: Shield,
-    badge: 'Update',
   },
   {
     name: 'Secret Vault',
@@ -159,7 +148,6 @@ const products: Product[] = [
     category: 'data-analytics',
     description: 'GPU 사용률, 지연 시간, 로그와 알림을 통합 관측하는 운영 대시보드',
     icon: Activity,
-    badge: 'New',
     featured: true,
   },
   {
@@ -192,29 +180,11 @@ const products: Product[] = [
     category: 'infrastructure',
     description: 'AI 워크로드에 최적화된 모듈러 데이터센터 설계와 구축 서비스',
     icon: Cloud,
-    badge: 'New',
   },
 ];
 
 function getCategoryLabel(categoryId: string) {
   return categories.find((category) => category.id === categoryId)?.label ?? categoryId;
-}
-
-function ProductBadge({ badge }: { badge?: Product['badge'] }) {
-  if (!badge) return null;
-
-  const className =
-    badge === '준비중'
-      ? 'border border-white/15 bg-white/10 text-white/65'
-      : badge === 'BETA'
-      ? 'border border-[#9F7A5E]/45 bg-[#9F7A5E]/15 text-[#E7C6AB]'
-      : 'bg-[#5EA5EA] text-[#020617]';
-
-  return (
-    <span className={`rounded px-1.5 py-0.5 text-[11px] font-bold leading-none ${className}`}>
-      {badge}
-    </span>
-  );
 }
 
 function ProductCard({ product }: { product: Product }) {
@@ -234,7 +204,6 @@ function ProductCard({ product }: { product: Product }) {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-[radial-gradient(ellipse_80%_65%_at_50%_-20%,rgba(255,255,255,0.12),rgba(255,255,255,0.03)_45%,transparent_72%)]" />
       <div className="flex items-start justify-between gap-4">
         <Icon className="relative h-8 w-8 stroke-[2.3] text-[#E4E4E7]" aria-hidden="true" />
-        <ProductBadge badge={product.badge} />
       </div>
       <div className="relative mt-8 flex-1">
         <h3 className="text-[21px] font-bold leading-tight text-white">{product.name}</h3>
