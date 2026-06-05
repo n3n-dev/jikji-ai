@@ -381,7 +381,7 @@ export function ProductCatalog() {
               {featuredProducts.length > 0 && (
                 <section id="featured" className="scroll-mt-28">
                   <div className="mb-5 flex items-center gap-4">
-                    <Sparkles className="h-10 w-10 fill-[#00c4cc] stroke-[#00c4cc]" />
+                    <Sparkles className="h-10 w-10 text-white" />
                     <h1 className="text-3xl font-bold tracking-normal text-white">
                       Featured
                     </h1>
