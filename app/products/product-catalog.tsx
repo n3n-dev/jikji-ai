@@ -176,18 +176,22 @@ const products: Product[] = [
   },
 ];
 
-const availableProductNames = new Set(['GPU Instance', 'File Storage']);
+const betaProductNames = new Set(['GPU Instance', 'File Storage']);
 
 function getCategoryLabel(categoryId: string) {
   return categories.find((category) => category.id === categoryId)?.label ?? categoryId;
 }
 
 function ProductStatusBadge({ productName }: { productName: string }) {
-  if (availableProductNames.has(productName)) return null;
+  const isBeta = betaProductNames.has(productName);
+  const label = isBeta ? 'BETA' : 'Coming Soon';
+  const className = isBeta
+    ? 'border border-[#9F7A5E]/45 bg-[#9F7A5E]/15 text-[#E7C6AB]'
+    : 'border border-white/15 bg-white/10 text-white/65';
 
   return (
-    <span className="rounded border border-white/15 bg-white/10 px-1.5 py-0.5 text-[11px] font-bold leading-none text-white/65">
-      Coming Soon
+    <span className={`rounded px-1.5 py-0.5 text-[11px] font-bold leading-none ${className}`}>
+      {label}
     </span>
   );
 }
