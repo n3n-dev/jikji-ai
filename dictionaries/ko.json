@@ -291,7 +291,7 @@
   },
   "infrastructure": {
     "aidc": {
-      "title": "직지랩스 1호 AI DC",
+      "title": "직지랩스 1호 AI Infrastructure Center",
       "badge": "2027년 3분기 완공 예정 · AI 시대를 대비한 초고속 데이터 허브",
       "specs": [
         {
@@ -320,7 +320,7 @@
       "title": "최신 GPU 인프라와 최적화된 환경으로 AI 워크로드를 완벽 지원합니다.",
       "services": [
         {
-          "title": "AI 데이터센터",
+          "title": "AI Infrastructure Center",
           "subtitle": "데이터센터 구축 솔루션",
           "items": [
             "데이터센터 준공",
@@ -366,8 +366,8 @@
         }
       ],
       "cluster": {
-        "title": "직지랩스의 분산형 AI 데이터 센터",
-        "subtitle": "서울권 총 25개소 AI Data Center 클러스터 조성 목표",
+        "title": "직지랩스 AI Edge Computing Infrastructure",
+        "subtitle": "서울권 내 총 25개 AI Edge Computing 클러스터 조성 목표",
         "stats": [
           {
             "value": "100",
@@ -678,7 +678,7 @@
   "hero": {
     "badge": "AI 인프라의 새로운 기준",
     "title": "AI Built from Infrastructure",
-    "description": "데이터센터부터 AI 서비스까지, 한 번에",
+    "description": "AI 시대를 위한 클라우드 인프라",
     "cta_primary": "도입 문의",
     "cta_secondary": "문의하기"
   },

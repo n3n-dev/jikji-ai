@@ -1,29 +1,56 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Database, Cpu, Activity, Code2, MessageSquare, Play } from 'lucide-react';
+import {
+  Database,
+  Cpu,
+  Activity,
+  Code2,
+  MessageSquare,
+  Play,
+} from 'lucide-react';
 import { useI18n } from './i18n-provider';
 
 const diagramGroups = [
   {
     title: 'AI Infrastructure',
     items: [
-      { title: '직지 Edge 데이터센터', subtitle: '데이터센터 물리 인프라 및 운영', Icon: Database },
+      {
+        title: '직지 Edge Computing 센터',
+        subtitle: '하이퍼스케일 인프라 운영 및 관리',
+        Icon: Database,
+      },
       { title: 'GPUaaS', subtitle: '구독형 GPU Cloud 서비스', Icon: Cpu },
     ],
   },
   {
     title: 'AI Platform',
     items: [
-      { title: 'AI & MLOps Platform', subtitle: '모델 학습, 관리, 배포 플랫폼', Icon: Activity },
-      { title: 'AI 추론 및 API 서비스', subtitle: 'AI 배포 및 실시간 추론 API', Icon: Code2 },
+      {
+        title: 'AI & MLOps Platform',
+        subtitle: '모델 학습, 관리, 배포 플랫폼',
+        Icon: Activity,
+      },
+      {
+        title: 'AI 추론 및 API 서비스',
+        subtitle: 'AI 배포 및 실시간 추론 API',
+        Icon: Code2,
+      },
     ],
   },
   {
     title: 'AI Applications',
     items: [
-      { title: 'Chat Agent', subtitle: '대화형 AI 인터페이스 서비스', Icon: MessageSquare },
-      { title: 'N3N Video', subtitle: 'AI 영상 분석 및 특화 서비스', Icon: Play },
+      {
+        title: 'Chat Agent',
+        subtitle: '대화형 AI 인터페이스 서비스',
+        Icon: MessageSquare,
+      },
+      {
+        title: 'N3N Video',
+        subtitle: 'AI 영상 분석 및 특화 서비스',
+        Icon: Play,
+      },
     ],
   },
 ];
@@ -76,12 +103,15 @@ export function VisionSection() {
                 <div className="flex-1 min-w-0">
                   <div
                     className="vision-card relative w-full h-full rounded-2xl p-4 md:p-5"
-                    style={{ ['--vc-delay' as string]: `${gi * 3}s`,
-                      background: 'linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)',
+                    style={{
+                      ['--vc-delay' as string]: `${gi * 3}s`,
+                      background:
+                        'linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)',
                       border: '1px solid rgba(255,255,255,0.13)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
-                      boxShadow: '0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
+                      boxShadow:
+                        '0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
                     }}
                   >
                     {/* Title badge — centered, overlapping top border */}
@@ -116,12 +146,19 @@ export function VisionSection() {
                               border: '1px solid rgba(255,255,255,0.10)',
                             }}
                           >
-                            <item.Icon className="text-white/70" style={{ width: '18px', height: '18px' }} />
+                            <item.Icon
+                              className="text-white/70"
+                              style={{ width: '18px', height: '18px' }}
+                            />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-sm md:text-base font-bold text-white leading-snug">{item.title}</p>
+                            <p className="text-sm md:text-base font-bold text-white leading-snug">
+                              {item.title}
+                            </p>
                             {item.subtitle && (
-                              <p className="text-[11px] md:text-xs text-white/45 leading-snug mt-0.5">{item.subtitle}</p>
+                              <p className="text-[11px] md:text-xs text-white/45 leading-snug mt-0.5">
+                                {item.subtitle}
+                              </p>
                             )}
                           </div>
                         </div>
@@ -133,12 +170,25 @@ export function VisionSection() {
                 {gi < diagramGroups.length - 1 && (
                   <div className="flex items-center justify-center shrink-0 self-center py-1 md:py-0">
                     <svg
-                      width="20" height="16" viewBox="0 0 28 22" fill="none"
+                      width="20"
+                      height="16"
+                      viewBox="0 0 28 22"
+                      fill="none"
                       className="rotate-90 md:rotate-0 md:w-7 md:h-[22px]"
-                      style={{ filter: 'drop-shadow(0 0 5px rgba(255,255,255,0.18))' }}
+                      style={{
+                        filter: 'drop-shadow(0 0 5px rgba(255,255,255,0.18))',
+                      }}
                     >
-                      <path d="M0 7H16V1.5L27.5 11L16 20.5V15H0Z" fill="rgba(255,255,255,0.28)" />
-                      <path d="M0 7H16V1.5L27.5 11L16 20.5V15H0Z" stroke="rgba(255,255,255,0.45)" strokeWidth="0.8" strokeLinejoin="round" />
+                      <path
+                        d="M0 7H16V1.5L27.5 11L16 20.5V15H0Z"
+                        fill="rgba(255,255,255,0.28)"
+                      />
+                      <path
+                        d="M0 7H16V1.5L27.5 11L16 20.5V15H0Z"
+                        stroke="rgba(255,255,255,0.45)"
+                        strokeWidth="0.8"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </div>
                 )}
