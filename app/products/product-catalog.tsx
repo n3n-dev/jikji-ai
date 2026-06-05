@@ -46,7 +46,6 @@ const categories: Category[] = [
   { id: 'ai-platform', label: 'AI Platform' },
   { id: 'mlops', label: 'MLOps' },
   { id: 'storage', label: 'Storage' },
-  { id: 'networking', label: 'Networking' },
   { id: 'tools', label: 'Tools' },
   { id: 'security', label: 'Security' },
   { id: 'data-analytics', label: 'Data & Analytics' },
@@ -112,12 +111,6 @@ const products: Product[] = [
     category: 'storage',
     description: '학습 노드와 추론 서비스에서 공유 가능한 고성능 파일 스토리지',
     icon: HardDrive,
-  },
-  {
-    name: 'Load Balancer',
-    category: 'networking',
-    description: '외부 트래픽을 안정적으로 분산하고 서비스 가용성을 높이는 네트워크 도구',
-    icon: Workflow,
   },
   {
     name: 'MCP 지원',
