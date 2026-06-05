@@ -176,8 +176,20 @@ const products: Product[] = [
   },
 ];
 
+const availableProductNames = new Set(['GPU Instance', 'File Storage']);
+
 function getCategoryLabel(categoryId: string) {
   return categories.find((category) => category.id === categoryId)?.label ?? categoryId;
+}
+
+function ProductStatusBadge({ productName }: { productName: string }) {
+  if (availableProductNames.has(productName)) return null;
+
+  return (
+    <span className="rounded border border-white/15 bg-white/10 px-1.5 py-0.5 text-[11px] font-bold leading-none text-white/65">
+      Coming Soon
+    </span>
+  );
 }
 
 function ProductCard({ product }: { product: Product }) {
@@ -197,6 +209,7 @@ function ProductCard({ product }: { product: Product }) {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-[radial-gradient(ellipse_80%_65%_at_50%_-20%,rgba(255,255,255,0.12),rgba(255,255,255,0.03)_45%,transparent_72%)]" />
       <div className="flex items-start justify-between gap-4">
         <Icon className="relative h-8 w-8 stroke-[2.3] text-[#E4E4E7]" aria-hidden="true" />
+        <ProductStatusBadge productName={product.name} />
       </div>
       <div className="relative mt-8 flex-1">
         <h3 className="text-[21px] font-bold leading-tight text-white">{product.name}</h3>
