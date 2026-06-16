@@ -57,12 +57,13 @@ const products: Product[] = [
   {
     name: 'GPU Instance',
     category: 'compute',
-    description: '클라우드 환경에서 NVIDIA GPU 서버를 빠르게 생성하고 확장하는 서비스',
+    description:
+      '클라우드 환경에서 NVIDIA GPU 서버를 빠르게 생성하고 확장하는 서비스',
     icon: Cpu,
     featured: true,
   },
   {
-    name: '퓨리오사AI NPU',
+    name: '국산 NPU',
     category: 'compute',
     description: '국산 AI 반도체 기반의 고효율 추론 워크로드 실행 환경',
     icon: BrainCircuit,
@@ -96,14 +97,16 @@ const products: Product[] = [
   {
     name: 'AI Agent Studio',
     category: 'ai-platform',
-    description: '사내 데이터와 도구를 연결해 업무용 에이전트를 설계하는 개발 도구',
+    description:
+      '사내 데이터와 도구를 연결해 업무용 에이전트를 설계하는 개발 도구',
     icon: Bot,
     featured: true,
   },
   {
     name: 'Object Storage',
     category: 'storage',
-    description: '대용량 데이터셋과 모델 아티팩트를 위한 확장형 오브젝트 스토리지',
+    description:
+      '대용량 데이터셋과 모델 아티팩트를 위한 확장형 오브젝트 스토리지',
     icon: Cloud,
   },
   {
@@ -115,19 +118,22 @@ const products: Product[] = [
   {
     name: 'MCP 지원',
     category: 'tools',
-    description: '외부 도구와 AI 에이전트가 안전하게 연결되도록 지원하는 MCP 연동 기능',
+    description:
+      '외부 도구와 AI 에이전트가 안전하게 연결되도록 지원하는 MCP 연동 기능',
     icon: Plug,
   },
   {
     name: 'API Key',
     category: 'tools',
-    description: '외부 서비스 연동과 자동화를 위한 API 키를 발급하고 관리하는 도구',
+    description:
+      '외부 서비스 연동과 자동화를 위한 API 키를 발급하고 관리하는 도구',
     icon: KeyRound,
   },
   {
     name: 'Firewall Policy',
     category: 'security',
-    description: '인바운드와 아웃바운드 접근 규칙을 세밀하게 제어하는 보안 정책',
+    description:
+      '인바운드와 아웃바운드 접근 규칙을 세밀하게 제어하는 보안 정책',
     icon: Shield,
   },
   {
@@ -139,7 +145,8 @@ const products: Product[] = [
   {
     name: 'Monitoring',
     category: 'data-analytics',
-    description: 'GPU 사용률, 지연 시간, 로그와 알림을 통합 관측하는 운영 대시보드',
+    description:
+      'GPU 사용률, 지연 시간, 로그와 알림을 통합 관측하는 운영 대시보드',
     icon: Activity,
     featured: true,
   },
@@ -152,14 +159,16 @@ const products: Product[] = [
   {
     name: 'Video Intelligence',
     category: 'media-intelligence',
-    description: '대규모 영상 데이터를 실시간 분석해 현장 이벤트와 인사이트를 추출',
+    description:
+      '대규모 영상 데이터를 실시간 분석해 현장 이벤트와 인사이트를 추출',
     icon: Video,
     featured: true,
   },
   {
     name: 'Pixel On Demand',
     category: 'media-intelligence',
-    description: '필요한 화소만 선택 전송해 영상 분석 대역폭과 처리 비용을 최적화',
+    description:
+      '필요한 화소만 선택 전송해 영상 분석 대역폭과 처리 비용을 최적화',
     icon: Sparkles,
   },
   {
@@ -179,7 +188,10 @@ const products: Product[] = [
 const betaProductNames = new Set(['GPU Instance', 'File Storage']);
 
 function getCategoryLabel(categoryId: string) {
-  return categories.find((category) => category.id === categoryId)?.label ?? categoryId;
+  return (
+    categories.find((category) => category.id === categoryId)?.label ??
+    categoryId
+  );
 }
 
 function ProductStatusBadge({ productName }: { productName: string }) {
@@ -190,7 +202,9 @@ function ProductStatusBadge({ productName }: { productName: string }) {
     : 'border border-white/15 bg-white/10 text-white/65';
 
   return (
-    <span className={`rounded px-1.5 py-0.5 text-[11px] font-bold leading-none ${className}`}>
+    <span
+      className={`rounded px-1.5 py-0.5 text-[11px] font-bold leading-none ${className}`}
+    >
       {label}
     </span>
   );
@@ -212,12 +226,19 @@ function ProductCard({ product }: { product: Product }) {
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-[radial-gradient(ellipse_80%_65%_at_50%_-20%,rgba(255,255,255,0.12),rgba(255,255,255,0.03)_45%,transparent_72%)]" />
       <div className="flex items-start justify-between gap-4">
-        <Icon className="relative h-8 w-8 stroke-[2.3] text-[#E4E4E7]" aria-hidden="true" />
+        <Icon
+          className="relative h-8 w-8 stroke-[2.3] text-[#E4E4E7]"
+          aria-hidden="true"
+        />
         <ProductStatusBadge productName={product.name} />
       </div>
       <div className="relative mt-8 flex-1">
-        <h3 className="text-[21px] font-bold leading-tight text-white">{product.name}</h3>
-        <p className="mt-3 text-[15px] leading-7 text-white/55">{product.description}</p>
+        <h3 className="text-[21px] font-bold leading-tight text-white">
+          {product.name}
+        </h3>
+        <p className="mt-3 text-[15px] leading-7 text-white/55">
+          {product.description}
+        </p>
       </div>
       <div className="relative mt-8 flex justify-end">
         <ArrowRight
@@ -232,9 +253,13 @@ function ProductCard({ product }: { product: Product }) {
 export function ProductCatalog() {
   const [query, setQuery] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const selectedCategorySet = useMemo(() => new Set(selectedCategories), [selectedCategories]);
+  const selectedCategorySet = useMemo(
+    () => new Set(selectedCategories),
+    [selectedCategories],
+  );
   const isShowingAllCategories = selectedCategories.length === 0;
-  const isShowingFeaturedSection = isShowingAllCategories || selectedCategorySet.has(featuredCategory);
+  const isShowingFeaturedSection =
+    isShowingAllCategories || selectedCategorySet.has(featuredCategory);
 
   const queryMatchedProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -244,7 +269,9 @@ export function ProductCatalog() {
         normalizedQuery.length === 0 ||
         product.name.toLowerCase().includes(normalizedQuery) ||
         product.description.toLowerCase().includes(normalizedQuery) ||
-        getCategoryLabel(product.category).toLowerCase().includes(normalizedQuery)
+        getCategoryLabel(product.category)
+          .toLowerCase()
+          .includes(normalizedQuery)
       );
     });
   }, [query]);
@@ -268,10 +295,15 @@ export function ProductCatalog() {
   const groupedProducts = useMemo(() => {
     return categories
       .filter((category) => category.id !== featuredCategory)
-      .filter((category) => isShowingAllCategories || selectedCategorySet.has(category.id))
+      .filter(
+        (category) =>
+          isShowingAllCategories || selectedCategorySet.has(category.id),
+      )
       .map((category) => ({
         ...category,
-        products: queryMatchedProducts.filter((product) => product.category === category.id),
+        products: queryMatchedProducts.filter(
+          (product) => product.category === category.id,
+        ),
       }))
       .filter((group) => group.products.length > 0);
   }, [isShowingAllCategories, queryMatchedProducts, selectedCategorySet]);
@@ -301,7 +333,9 @@ export function ProductCatalog() {
         <aside className="hidden lg:block">
           <div className="sticky top-[96px] max-h-[calc(100vh-120px)] overflow-y-auto rounded-lg border border-white/10 bg-[#111113]/70 p-5">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-base font-bold text-white">서비스 카테고리</h2>
+              <h2 className="text-base font-bold text-white">
+                서비스 카테고리
+              </h2>
               <button
                 type="button"
                 onClick={resetCatalog}
@@ -388,7 +422,10 @@ export function ProductCatalog() {
                   </div>
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
                     {featuredProducts.map((product) => (
-                      <ProductCard key={`featured-${product.category}-${product.name}`} product={product} />
+                      <ProductCard
+                        key={`featured-${product.category}-${product.name}`}
+                        product={product}
+                      />
                     ))}
                   </div>
                 </section>
@@ -401,7 +438,10 @@ export function ProductCatalog() {
                   </h2>
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                     {group.products.map((product) => (
-                      <ProductCard key={`${group.id}-${product.name}`} product={product} />
+                      <ProductCard
+                        key={`${group.id}-${product.name}`}
+                        product={product}
+                      />
                     ))}
                   </div>
                 </section>
