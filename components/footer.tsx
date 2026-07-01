@@ -49,22 +49,26 @@ export function Footer() {
           {/* Info */}
           <div className="flex flex-col gap-4 text-sm text-white/50">
             <div className="flex flex-col gap-1">
+              <p className="text-white/80 font-medium">{t.footer.companyName}</p>
               <p>{t.footer.address}</p>
               <p>
-                Tel. 82-2-761-5805 <span className="mx-2 text-white/20">|</span>{' '}
-                Fax. 82-2-554-5803 <span className="mx-2 text-white/20">|</span>{' '}
-                Email. business@n3n.co.kr
+                {t.footer.tel}: 82-2-761-5805{' '}
+                <span className="mx-2 text-white/20">|</span>{' '}
+                {t.footer.fax}: 82-2-554-5803{' '}
+                <span className="mx-2 text-white/20">|</span>{' '}
+                {t.footer.email}: business@n3n.co.kr
               </p>
+              <p>{t.footer.businessNumber}</p>
             </div>
             <p>
-              Copyright © 2025 N3N All Rights Reserved.{' '}
+              {t.footer.copyright}{' '}
               <a
                 href="https://n3n.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 font-medium text-white/70 underline hover:text-white transition-colors"
               >
-                엔쓰리엔 사이트
+                {t.footer.siteLink}
                 <ArrowUpRight className="w-3 h-3" />
               </a>
             </p>

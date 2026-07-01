@@ -215,7 +215,7 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <a
-      href="https://jikjicloud.io/"
+      href="https://console.jikji.ai/"
       target="_blank"
       rel="noopener noreferrer"
       className="group relative flex min-h-[236px] flex-col overflow-hidden rounded-lg border border-white/10 bg-[#151515] p-7 text-left transition-colors hover:border-[#9F7A5E]/45 focus:outline-none focus:ring-2 focus:ring-[#9F7A5E]/35"

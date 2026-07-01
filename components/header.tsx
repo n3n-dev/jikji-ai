@@ -381,7 +381,7 @@ export function Header() {
           <SupportButton section={t.nav.support} isLight={isLight} />
           <ShinyButton
             className="!py-2 !px-5 !text-sm"
-            onClick={() => window.open('https://jikjicloud.io/', '_blank')}
+            onClick={() => window.open('https://console.jikji.ai/', '_blank')}
           >
             {t.nav.console}
           </ShinyButton>
@@ -426,7 +426,7 @@ export function Header() {
                 className="!py-3 !px-4 !text-sm w-full"
                 onClick={() => {
                   setIsMenuOpen(false);
-                  window.open('https://jikjicloud.io/', '_blank');
+                  window.open('https://console.jikji.ai/', '_blank');
                 }}
               >
                 {t.nav.console}
