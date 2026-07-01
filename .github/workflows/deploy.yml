@@ -58,7 +58,7 @@ jobs:
   # 2. 배포 단계: org ARC 러너(d2 클러스터 내 ephemeral Pod)에서 kubectl 실행
   deploy:
     needs: build-and-push
-    runs-on: arc-runner-set
+    runs-on: d3-runner
     permissions:
       contents: read
     steps:
