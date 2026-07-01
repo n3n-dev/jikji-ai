@@ -363,7 +363,11 @@
         {
           "title": "AI Cloud",
           "subtitle": "AI Cloud Service",
-          "items": ["GPU Instance", "Inference Service", "Agent Service"]
+          "items": [
+            "GPU Instance",
+            "Inference Service",
+            "Agent Service"
+          ]
         }
       ],
       "cluster": {
@@ -650,7 +654,7 @@
     "consulting": {
       "title": "Custom Architecture & Consulting",
       "desc1": "JIKJI Labs GPU Instance when you need it, as much as you need",
-      "desc2": "Auto Deployment \u2192 Inference Endpoint Integration\nPowerful Serverless API Generation Tool with MLOps",
+      "desc2": "Auto Deployment → Inference Endpoint Integration\nPowerful Serverless API Generation Tool with MLOps",
       "contact": "Quote & Technical Consultation: business@jikji.ai"
     }
   },
@@ -716,7 +720,13 @@
     }
   },
   "footer": {
-    "address": "411, Bongeunsa-ro, Gangnam-gu, Seoul, Republic of Korea",
-    "copyright": "\u00a9 2026 JIKJI Labs. All rights reserved."
+    "companyName": "N3N Co., Ltd.",
+    "address": "Address: 2F 201, 411, Bongeunsa-ro, Gangnam-gu, Seoul, Republic of Korea",
+    "tel": "Tel",
+    "fax": "Fax",
+    "email": "Email",
+    "businessNumber": "Business Registration No.: 220-81-63122",
+    "copyright": "Copyright © 2025 N3N Co., Ltd. All Rights Reserved.",
+    "siteLink": "N3N Website"
   }
 }
