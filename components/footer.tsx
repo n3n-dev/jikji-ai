@@ -1,17 +1,66 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import { useI18n } from './i18n-provider';
-import { Globe, ArrowUpRight } from 'lucide-react';
+import { ChevronUp, ExternalLink, Globe } from 'lucide-react';
+
+const familySites = [
+  {
+    name: 'N3N',
+    url: 'https://www.n3n.co.kr',
+    desc: {
+      ko: '엔쓰리엔 공식 사이트',
+      en: 'N3N official site',
+    },
+  },
+] as const;
 
 export function Footer() {
   const { locale, setLocale, t } = useI18n();
+  const [familySitesOpen, setFamilySitesOpen] = useState(false);
+  const familySitesRef = useRef<HTMLDivElement>(null);
+  const familySitesButtonRef = useRef<HTMLButtonElement>(null);
+  const firstFamilySiteRef = useRef<HTMLAnchorElement>(null);
 
   const toggleLocale = () => {
     setLocale(locale === 'ko' ? 'en' : 'ko');
   };
 
+  useEffect(() => {
+    if (!familySitesOpen) return;
+
+    const onMouseDown = (event: MouseEvent) => {
+      if (
+        familySitesRef.current &&
+        !familySitesRef.current.contains(event.target as Node)
+      ) {
+        setFamilySitesOpen(false);
+      }
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setFamilySitesOpen(false);
+        familySitesButtonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('keydown', onKeyDown);
+
+    const frame = requestAnimationFrame(() =>
+      firstFamilySiteRef.current?.focus(),
+    );
+
+    return () => {
+      window.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('keydown', onKeyDown);
+      cancelAnimationFrame(frame);
+    };
+  }, [familySitesOpen]);
+
   return (
-    <footer className="py-12 border-t border-white/10 bg-black">
+    <footer className="py-12 border-t border-white/20 bg-black">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start justify-between gap-8">
         <div className="flex flex-col md:flex-column items-start gap-8 md:gap-8">
           <div className="flex-shrink-0">
@@ -49,41 +98,104 @@ export function Footer() {
           {/* Info */}
           <div className="flex flex-col gap-4 text-sm text-white/50">
             <div className="flex flex-col gap-1">
-              <p className="text-white/80 font-medium">{t.footer.companyName}</p>
+              <p className="text-white/80 font-medium">
+                {t.footer.companyName}
+              </p>
               <p>{t.footer.address}</p>
               <p>
                 {t.footer.tel}: 82-2-761-5805{' '}
-                <span className="mx-2 text-white/20">|</span>{' '}
-                {t.footer.fax}: 82-2-554-5803{' '}
-                <span className="mx-2 text-white/20">|</span>{' '}
+                <span className="mx-2 text-white/20">|</span> {t.footer.fax}:
+                82-2-554-5803 <span className="mx-2 text-white/20">|</span>{' '}
                 {t.footer.email}: business@n3n.co.kr
               </p>
               <p>{t.footer.businessNumber}</p>
             </div>
-            <p>
-              {t.footer.copyright}{' '}
-              <a
-                href="https://n3n.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-medium text-white/70 underline hover:text-white transition-colors"
-              >
-                {t.footer.siteLink}
-                <ArrowUpRight className="w-3 h-3" />
-              </a>
-            </p>
+            <p>{t.footer.copyright}</p>
           </div>
         </div>
 
-        {/* Language Toggle */}
-        <div className="flex items-center gap-4">
+        {/* Footer controls */}
+        <div className="flex items-center gap-2">
           <button
+            type="button"
             onClick={toggleLocale}
-            className="flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors px-3 py-2 rounded-md hover:bg-white/5 border border-white/10"
+            className="flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors px-3 py-2 rounded-md hover:bg-white/5 border border-white/20 hover:border-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            aria-label="Toggle language"
           >
             <Globe className="w-4 h-4" />
             {locale === 'ko' ? 'English' : '한국어'}
           </button>
+
+          <div ref={familySitesRef} className="relative">
+            <button
+              type="button"
+              id="family-sites-button"
+              ref={familySitesButtonRef}
+              onClick={() => setFamilySitesOpen((open) => !open)}
+              onKeyDown={(event) => {
+                if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+                  event.preventDefault();
+                  setFamilySitesOpen(true);
+                }
+              }}
+              className="inline-flex items-center gap-2 rounded-md border border-white/20 px-3 py-2 text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white hover:border-white/30 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              aria-haspopup="menu"
+              aria-expanded={familySitesOpen}
+              aria-controls={familySitesOpen ? 'family-sites-menu' : undefined}
+              aria-label={
+                locale === 'ko' ? '패밀리 사이트 메뉴' : 'Family sites menu'
+              }
+            >
+              <span>Family Sites</span>
+              <ChevronUp
+                className={`h-3 w-3 text-white/60 transition-transform ${
+                  familySitesOpen ? '' : 'rotate-180'
+                }`}
+                aria-hidden="true"
+              />
+            </button>
+
+            {familySitesOpen && (
+              <ul
+                id="family-sites-menu"
+                role="menu"
+                aria-labelledby="family-sites-button"
+                className="absolute right-0 bottom-full z-20 mb-2 w-60 overflow-hidden rounded-lg border border-white/20 bg-black shadow-2xl shadow-black/40"
+              >
+                {familySites.map((site, index) => (
+                  <li key={site.url} role="none">
+                    <a
+                      ref={index === 0 ? firstFamilySiteRef : undefined}
+                      role="menuitem"
+                      href={site.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${site.name}: ${site.desc[locale]} ${
+                        locale === 'ko'
+                          ? '새 창에서 열기'
+                          : 'opens in a new tab'
+                      }`}
+                      onClick={() => setFamilySitesOpen(false)}
+                      className="flex min-h-12 w-full items-center justify-between gap-3 px-4 py-3 text-xs text-white/80 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus-visible:bg-white/10 focus-visible:text-white focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/40"
+                    >
+                      <span className="flex min-w-0 flex-col gap-0.5">
+                        <span className="text-sm font-semibold text-white">
+                          {site.name}
+                        </span>
+                        <span className="text-[13px] leading-4 text-white/80">
+                          {site.desc[locale]}
+                        </span>
+                      </span>
+                      <ExternalLink
+                        className="h-3 w-3 flex-shrink-0 text-white/60"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </footer>
