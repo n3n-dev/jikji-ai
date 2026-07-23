@@ -2,7 +2,7 @@ name: Build and Deploy to K8s
 
 on:
   push:
-    branches: [main] # main merge → dev(d2) 배포
+    branches: [main] # main merge → dev(d3) 배포
     tags: ['v*'] # 릴리즈 태그 → 이미지 버전 태깅 + prod 배포
 
 env:
@@ -55,7 +55,7 @@ jobs:
           platforms: linux/amd64 # 서버 환경에 맞춤
           tags: ${{ steps.meta.outputs.tags }}
 
-  # 2. 배포 단계: org ARC 러너(d2 클러스터 내 ephemeral Pod)에서 kubectl 실행
+  # 2. 배포 단계: org ARC 러너에서 d3/prod 클러스터로 배포
   deploy:
     needs: build-and-push
     runs-on: d3-runner
@@ -74,9 +74,9 @@ jobs:
         run: |
           case "$GITHUB_REF" in
             refs/heads/main)
-              env_name=d2
+              env_name=d3
               manifest=k8s/combined.yaml
-              app_name=jikji-ai-dev
+              app_name=jikji-ai
               image_tag=sha-$GITHUB_SHA
               ;;
             refs/tags/v*)
@@ -100,13 +100,13 @@ jobs:
 
       - name: Write kubeconfig
         env:
-          KUBECONFIG_D2: ${{ secrets.KUBECONFIG_D2 }}
+          KUBECONFIG_D3: ${{ secrets.KUBECONFIG_D3 }}
           KUBECONFIG_PROD: ${{ secrets.KUBECONFIG_PROD }}
           CONTEXT: ${{ steps.target.outputs.env }}
         run: |
           mkdir -p "$RUNNER_TEMP/.kube"
-          if [ "$CONTEXT" = "d2" ]; then
-            echo "$KUBECONFIG_D2" | base64 -d > "$RUNNER_TEMP/.kube/config"
+          if [ "$CONTEXT" = "d3" ]; then
+            echo "$KUBECONFIG_D3" | base64 -d > "$RUNNER_TEMP/.kube/config"
           elif [ "$CONTEXT" = "prod" ]; then
             echo "$KUBECONFIG_PROD" | base64 -d > "$RUNNER_TEMP/.kube/config"
           else
@@ -122,12 +122,17 @@ jobs:
           APP_NAME: ${{ steps.target.outputs.app_name }}
           IMAGE_TAG: ${{ steps.target.outputs.image_tag }}
         run: |
-          kubectl --context "$CONTEXT" -n "$NAMESPACE" apply -f "$MANIFEST"
-          kubectl --context "$CONTEXT" -n "$NAMESPACE" set image \
-            "deployment/$APP_NAME" \
-            "$APP_NAME=$IMAGE_NAME:$IMAGE_TAG"
+          sed "s|image: $IMAGE_NAME:latest|image: $IMAGE_NAME:$IMAGE_TAG|" "$MANIFEST" |
+            kubectl --context "$CONTEXT" -n "$NAMESPACE" apply -f -
           kubectl --context "$CONTEXT" -n "$NAMESPACE" rollout status \
             "deployment/$APP_NAME" --timeout=120s
+          if [ "$CONTEXT" = "d3" ]; then
+            kubectl --context "$CONTEXT" -n "$NAMESPACE" delete \
+              ingress/jikji-ai-dev-ingress \
+              service/jikji-ai-dev-svc \
+              deployment/jikji-ai-dev \
+              --ignore-not-found
+          fi
 
       - name: Rollback on failure
         if: failure()

@@ -6,22 +6,22 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jikji-ai-dev
+  name: jikji-ai
   namespace: jikji-ai
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jikji-ai-dev
+      app: jikji-ai
   template:
     metadata:
       labels:
-        app: jikji-ai-dev
+        app: jikji-ai
     spec:
       imagePullSecrets:
         - name: ghcr-secret
       containers:
-        - name: jikji-ai-dev
+        - name: jikji-ai
           image: ghcr.io/n3n-dev/jikji-ai:latest
           ports:
             - containerPort: 80
@@ -29,11 +29,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jikji-ai-dev-svc
+  name: jikji-ai-svc
   namespace: jikji-ai
 spec:
   selector:
-    app: jikji-ai-dev
+    app: jikji-ai
   ports:
     - protocol: TCP
       port: 80
@@ -42,18 +42,18 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jikji-ai-dev-ingress
+  name: jikji-ai-ingress
   namespace: jikji-ai
 spec:
   ingressClassName: traefik
   rules:
-    - host: jikji-ai-dev.d2.nthreen.com
+    - host: jikji-ai-dev.d3.nthreen.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: jikji-ai-dev-svc
+                name: jikji-ai-svc
                 port:
                   number: 80
