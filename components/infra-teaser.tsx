@@ -8,6 +8,8 @@ import Image from 'next/image';
 export function InfraTeaser() {
   const { t, locale } = useI18n();
   const cluster = t.infrastructure.region.cluster;
+  // 숨기자 (임시): 인프라 서비스 카드 영역
+  const showServicesGrid = false;
 
   return (
     <>
@@ -290,75 +292,76 @@ export function InfraTeaser() {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section
-        className="pt-8 pb-24 border-t border-white/5"
-        style={{
-          background:
-            'linear-gradient(180deg, #0c0c0e 0%, #0E0E10 50%, #0a0a0c 100%)',
-        }}
-      >
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-xl md:text-2xl font-bold tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-b break-keep from-white to-white/60"
-            >
-              {t.infrastructure.region.title}
-            </motion.h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {t.infrastructure.region.services.map((service, idx) => (
-              <motion.div
-                key={idx}
+      {showServicesGrid && (
+        <section
+          className="pt-8 pb-24 border-t border-white/5"
+          style={{
+            background:
+              'linear-gradient(180deg, #0c0c0e 0%, #0E0E10 50%, #0a0a0c 100%)',
+          }}
+        >
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="relative rounded-2xl p-6 overflow-hidden flex flex-col"
-                style={{
-                  background:
-                    'linear-gradient(180deg, #1A1B1E 0%, #131416 100%)',
-                  border: '1px solid rgba(227,229,232,0.08)',
-                  boxShadow: 'inset 0 1px 0 rgba(227,229,232,0.06)',
-                }}
+                className="text-xl md:text-2xl font-bold tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-b break-keep from-white to-white/60"
               >
-                <h3 className="relative z-10 text-base font-bold text-white mb-1">
-                  {service.title}
-                </h3>
-                <p
-                  className="relative z-10 text-xs mb-4"
-                  style={{ color: '#8E9399' }}
+                {t.infrastructure.region.title}
+              </motion.h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {t.infrastructure.region.services.map((service, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="relative rounded-2xl p-6 overflow-hidden flex flex-col"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, #1A1B1E 0%, #131416 100%)',
+                    border: '1px solid rgba(227,229,232,0.08)',
+                    boxShadow: 'inset 0 1px 0 rgba(227,229,232,0.06)',
+                  }}
                 >
-                  {service.subtitle}
-                </p>
-                <ul className="relative z-10 space-y-2.5">
-                  {service.items.map((item, itemIdx) => (
-                    <li
-                      key={itemIdx}
-                      className="text-xs flex items-start gap-2"
-                    >
-                      <div
-                        className="w-1 h-1 rounded-full mt-1.5 shrink-0"
-                        style={{ background: '#9F7A5E' }}
-                      />
-                      <span
-                        className="leading-relaxed"
-                        style={{ color: '#8E9399' }}
+                  <h3 className="relative z-10 text-base font-bold text-white mb-1">
+                    {service.title}
+                  </h3>
+                  <p
+                    className="relative z-10 text-xs mb-4"
+                    style={{ color: '#8E9399' }}
+                  >
+                    {service.subtitle}
+                  </p>
+                  <ul className="relative z-10 space-y-2.5">
+                    {service.items.map((item, itemIdx) => (
+                      <li
+                        key={itemIdx}
+                        className="text-xs flex items-start gap-2"
                       >
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+                        <div
+                          className="w-1 h-1 rounded-full mt-1.5 shrink-0"
+                          style={{ background: '#9F7A5E' }}
+                        />
+                        <span
+                          className="leading-relaxed"
+                          style={{ color: '#8E9399' }}
+                        >
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Enterprise Isolation / PMDC Section */}
       <section
