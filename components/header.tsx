@@ -352,9 +352,9 @@ export function Header() {
   }, []);
 
   const navSections = [
-    { label: t.nav.products.label, href: '/products' },
     t.nav.ai_infrastructure,
     t.nav.pricing,
+    { label: t.nav.products.label, href: '/products' },
     t.nav.company,
   ];
 
