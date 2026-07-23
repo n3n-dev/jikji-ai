@@ -3,6 +3,7 @@ import './globals.css'; // Global styles
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { Providers } from '@/components/providers';
+import { GoToTopButton } from '@/components/go-to-top-button';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -104,6 +105,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Providers>{children}</Providers>
+        <GoToTopButton />
         {/* Figma capture script — remove after handoff */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
