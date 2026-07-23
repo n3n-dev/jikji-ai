@@ -47,7 +47,7 @@ const diagramGroups = [
         Icon: MessageSquare,
       },
       {
-        title: 'N3N Video',
+        title: 'N3N Vision Agent',
         subtitle: 'AI 영상 분석 및 특화 서비스',
         Icon: Play,
       },

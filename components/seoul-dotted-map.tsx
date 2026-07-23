@@ -88,7 +88,7 @@ export function SeoulDottedMap({ className, locale = 'ko' }: { className?: strin
 
   const DC_LOCATIONS = [
     // DC#1 — existing, Gangdong area
-    { left: '90%', top: '75%', label: 'First AI DC', year: '2027' },
+    { left: '90%', top: '75%', label: '직지랩스 1호 AI 캠퍼스(HQ)', year: '2027' },
     // DC#2 — Gangnam
     { left: '68%', top: '68%', label: null, year: null },
     // DC#3 — Jung-gu / Yongsan
@@ -365,7 +365,7 @@ export function SeoulDottedMap({ className, locale = 'ko' }: { className?: strin
               gap: '1px',
             }}
           >
-            <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '18px', color: 'rgba(255,255,255,0.75)' }}>First AI DC</span>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '18px', color: 'rgba(255,255,255,0.75)' }}>직지랩스 1호 AI 캠퍼스(HQ)</span>
             <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '16px', lineHeight: '20px', color: '#ffffff' }}>{locale === 'ko' ? '2027 오픈' : 'Opening 2027'}</span>
           </div>
           {/* Future DC markers */}
