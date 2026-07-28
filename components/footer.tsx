@@ -101,11 +101,12 @@ export function Footer() {
               <p className="text-white/80 font-medium">
                 {t.footer.companyName}
               </p>
+              <p>{t.footer.ceo}</p>
               <p>{t.footer.address}</p>
               <p>
-                {t.footer.tel}: 82-2-761-5805{' '}
+                {t.footer.tel}: 02-761-5805{' '}
                 <span className="mx-2 text-white/20">|</span> {t.footer.fax}:
-                82-2-554-5803 <span className="mx-2 text-white/20">|</span>{' '}
+                02-554-5803 <span className="mx-2 text-white/20">|</span>{' '}
                 {t.footer.email}: business@n3n.co.kr
               </p>
               <p>{t.footer.businessNumber}</p>
