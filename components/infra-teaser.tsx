@@ -205,7 +205,9 @@ export function InfraTeaser() {
                                   style={{ background: '#9F7A5E' }}
                                 />
                                 <span
-                                  className="text-xs leading-snug"
+                                  className={locale === 'en'
+                                    ? 'text-[13px] leading-snug'
+                                    : 'text-xs leading-snug'}
                                   style={{ color: '#8E9399' }}
                                 >
                                   {line.slice(2)}

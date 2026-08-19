@@ -17,3 +17,10 @@ test('AI campus layout keeps Korean at 50/50 and uses 58/42 for English at lg', 
     /locale === 'en'\s+\? 'grid md:grid-cols-2 lg:grid-cols-\[minmax\(0,7fr\)_minmax\(0,5fr\)\] gap-12 items-stretch'\s+: 'grid md:grid-cols-2 gap-12 items-stretch'/,
   );
 });
+
+test('AI campus dotted lists use 13px in English and keep Korean at 12px', () => {
+  assert.match(
+    infraTeaserSource,
+    /className=\{locale === 'en'\s+\? 'text-\[13px\] leading-snug'\s+: 'text-xs leading-snug'\}/,
+  );
+});
