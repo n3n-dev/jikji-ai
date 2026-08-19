@@ -139,7 +139,7 @@ export function InfraTeaser() {
         }}
       >
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-stretch">
+          <div className="grid md:grid-cols-2 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-12 items-stretch">
             {/* Left: title + 2x2 grid */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

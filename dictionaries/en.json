@@ -340,22 +340,22 @@
         {
           "index": "01",
           "title": "Building Overview",
-          "desc": "Site area: 575 m² (6,189 sq ft)\nGross floor area: 2,280 m² (24,542 sq ft)\n\n5 stories above grade, 2 below grade"
+          "desc": "Site: 575 m² / 6,189 sq ft\nFloor area: 2,280 m² / 24,542 sq ft\n\n5 floors above grade / 2 below"
         },
         {
           "index": "02",
           "title": "AI & GPU Infrastructure",
-          "desc": "• GPU cluster deployment\n• AI compute server operations\n• High-speed storage and networking\n• AI video processing platform\n• Large-scale training and inference"
+          "desc": "• GPU clusters\n• AI compute servers\n• High-speed storage & networking\n• AI video processing\n• Large-scale training & inference"
         },
         {
           "index": "03",
           "title": "Facilities",
-          "desc": "• AI research labs\n• GPU server room\n• AI development lab\n• Data analytics lab\n• Testbed\n• Training rooms, meeting rooms, and collaboration spaces"
+          "desc": "• AI research labs\n• GPU server room\n• AI development lab\n• Data analytics lab\n• Test lab\n• Training, meeting & collaboration spaces"
         },
         {
           "index": "04",
-          "title": "Key Capabilities",
-          "desc": "• AI video generation, analysis, and editing\n• GPU-accelerated HPC\n• Large-scale model training and inference\n• High-speed data processing and storage\n• Hybrid cloud and on-premises support\n• Scalable GPU infrastructure"
+          "title": "Capabilities",
+          "desc": "• AI video generation, analysis & editing\n• GPU-accelerated HPC\n• Large-scale training & inference\n• High-speed processing & storage\n• Hybrid cloud & on-prem support\n• Scalable GPU infrastructure"
         }
       ]
     },

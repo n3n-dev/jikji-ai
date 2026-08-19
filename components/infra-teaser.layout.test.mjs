@@ -7,9 +7,9 @@ const infraTeaserSource = await readFile(
   'utf8',
 );
 
-test('AI campus specs keep a 48px gap from the image on desktop', () => {
+test('AI campus specs use a 60/40 desktop split with a 48px gap', () => {
   assert.match(
     infraTeaserSource,
-    /className="grid md:grid-cols-2 gap-12 items-stretch"/,
+    /className="grid md:grid-cols-2 lg:grid-cols-\[minmax\(0,3fr\)_minmax\(0,2fr\)\] gap-12 items-stretch"/,
   );
 });
