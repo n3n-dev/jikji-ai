@@ -73,14 +73,14 @@
   },
   "company": {
     "about": {
-      "title": "Build and run AI, end to end",
+      "title": "We build the full AI stack.",
       "subtitle": "Reducing the burden of building and operating AI infrastructure, allowing customers to fully focus on AI innovation.",
       "desc1": "The pace of AI industry development is faster than ever. Many companies are leveraging AI technology to innovate productivity and strengthen competitiveness. Companies need more powerful computing power and flexible infrastructure. However, the biggest practical barrier for companies trying to apply AI technology to their business is the difficulty of building and operating AI infrastructure.",
       "desc2": "JIKJI Labs provides AI infrastructure solutions that can immediately respond to the rapidly changing AI environment. We present a direction for customers to build and utilize a computing environment that can be immediately expanded in line with the latest AI trends, and we aim to be the infrastructure partner that most strongly supports customers' AI innovation.",
       "heritage_title": "Continuing the Innovation of Knowledge",
       "heritage_desc": "IT JIKJI Labs inherits that spirit, designing a new 'printing press' for the digital age. We are a group of digital craftsmen who connect humanity's thoughts most quickly, accurately, and meaningfully through technology.",
       "fullstack_title": "From Data Center to AI Full Stack Services",
-      "fullstack_desc": "Private infrastructure, cloud, and software—unified on one secure platform.",
+      "fullstack_desc": "Build, train, and deploy—all on one platform.",
       "fullstack_groups": [
         {
           "title": "AI Infrastructure",

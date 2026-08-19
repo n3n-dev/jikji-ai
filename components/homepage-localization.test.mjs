@@ -41,11 +41,11 @@ test('English homepage locale content is complete and contains no Hangul', () =>
   assert.equal(en.footer.ceo, 'CEO: Youngsam Nam');
   assert.equal(
     en.company.about.title,
-    'Build and run AI, end to end',
+    'We build the full AI stack.',
   );
   assert.equal(
     en.company.about.fullstack_desc,
-    'Private infrastructure, cloud, and software—unified on one secure platform.',
+    'Build, train, and deploy—all on one platform.',
   );
   assert.equal(
     en.infrastructure.region.cluster.title,
