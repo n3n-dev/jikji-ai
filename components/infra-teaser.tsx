@@ -6,8 +6,12 @@ import { SeoulDottedMap } from './seoul-dotted-map';
 import Image from 'next/image';
 
 export function InfraTeaser() {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const cluster = t.infrastructure.region.cluster;
+  const aiCampusLayoutClassName =
+    locale === 'en'
+      ? 'grid md:grid-cols-2 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] gap-12 items-stretch'
+      : 'grid md:grid-cols-2 gap-12 items-stretch';
   // 숨기자 (임시): 인프라 서비스 카드 영역
   const showServicesGrid = false;
 
@@ -139,7 +143,7 @@ export function InfraTeaser() {
         }}
       >
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-12 items-stretch">
+          <div className={aiCampusLayoutClassName}>
             {/* Left: title + 2x2 grid */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

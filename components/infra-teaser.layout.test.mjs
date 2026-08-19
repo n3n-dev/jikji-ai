@@ -7,9 +7,13 @@ const infraTeaserSource = await readFile(
   'utf8',
 );
 
-test('AI campus specs use a 60/40 desktop split with a 48px gap', () => {
+test('AI campus layout keeps Korean at 50/50 and uses 58/42 for English at lg', () => {
   assert.match(
     infraTeaserSource,
-    /className="grid md:grid-cols-2 lg:grid-cols-\[minmax\(0,3fr\)_minmax\(0,2fr\)\] gap-12 items-stretch"/,
+    /const \{ locale, t \} = useI18n\(\)/,
+  );
+  assert.match(
+    infraTeaserSource,
+    /locale === 'en'\s+\? 'grid md:grid-cols-2 lg:grid-cols-\[minmax\(0,7fr\)_minmax\(0,5fr\)\] gap-12 items-stretch'\s+: 'grid md:grid-cols-2 gap-12 items-stretch'/,
   );
 });
