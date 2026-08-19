@@ -11,6 +11,8 @@ test('English homepage locale content is complete and contains no Hangul', () =>
   const strings = [
     en.footer.companyName,
     en.footer.ceo,
+    en.company.about.title,
+    en.company.about.fullstack_desc,
     en.infrastructure.region.cluster.title,
     en.infrastructure.region.cluster.subtitle,
     en.infrastructure.region.cluster.image_alt,
@@ -28,7 +30,7 @@ test('English homepage locale content is complete and contains no Hangul', () =>
     groups.map((group) => group.items.length),
     [2, 2, 2],
   );
-  assert.equal(strings.length, 23);
+  assert.equal(strings.length, 25);
   assert.equal(
     strings.every((value) => typeof value === 'string' && value.length > 0),
     true,
@@ -37,6 +39,14 @@ test('English homepage locale content is complete and contains no Hangul', () =>
   assert.doesNotMatch(strings.join('\n'), /\bAI DC\b/u);
   assert.equal(en.footer.companyName, 'N3N Co., Ltd.');
   assert.equal(en.footer.ceo, 'CEO: Youngsam Nam');
+  assert.equal(
+    en.company.about.title,
+    'Build and run AI, end to end',
+  );
+  assert.equal(
+    en.company.about.fullstack_desc,
+    'Private infrastructure, cloud, and software—unified on one secure platform.',
+  );
   assert.equal(
     en.infrastructure.region.cluster.title,
     'JIKJI Labs AI Edge Computing Infrastructure',
