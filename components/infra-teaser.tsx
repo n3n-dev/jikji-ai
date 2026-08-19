@@ -286,7 +286,7 @@ export function InfraTeaser() {
               >
                 <Image
                   src="/images/jikjidc.jpg"
-                  alt="직지 AI DC"
+                  alt={cluster.image_alt}
                   fill
                   className="object-cover"
                 />

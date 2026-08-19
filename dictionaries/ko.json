@@ -414,6 +414,7 @@
       "cluster": {
         "title": "직지랩스 AI Edge Computing Infrastructure",
         "subtitle": "서울권 내 총 25개 AI Edge Computing 클러스터 조성 목표",
+        "image_alt": "직지랩스 AI Edge Computing 인프라 시설",
         "campus_label": "직지랩스 1호 AI 캠퍼스(HQ)",
         "opening_label": "2027 오픈",
         "stats": [
