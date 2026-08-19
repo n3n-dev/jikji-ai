@@ -340,22 +340,22 @@
         {
           "index": "01",
           "title": "Building Overview",
-          "desc": "Site: 575m² (174 pyeong)\nFloor area: 2,280m² (690 pyeong)\n\nScale: 5F above, 1F below ground"
+          "desc": "Site area: 575 m² (6,189 sq ft)\nGross floor area: 2,280 m² (24,542 sq ft)\n\n5 stories above grade, 2 below grade"
         },
         {
           "index": "02",
-          "title": "Power Capacity",
-          "desc": "Total power: 4MW\nIT power: 2.72MW\n---\n**Racks: 50kW × 50ea\n10 modules per rack\nPer module: 1350kW×2"
+          "title": "AI & GPU Infrastructure",
+          "desc": "• GPU cluster deployment\n• AI compute server operations\n• High-speed storage and networking\n• AI video processing platform\n• Large-scale training and inference"
         },
         {
           "index": "03",
-          "title": "Facility Overview",
-          "desc": "Internal modular design\n• Server room\n• Electrical room\n• Generator: outdoor integrated or ESS\n• UPS room, battery room\n• Office, corridor, lobby, restroom"
+          "title": "Facilities",
+          "desc": "• AI research labs\n• GPU server room\n• AI development lab\n• Data analytics lab\n• Testbed\n• Training rooms, meeting rooms, and collaboration spaces"
         },
         {
           "index": "04",
-          "title": "Features",
-          "desc": "Availability Model\n• Power: redundant (primary + standby)\n• Distribution: redundant, UPS 5MW dual\n• Cooling: N+1 (chiller N+1, FCU N+1)\n\nPUE estimate: 1.1 ~ 1.3"
+          "title": "Key Capabilities",
+          "desc": "• AI video generation, analysis, and editing\n• GPU-accelerated HPC\n• Large-scale model training and inference\n• High-speed data processing and storage\n• Hybrid cloud and on-premises support\n• Scalable GPU infrastructure"
         }
       ]
     },
