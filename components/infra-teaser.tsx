@@ -6,7 +6,7 @@ import { SeoulDottedMap } from './seoul-dotted-map';
 import Image from 'next/image';
 
 export function InfraTeaser() {
-  const { t, locale } = useI18n();
+  const { t } = useI18n();
   const cluster = t.infrastructure.region.cluster;
   // 숨기자 (임시): 인프라 서비스 카드 영역
   const showServicesGrid = false;
@@ -70,7 +70,11 @@ export function InfraTeaser() {
               </div>
               <div style={{ perspective: '580px' }}>
                 <div style={{ transform: 'rotateX(46deg)', transformOrigin: 'center 60%' }}>
-                  <SeoulDottedMap className="w-full max-w-lg mx-auto" locale={locale} />
+                  <SeoulDottedMap
+                    className="w-full max-w-lg mx-auto"
+                    campusLabel={cluster.campus_label}
+                    openingLabel={cluster.opening_label}
+                  />
                 </div>
               </div>
             </motion.div>

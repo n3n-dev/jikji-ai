@@ -80,7 +80,48 @@
       "heritage_title": "지식의 혁신, 그 맥을 잇다",
       "heritage_desc": "1377년, 세계 최초의 금속활자본 《직지》는 지식을 더 빠르게 세상에 전하는 혁신이었습니다. IT 직지랩스는 그 정신을 이어받아, 디지털 시대의 새로운 '인쇄술'을 설계합니다.\n 우리는 디지털 시대의 새로운 인쇄술을 구현하며, **인류의 생각과 지식이 가장 빠르고 정확하게, 의미 있게 연결되는 길**을 만들어 갑니다. 직지랩스는 이러한 철학과 기술을 바탕으로, **미래의 디지털 지식 환경을 설계하고 구축하는 회사**로 나아가겠습니다.",
       "fullstack_title": "데이터센터부터 AI Full Stack 서비스를 구현합니다",
-      "fullstack_desc": "Train, Build, Deploy — On One Platform"
+      "fullstack_desc": "Train, Build, Deploy — On One Platform",
+      "fullstack_groups": [
+        {
+          "title": "AI Infrastructure",
+          "items": [
+            {
+              "title": "직지 Edge Computing 센터",
+              "subtitle": "하이퍼스케일 인프라 운영 및 관리"
+            },
+            {
+              "title": "GPUaaS",
+              "subtitle": "구독형 GPU Cloud 서비스"
+            }
+          ]
+        },
+        {
+          "title": "AI Platform",
+          "items": [
+            {
+              "title": "AI & MLOps Platform",
+              "subtitle": "모델 학습, 관리, 배포 플랫폼"
+            },
+            {
+              "title": "AI 추론 및 API 서비스",
+              "subtitle": "AI 배포 및 실시간 추론 API"
+            }
+          ]
+        },
+        {
+          "title": "AI Applications",
+          "items": [
+            {
+              "title": "Chat Agent",
+              "subtitle": "대화형 AI 인터페이스 서비스"
+            },
+            {
+              "title": "N3N Vision Agent",
+              "subtitle": "AI 영상 분석 및 특화 서비스"
+            }
+          ]
+        }
+      ]
     },
     "path": {
       "title": "Our Path",
@@ -231,6 +272,7 @@
       "agents": {
         "heading": "엔드포인트만 연결하면 바로 동작합니다",
         "title": "엔드포인트만 연결하면, 최신 Agentic Workflow가 바로 동작합니다",
+        "example_prompt": "회사 소개 한 줄",
         "features": [
           {
             "title": "모델 선택",
@@ -372,6 +414,8 @@
       "cluster": {
         "title": "직지랩스 AI Edge Computing Infrastructure",
         "subtitle": "서울권 내 총 25개 AI Edge Computing 클러스터 조성 목표",
+        "campus_label": "직지랩스 1호 AI 캠퍼스(HQ)",
+        "opening_label": "2027 오픈",
         "stats": [
           {
             "value": "100",

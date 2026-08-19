@@ -64,7 +64,15 @@ function sphereProject(nu: number, nv: number, tilt: number) {
 
 type DotData = { fx: number; fy: number; nu: number; nv: number };
 
-export function SeoulDottedMap({ className, locale = 'ko' }: { className?: string; locale?: string }) {
+export function SeoulDottedMap({
+  className,
+  campusLabel,
+  openingLabel,
+}: {
+  className?: string;
+  campusLabel: string;
+  openingLabel: string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
@@ -88,17 +96,17 @@ export function SeoulDottedMap({ className, locale = 'ko' }: { className?: strin
 
   const DC_LOCATIONS = [
     // DC#1 — existing, Gangdong area
-    { left: '90%', top: '75%', label: '직지랩스 1호 AI 캠퍼스(HQ)', year: '2027' },
+    { left: '90%', top: '75%' },
     // DC#2 — Gangnam
-    { left: '68%', top: '68%', label: null, year: null },
+    { left: '68%', top: '68%' },
     // DC#3 — Jung-gu / Yongsan
-    { left: '50%', top: '52%', label: null, year: null },
+    { left: '50%', top: '52%' },
     // DC#4 — Mapo
-    { left: '32%', top: '44%', label: null, year: null },
+    { left: '32%', top: '44%' },
     // DC#5 — Dobong / Nowon
-    { left: '62%', top: '24%', label: null, year: null },
+    { left: '62%', top: '24%' },
     // DC#6 — Guro / Yangcheon (bottom-left)
-    { left: '22%', top: '72%', label: null, year: null },
+    { left: '22%', top: '72%' },
   ];
 
   const draw = useCallback((progress: number) => {
@@ -365,8 +373,8 @@ export function SeoulDottedMap({ className, locale = 'ko' }: { className?: strin
               gap: '1px',
             }}
           >
-            <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '18px', color: 'rgba(255,255,255,0.75)' }}>직지랩스 1호 AI 캠퍼스(HQ)</span>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '16px', lineHeight: '20px', color: '#ffffff' }}>{locale === 'ko' ? '2027 오픈' : 'Opening 2027'}</span>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '18px', color: 'rgba(255,255,255,0.75)' }}>{campusLabel}</span>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '16px', lineHeight: '20px', color: '#ffffff' }}>{openingLabel}</span>
           </div>
           {/* Future DC markers */}
           {DC_LOCATIONS.slice(1).map((dc, i) => {

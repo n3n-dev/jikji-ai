@@ -80,7 +80,48 @@
       "heritage_title": "Continuing the Innovation of Knowledge",
       "heritage_desc": "IT JIKJI Labs inherits that spirit, designing a new 'printing press' for the digital age. We are a group of digital craftsmen who connect humanity's thoughts most quickly, accurately, and meaningfully through technology.",
       "fullstack_title": "From Data Center to AI Full Stack Services",
-      "fullstack_desc": "Infrastructure-native AI Full Stack company. We provide private isolation, SLA guarantees, transparent observability, and robust security on a single platform."
+      "fullstack_desc": "Infrastructure-native AI Full Stack company. We provide private isolation, SLA guarantees, transparent observability, and robust security on a single platform.",
+      "fullstack_groups": [
+        {
+          "title": "AI Infrastructure",
+          "items": [
+            {
+              "title": "JIKJI Edge Computing Center",
+              "subtitle": "Hyperscale infrastructure operations and management"
+            },
+            {
+              "title": "GPUaaS",
+              "subtitle": "Subscription-based GPU cloud service"
+            }
+          ]
+        },
+        {
+          "title": "AI Platform",
+          "items": [
+            {
+              "title": "AI & MLOps Platform",
+              "subtitle": "Model training, management, and deployment platform"
+            },
+            {
+              "title": "AI Inference & API Services",
+              "subtitle": "AI deployment and real-time inference APIs"
+            }
+          ]
+        },
+        {
+          "title": "AI Applications",
+          "items": [
+            {
+              "title": "Chat Agent",
+              "subtitle": "Conversational AI interface service"
+            },
+            {
+              "title": "N3N Vision Agent",
+              "subtitle": "AI video analytics and specialized services"
+            }
+          ]
+        }
+      ]
     },
     "path": {
       "title": "Our Path",
@@ -231,6 +272,7 @@
       "agents": {
         "heading": "Connect the endpoint, works right away",
         "title": "Just connect the endpoint, and the latest Agentic Workflow runs immediately",
+        "example_prompt": "Summarize the company in one sentence",
         "features": [
           {
             "title": "Model Selection",
@@ -373,6 +415,8 @@
       "cluster": {
         "title": "JIKJI Labs' Distributed AI DC",
         "subtitle": "25 AI Data Center sites across Seoul metro area",
+        "campus_label": "JIKJI Labs AI Campus #1 (HQ)",
+        "opening_label": "Opening 2027",
         "stats": [
           {
             "value": "100",
