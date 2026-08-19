@@ -55,7 +55,7 @@ export function VisionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.18 }}
-          className="text-center text-sm md:text-base text-white/40 mb-10 max-w-xl mx-auto leading-relaxed"
+          className="text-center text-sm md:text-base text-white/40 mb-10 max-w-3xl mx-auto leading-relaxed"
         >
           {t.company.about.fullstack_desc}
         </motion.p>

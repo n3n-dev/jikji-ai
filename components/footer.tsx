@@ -98,10 +98,12 @@ export function Footer() {
           {/* Info */}
           <div className="flex flex-col gap-4 text-sm text-white/50">
             <div className="flex flex-col gap-1">
-              <p className="text-white/80 font-medium">
-                {t.footer.companyName}
-              </p>
-              <p>{t.footer.ceo}</p>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <p className="text-white/80 font-medium">
+                  {t.footer.companyName}
+                </p>
+                <p>{t.footer.ceo}</p>
+              </div>
               <p>{t.footer.address}</p>
               <p>
                 {t.footer.tel}: 02-761-5805{' '}

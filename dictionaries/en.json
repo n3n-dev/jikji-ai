@@ -413,8 +413,8 @@
         }
       ],
       "cluster": {
-        "title": "JIKJI Labs' Distributed AI DC",
-        "subtitle": "25 AI Data Center sites across Seoul metro area",
+        "title": "JIKJI Labs AI Edge Computing Infrastructure",
+        "subtitle": "Building 25 AI Edge Computing clusters across the Seoul metropolitan area",
         "campus_label": "JIKJI Labs AI Campus #1 (HQ)",
         "opening_label": "Opening 2027",
         "stats": [
@@ -765,7 +765,7 @@
   },
   "footer": {
     "companyName": "N3N Co., Ltd.",
-    "ceo": "CEO: 남영삼",
+    "ceo": "CEO: Youngsam Nam",
     "address": "Address: 2F 201, 411, Bongeunsa-ro, Gangnam-gu, Seoul, Republic of Korea",
     "tel": "Tel",
     "fax": "Fax",
