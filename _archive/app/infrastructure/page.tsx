@@ -56,7 +56,11 @@ export default function InfrastructurePage() {
           </div>
 
           <div className="flex justify-center mb-12">
-            <SeoulDottedMap className="w-full max-w-2xl" />
+            <SeoulDottedMap
+              className="w-full max-w-2xl"
+              campusLabel={t.infrastructure.region.cluster.campus_label}
+              openingLabel={t.infrastructure.region.cluster.opening_label}
+            />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

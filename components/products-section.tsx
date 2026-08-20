@@ -306,7 +306,7 @@ function GpuCloudContent() {
 /* ─────────────────────────────────────────
    AGENT TERMINAL
    ───────────────────────────────────────── */
-function AgentTerminal() {
+function AgentTerminal({ examplePrompt }: { examplePrompt: string }) {
   const Kw = (s: string) => <span style={{ color: '#E3E5E8' }}>{s}</span>; // command — Glass Highlight
   const Flg = (s: string) => <span style={{ color: '#8E9399' }}>{s}</span>; // flags — Metallic Silver
   const Str = (s: string) => <span style={{ color: '#D49D73' }}>{s}</span>; // strings — Warm Amber
@@ -410,7 +410,7 @@ function AgentTerminal() {
             {Pnc(',')}
             {Key('"content"')}
             {Pnc(':')}
-            {Str('"회사 소개 한 줄"')}
+            {Str(`"${examplePrompt}"`)}
             {Pnc('}],')}
             {'\n'}
           </span>
@@ -899,7 +899,9 @@ function PlatformContent() {
               className="flex flex-col gap-3 w-full max-w-2xl"
             >
               <div className="relative">
-                <AgentTerminal />
+                <AgentTerminal
+                  examplePrompt={t.products.platform.agents.example_prompt}
+                />
                 <div
                   className="absolute inset-x-0 bottom-0 pointer-events-none rounded-b-2xl"
                   style={{

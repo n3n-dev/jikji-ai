@@ -73,14 +73,55 @@
   },
   "company": {
     "about": {
-      "title": "JIKJI Labs' Vision and Core Business Areas",
+      "title": "We build the full AI stack.",
       "subtitle": "Reducing the burden of building and operating AI infrastructure, allowing customers to fully focus on AI innovation.",
       "desc1": "The pace of AI industry development is faster than ever. Many companies are leveraging AI technology to innovate productivity and strengthen competitiveness. Companies need more powerful computing power and flexible infrastructure. However, the biggest practical barrier for companies trying to apply AI technology to their business is the difficulty of building and operating AI infrastructure.",
       "desc2": "JIKJI Labs provides AI infrastructure solutions that can immediately respond to the rapidly changing AI environment. We present a direction for customers to build and utilize a computing environment that can be immediately expanded in line with the latest AI trends, and we aim to be the infrastructure partner that most strongly supports customers' AI innovation.",
       "heritage_title": "Continuing the Innovation of Knowledge",
       "heritage_desc": "IT JIKJI Labs inherits that spirit, designing a new 'printing press' for the digital age. We are a group of digital craftsmen who connect humanity's thoughts most quickly, accurately, and meaningfully through technology.",
       "fullstack_title": "From Data Center to AI Full Stack Services",
-      "fullstack_desc": "Infrastructure-native AI Full Stack company. We provide private isolation, SLA guarantees, transparent observability, and robust security on a single platform."
+      "fullstack_desc": "Build, train, and deploy—all on one platform.",
+      "fullstack_groups": [
+        {
+          "title": "AI Infrastructure",
+          "items": [
+            {
+              "title": "JIKJI Edge Computing Center",
+              "subtitle": "Hyperscale infrastructure operations and management"
+            },
+            {
+              "title": "GPUaaS",
+              "subtitle": "Subscription-based GPU cloud service"
+            }
+          ]
+        },
+        {
+          "title": "AI Platform",
+          "items": [
+            {
+              "title": "AI & MLOps Platform",
+              "subtitle": "Model training, management, and deployment platform"
+            },
+            {
+              "title": "AI Inference & API Services",
+              "subtitle": "AI deployment and real-time inference APIs"
+            }
+          ]
+        },
+        {
+          "title": "AI Applications",
+          "items": [
+            {
+              "title": "Chat Agent",
+              "subtitle": "Conversational AI interface service"
+            },
+            {
+              "title": "N3N Vision Agent",
+              "subtitle": "AI video analytics and specialized services"
+            }
+          ]
+        }
+      ]
     },
     "path": {
       "title": "Our Path",
@@ -231,6 +272,7 @@
       "agents": {
         "heading": "Connect the endpoint, works right away",
         "title": "Just connect the endpoint, and the latest Agentic Workflow runs immediately",
+        "example_prompt": "Summarize the company in one sentence",
         "features": [
           {
             "title": "Model Selection",
@@ -298,22 +340,22 @@
         {
           "index": "01",
           "title": "Building Overview",
-          "desc": "Site: 575m² (174 pyeong)\nFloor area: 2,280m² (690 pyeong)\n\nScale: 5F above, 1F below ground"
+          "desc": "• Site: 575 m² / 6,189 sq ft\n• Floor area: 2,280 m² / 24,542 sq ft\n• 5 floors above grade / 2 below"
         },
         {
           "index": "02",
-          "title": "Power Capacity",
-          "desc": "Total power: 4MW\nIT power: 2.72MW\n---\n**Racks: 50kW × 50ea\n10 modules per rack\nPer module: 1350kW×2"
+          "title": "AI & GPU Infrastructure",
+          "desc": "• GPU clusters\n• AI compute servers\n• High-speed storage & networking\n• AI video processing\n• Large-scale training & inference"
         },
         {
           "index": "03",
-          "title": "Facility Overview",
-          "desc": "Internal modular design\n• Server room\n• Electrical room\n• Generator: outdoor integrated or ESS\n• UPS room, battery room\n• Office, corridor, lobby, restroom"
+          "title": "Facilities",
+          "desc": "• AI research labs\n• GPU server room\n• AI development lab\n• Data analytics lab\n• Test lab\n• Training, meeting & collaboration spaces"
         },
         {
           "index": "04",
-          "title": "Features",
-          "desc": "Availability Model\n• Power: redundant (primary + standby)\n• Distribution: redundant, UPS 5MW dual\n• Cooling: N+1 (chiller N+1, FCU N+1)\n\nPUE estimate: 1.1 ~ 1.3"
+          "title": "Capabilities",
+          "desc": "• AI video generation, analysis & editing\n• GPU-accelerated HPC\n• Large-scale training & inference\n• High-speed processing & storage\n• Hybrid cloud & on-prem support\n• Scalable GPU infrastructure"
         }
       ]
     },
@@ -371,8 +413,11 @@
         }
       ],
       "cluster": {
-        "title": "JIKJI Labs' Distributed AI DC",
-        "subtitle": "25 AI Data Center sites across Seoul metro area",
+        "title": "JIKJI Labs AI Edge Computing Infrastructure",
+        "subtitle": "Building 25 AI Edge Computing clusters across the Seoul metropolitan area",
+        "image_alt": "JIKJI Labs AI Edge Computing infrastructure facility",
+        "campus_label": "JIKJI Labs AI Campus #1 (HQ)",
+        "opening_label": "Opening 2027",
         "stats": [
           {
             "value": "100",
@@ -721,7 +766,7 @@
   },
   "footer": {
     "companyName": "N3N Co., Ltd.",
-    "ceo": "CEO: 남영삼",
+    "ceo": "CEO: Youngsam Nam",
     "address": "Address: 2F 201, 411, Bongeunsa-ro, Gangnam-gu, Seoul, Republic of Korea",
     "tel": "Tel",
     "fax": "Fax",

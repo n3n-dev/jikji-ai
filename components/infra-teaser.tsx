@@ -6,8 +6,12 @@ import { SeoulDottedMap } from './seoul-dotted-map';
 import Image from 'next/image';
 
 export function InfraTeaser() {
-  const { t, locale } = useI18n();
+  const { locale, t } = useI18n();
   const cluster = t.infrastructure.region.cluster;
+  const aiCampusLayoutClassName =
+    locale === 'en'
+      ? 'grid md:grid-cols-2 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] gap-12 items-stretch'
+      : 'grid md:grid-cols-2 gap-12 items-stretch';
   // 숨기자 (임시): 인프라 서비스 카드 영역
   const showServicesGrid = false;
 
@@ -70,7 +74,11 @@ export function InfraTeaser() {
               </div>
               <div style={{ perspective: '580px' }}>
                 <div style={{ transform: 'rotateX(46deg)', transformOrigin: 'center 60%' }}>
-                  <SeoulDottedMap className="w-full max-w-lg mx-auto" locale={locale} />
+                  <SeoulDottedMap
+                    className="w-full max-w-lg mx-auto"
+                    campusLabel={cluster.campus_label}
+                    openingLabel={cluster.opening_label}
+                  />
                 </div>
               </div>
             </motion.div>
@@ -135,7 +143,7 @@ export function InfraTeaser() {
         }}
       >
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-stretch">
+          <div className={aiCampusLayoutClassName}>
             {/* Left: title + 2x2 grid */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -197,7 +205,9 @@ export function InfraTeaser() {
                                   style={{ background: '#9F7A5E' }}
                                 />
                                 <span
-                                  className="text-xs leading-snug"
+                                  className={locale === 'en'
+                                    ? 'text-[13px] leading-snug'
+                                    : 'text-xs leading-snug'}
                                   style={{ color: '#8E9399' }}
                                 >
                                   {line.slice(2)}
@@ -282,7 +292,7 @@ export function InfraTeaser() {
               >
                 <Image
                   src="/images/jikjidc.jpg"
-                  alt="직지 AI DC"
+                  alt={cluster.image_alt}
                   fill
                   className="object-cover"
                 />

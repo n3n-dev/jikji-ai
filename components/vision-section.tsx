@@ -11,52 +11,23 @@ import {
 } from 'lucide-react';
 import { useI18n } from './i18n-provider';
 
-const diagramGroups = [
-  {
-    title: 'AI Infrastructure',
-    items: [
-      {
-        title: '직지 Edge Computing 센터',
-        subtitle: '하이퍼스케일 인프라 운영 및 관리',
-        Icon: Database,
-      },
-      { title: 'GPUaaS', subtitle: '구독형 GPU Cloud 서비스', Icon: Cpu },
-    ],
-  },
-  {
-    title: 'AI Platform',
-    items: [
-      {
-        title: 'AI & MLOps Platform',
-        subtitle: '모델 학습, 관리, 배포 플랫폼',
-        Icon: Activity,
-      },
-      {
-        title: 'AI 추론 및 API 서비스',
-        subtitle: 'AI 배포 및 실시간 추론 API',
-        Icon: Code2,
-      },
-    ],
-  },
-  {
-    title: 'AI Applications',
-    items: [
-      {
-        title: 'Chat Agent',
-        subtitle: '대화형 AI 인터페이스 서비스',
-        Icon: MessageSquare,
-      },
-      {
-        title: 'N3N Vision Agent',
-        subtitle: 'AI 영상 분석 및 특화 서비스',
-        Icon: Play,
-      },
-    ],
-  },
-];
+const diagramIcons = [
+  [Database, Cpu],
+  [Activity, Code2],
+  [MessageSquare, Play],
+] as const;
 
 export function VisionSection() {
   const { t } = useI18n();
+  const diagramGroups = t.company.about.fullstack_groups.map(
+    (group, groupIndex) => ({
+      ...group,
+      items: group.items.map((item, itemIndex) => ({
+        ...item,
+        Icon: diagramIcons[groupIndex][itemIndex],
+      })),
+    }),
+  );
 
   return (
     <section
@@ -84,7 +55,7 @@ export function VisionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.18 }}
-          className="text-center text-sm md:text-base text-white/40 mb-10 max-w-xl mx-auto leading-relaxed"
+          className="text-center text-sm md:text-base text-white/40 mb-10 max-w-3xl mx-auto leading-relaxed"
         >
           {t.company.about.fullstack_desc}
         </motion.p>
