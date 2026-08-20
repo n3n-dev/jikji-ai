@@ -5,6 +5,9 @@ import test from 'node:test';
 const en = JSON.parse(
   readFileSync(new URL('../dictionaries/en.json', import.meta.url), 'utf8'),
 );
+const ko = JSON.parse(
+  readFileSync(new URL('../dictionaries/ko.json', import.meta.url), 'utf8'),
+);
 
 test('English homepage locale content is complete and contains no Hangul', () => {
   const groups = en.company.about.fullstack_groups ?? [];
@@ -89,5 +92,16 @@ test('English AI campus specs match the approved Korean-aligned content', () => 
         desc: '• AI video generation, analysis & editing\n• GPU-accelerated HPC\n• Large-scale training & inference\n• High-speed processing & storage\n• Hybrid cloud & on-prem support\n• Scalable GPU infrastructure',
       },
     ],
+  );
+});
+
+test('Korean building overview renders as a three-item dotted list', () => {
+  const buildingOverviewLines =
+    ko.infrastructure.aidc.specs[0].desc.split('\n');
+
+  assert.equal(buildingOverviewLines.length, 3);
+  assert.equal(
+    buildingOverviewLines.every((line) => line.startsWith('• ')),
+    true,
   );
 });
