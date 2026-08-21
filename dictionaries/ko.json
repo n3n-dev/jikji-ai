@@ -333,7 +333,7 @@
   },
   "infrastructure": {
     "aidc": {
-      "title": "직지랩스 1호 R&D센터",
+      "title": "JIKJI Labs - Building 25 AI Edge Computing Clusters",
       "badge": "2027년 3분기 완공 예정 · AI 시대를 대비한 초고속 데이터 허브",
       "specs": [
         {
@@ -412,7 +412,7 @@
         }
       ],
       "cluster": {
-        "title": "직지랩스 AI Edge Computing Infrastructure",
+        "title": "JIKJI Labs AI Infrastructure",
         "subtitle": "서울권 내 총 25개 AI Edge Computing 클러스터 조성 목표",
         "image_alt": "직지랩스 AI Edge Computing 인프라 시설",
         "campus_label": "직지랩스 1호 AI 캠퍼스(HQ)",

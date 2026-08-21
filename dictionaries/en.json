@@ -333,7 +333,7 @@
   },
   "infrastructure": {
     "aidc": {
-      "title": "JIKJI Labs AI Campus #1",
+      "title": "JIKJI Labs - Building 25 AI Edge Computing Clusters",
       "badge": "Opening Q3 2027 · Ultra-fast data hub for the AI era",
       "subtitle": "State-of-the-art PMDC (Purpose-Built Modular Data Center) designed for AI",
       "specs": [
@@ -413,7 +413,7 @@
         }
       ],
       "cluster": {
-        "title": "JIKJI Labs AI Edge Computing Infrastructure",
+        "title": "JIKJI Labs AI Infrastructure",
         "subtitle": "Building 25 AI Edge Computing clusters across the Seoul metropolitan area",
         "image_alt": "JIKJI Labs AI Edge Computing infrastructure facility",
         "campus_label": "JIKJI Labs AI Campus #1 (HQ)",
