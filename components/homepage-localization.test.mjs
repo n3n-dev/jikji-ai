@@ -55,19 +55,19 @@ test('English homepage locale content is complete and contains no Hangul', () =>
   );
   assert.equal(
     en.infrastructure.aidc.title,
-    'JIKJI Labs - Building 25 AI Edge Computing Clusters',
+    'JIKJI Labs AI Infrastructure',
   );
   assert.equal(
     ko.infrastructure.aidc.title,
-    'JIKJI Labs - Building 25 AI Edge Computing Clusters',
+    'JIKJI Labs AI Infrastructure',
   );
   assert.equal(
     en.infrastructure.region.cluster.title,
-    'JIKJI Labs AI Infrastructure',
+    'JIKJI Labs - Building 25 AI Edge Computing Clusters',
   );
   assert.equal(
     ko.infrastructure.region.cluster.title,
-    'JIKJI Labs AI Infrastructure',
+    'JIKJI Labs - Building 25 AI Edge Computing Clusters',
   );
   assert.equal(
     en.infrastructure.region.cluster.subtitle,
