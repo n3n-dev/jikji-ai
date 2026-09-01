@@ -55,11 +55,11 @@ test('English homepage locale content is complete and contains no Hangul', () =>
   );
   assert.equal(
     en.infrastructure.aidc.title,
-    'JIKJI Labs AI Infrastructure',
+    'JIKJI Labs AI Campus 1',
   );
   assert.equal(
     ko.infrastructure.aidc.title,
-    'JIKJI Labs AI Infrastructure',
+    'JIKJI Labs AI Campus 1',
   );
   assert.equal(
     en.infrastructure.region.cluster.title,
@@ -86,7 +86,7 @@ test('English AI campus specs match the approved Korean-aligned content', () => 
       {
         index: '01',
         title: 'Building Overview',
-        desc: '• Site: 575 m² / 6,189 sq ft\n• Floor area: 2,280 m² / 24,542 sq ft\n• 5 floors above grade / 2 below',
+        desc: '• Site: 575 m² / 6,189 sq ft\n• Floor area: 2,280 m² / 24,542 sq ft\n• 5 floors above grade / 2 below\n• Use: Office and educational/research facilities',
       },
       {
         index: '02',
@@ -107,13 +107,14 @@ test('English AI campus specs match the approved Korean-aligned content', () => 
   );
 });
 
-test('Korean building overview renders as a three-item dotted list', () => {
+test('Korean building overview renders as a four-item dotted list', () => {
   const buildingOverviewLines =
     ko.infrastructure.aidc.specs[0].desc.split('\n');
 
-  assert.equal(buildingOverviewLines.length, 3);
-  assert.equal(
-    buildingOverviewLines.every((line) => line.startsWith('• ')),
-    true,
-  );
+  assert.deepEqual(buildingOverviewLines, [
+    '• 면적: 대지 575m² (174평)',
+    '• 연면적 2,280m² (690평)',
+    '• 규모: 지상 5층, 지하 2층',
+    '• 용도: 업무시설 및 교육연구시설',
+  ]);
 });
