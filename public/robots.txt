@@ -1,0 +1,16 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow private routes
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /_next/image/
+
+# Allow specific public assets
+Allow: /images/
+Allow: /*.js
+Allow: /*.css
+
+# Sitemap
+Sitemap: https://jikji.ai/sitemap.xml

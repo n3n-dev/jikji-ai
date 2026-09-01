@@ -1,0 +1,13 @@
+/* Override root layout overflow-x-hidden for docs pages.
+   Use clip instead of visible: clip trims overflow without creating a scroll container,
+   so position:sticky works correctly and the mobile sidebar drawer stays hidden. */
+html:has(#nd-docs-layout),
+html:has(#nd-docs-layout) body {
+  overflow-x: clip !important;
+}
+
+/* Remove root layout body background/text color for docs pages */
+html:has(#nd-docs-layout) body {
+  background-color: unset;
+  color: unset;
+}

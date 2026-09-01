@@ -1,0 +1,57 @@
+---
+title: 방화벽 설정
+description: 방화벽에서 ICMP 항목을 확인하고 Inbound Rule을 설정해 외부 접근 포트를 여는 방법
+---
+
+## 1. Firewall 메뉴 진입 및 ICMP 설정 확인
+좌측 메뉴에서 ① **Firewall**을 선택한 후 **ICMP Setting**에서 ② **Allow ICMP traffic (ping)** 항목을 확인합니다.
+
+<Callout type="info">
+  **Allow ICMP traffic (ping)** 기능은 현재 제공하고 있지 않습니다. 화면에 토글이 표시되더라도 실제 설정 변경은 지원되지 않습니다.
+</Callout>
+
+![Firewall 메뉴 진입 및 ICMP 설정 확인](/docs/network-settings/firewall-menu-and-icmp-setting.png)
+
+## 2. Inbound Rule 생성 시작
+
+**Inbound Rules Management**에서 ① **Create Rule**을 클릭해 **Edit Inbound Rules** 팝업을 엽니다.
+
+![Inbound Rule 생성 시작](/docs/network-settings/create-rule-button.png)
+
+![Edit Inbound Rules 팝업 열기](/docs/network-settings/edit-inbound-rules-popup.png)
+
+## 3. 규칙 행 추가
+
+**Edit Inbound Rules** 팝업에서 ① **Add Rule**을 클릭한 후 ② `Type`, `Protocol`, `Port Range`, `Source`, `Description` 항목이 포함된 규칙 행이 추가되었는지 확인합니다.
+
+![규칙 행 추가 및 기본 항목 확인](/docs/network-settings/add-rule-row.png)
+
+## 4. 포트와 출발지 입력 및 저장
+
+② 생성된 규칙 행에서 **Port Range**에 `8088`을 입력하고 <DocNote note="1" description="Source는 접속을 허용할 출발지 IP 범위를 뜻합니다. `0.0.0.0/0`은 모든 외부 IP에서 접근할 수 있도록 허용하는 값입니다."><strong>Source</strong></DocNote>에 `0.0.0.0/0`을 입력한 후 **Description**을 입력합니다. 입력을 완료한 후 ① **Update and save**를 클릭합니다.
+
+<Callout type="info">
+  화면 안내 기준으로 포트는 `22`, `8000-8999`, `30000-39999` 범위만 사용할 수 있습니다. 단일 포트 또는 `8000-8099`처럼 범위로 입력할 수 있습니다.
+</Callout>
+
+![포트와 출발지 입력 및 저장](/docs/network-settings/port-range-source-and-save.png)
+
+## 5. 설정된 규칙 확인
+
+**Inbound Rules Management** 목록에서 ① 추가한 규칙의 **Protocol**, **Port Range**, **Source**, **Description**이 표시되는지 확인합니다.
+
+<Callout type="warning">
+  방화벽에서 특정 포트를 개방하면 모든 파드에서 해당 포트가 열립니다. 특정 파드의 포트만 개방할 수 없습니다.
+</Callout>
+
+![설정된 규칙 확인](/docs/network-settings/inbound-rule-list.png)
+
+## 6. Subdomain 확인 및 외부 접속
+
+**GPU Pods** 목록에서 ① 접속할 파드의 **Subdomain** 값을 확인한 후, 파드가 실행 중일 때 브라우저에서 `https://{Subdomain 값}-{개방한 포트}.jikjicloud.io/` 주소로 접속합니다.
+
+<Callout type="info">
+  예를 들어 **Subdomain** 값이 `vbbbb-e6bc9b90`이고 방화벽에서 `8088` 포트를 개방했다면 `https://vbbbb-e6bc9b90-8088.jikjicloud.io/` 형식으로 접속합니다.
+</Callout>
+
+![GPU Pods 목록에서 Subdomain 확인](/docs/shared/gpu-pods-list-with-subdomain.png)

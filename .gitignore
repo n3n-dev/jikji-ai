@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.source/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+out/
+skills/
+.claude/
+.kombai/
+tsconfig.tsbuildinfo
+
+*.xlsx
+generate_copy_excel.py*.gs

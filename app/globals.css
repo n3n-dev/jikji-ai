@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+
+/* fumadocs-ui 테마 (Tailwind 번들 없이 색상/컴포넌트 스타일만) */
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/* fumadocs-ui 컴포넌트 클래스를 Tailwind가 감지하도록 */
+@source '../node_modules/fumadocs-ui/dist/**/*.js';
+
+@font-face {
+  font-family: 'ChosunIlboMyungjo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+  font-weight: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* @import "./figma-capture.css"; */
+
+@theme inline {
+  --animate-star-btn: star-btn calc(var(--duration) * 1s) linear infinite;
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+}
+
+@keyframes aurora {
+  from {
+    background-position:
+      50% 50%,
+      50% 50%;
+  }
+
+  to {
+    background-position:
+      350% 50%,
+      350% 50%;
+  }
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+
+  15%,
+  35% {
+    transform: translateZ(0) rotate(90deg);
+  }
+
+  65%,
+  85% {
+    transform: translateZ(0) rotate(270deg);
+  }
+
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
+}
+
+@keyframes star-btn {
+  0% {
+    offset-distance: 0%;
+  }
+
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes slide-up-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-slide-up-fade {
+  animation: slide-up-fade 0.4s ease-out;
+}
+
+/* Nav item hover — dark center, gold edge glow */
+.nav-hover:hover {
+  background: radial-gradient(ellipse 90% 80% at 50% 50%, #1A1B1E 25%, rgba(212,157,115,0.22) 100%);
+  box-shadow: inset 0 0 0 1px rgba(212,157,115,0.28);
+}
+
+/* Vision card — shiny border glow on hover */
+@property --vc-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.vision-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--vc-angle),
+    transparent 0%,
+    rgba(255,255,255,0.2) 8%,
+    rgba(255,255,255,0.7) 16%,
+    rgba(255,255,255,0.2) 24%,
+    transparent 32%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: vc-spin 3s linear infinite;
+  animation-play-state: paused;
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+
+.vision-card:hover::before {
+  animation-play-state: running;
+  opacity: 1;
+}
+
+/* Mobile: auto-loop glow — each card glows in sequence */
+@media (max-width: 767px) {
+  .vision-card::before {
+    animation:
+      vc-spin 3s linear infinite,
+      vc-loop-glow 9s ease-in-out infinite;
+    animation-delay: 0s, var(--vc-delay, 0s);
+    animation-play-state: running;
+  }
+  .vision-card:hover::before {
+    opacity: 1;
+  }
+}
+
+@keyframes vc-spin {
+  to { --vc-angle: 360deg; }
+}
+
+@keyframes vc-loop-glow {
+  0%, 100% { opacity: 0; }
+  6%        { opacity: 1; }
+  27%       { opacity: 1; }
+  33%       { opacity: 0; }
+}

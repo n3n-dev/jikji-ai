@@ -1,0 +1,20 @@
+{
+  "name": "JIKJI AI - AI 솔루션 가속화 플랫폼",
+  "short_name": "JIKJI AI",
+  "description": "Accelerate Your AI Solutions with N3N. 복잡한 인프라 관리 없이 데이터센터부터 AI 서비스까지 한 번에 구축하세요.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#01071B",
+  "theme_color": "#C9A84C",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo_jikji.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "productivity", "technology"],
+  "lang": "ko-KR",
+  "dir": "ltr"
+}

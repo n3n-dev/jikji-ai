@@ -1,0 +1,8 @@
+/* FIGMA CAPTURE OVERRIDE — import this file only when capturing static frames */
+* {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  animation-play-state: paused !important;
+  transition: none !important;
+}
