@@ -333,13 +333,13 @@
   },
   "infrastructure": {
     "aidc": {
-      "title": "JIKJI Labs AI Infrastructure",
+      "title": "JIKJI Labs AI Campus 1",
       "badge": "2027년 3분기 완공 예정 · AI 시대를 대비한 초고속 데이터 허브",
       "specs": [
         {
           "index": "01",
           "title": "건축 개요",
-          "desc": "• 면적: 대지 575m² (174평)\n• 연면적 2,280m² (690평)\n• 규모: 지상 5층, 지하 2층"
+          "desc": "• 면적: 대지 575m² (174평)\n• 연면적 2,280m² (690평)\n• 규모: 지상 5층, 지하 2층\n• 용도: 업무시설 및 교육연구시설"
         },
         {
           "index": "02",
