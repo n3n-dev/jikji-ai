@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 import { createMDX } from 'fumadocs-mdx/next';
 
 const withMDX = createMDX();
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -11,7 +12,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
+  output: isDevelopment ? undefined : 'export',
+  ...(isDevelopment ? {
+    async redirects() {
+      return [{ source: '/blog', destination: 'http://localhost:2368/', permanent: false }];
+    },
+  } : {}),
   trailingSlash: true,
   transpilePackages: ['motion'],
 };

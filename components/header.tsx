@@ -356,6 +356,7 @@ export function Header() {
     t.nav.pricing,
     { label: t.nav.products.label, href: '/products' },
     t.nav.company,
+    { label: 'Blog', href: '/blog/' },
   ];
 
   return (
