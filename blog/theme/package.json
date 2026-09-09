@@ -1,0 +1,22 @@
+{
+  "name": "jikji-blog",
+  "version": "0.1.0",
+  "description": "A Korean editorial theme for JIKJI Blog and News.",
+  "author": { "name": "JIKJI", "email": "theme-maintainer@example.invalid" },
+  "license": "UNLICENSED",
+  "keywords": ["ghost-theme"],
+  "engines": { "ghost": ">=6.0.0 <7.0.0" },
+  "config": {
+    "custom": {
+      "company_name": {"type":"text","default":"JIKJI"},
+      "company_url": {"type":"text","default":"https://jikji.ai"}
+    },
+    "posts_per_page": 9,
+    "card_assets": true,
+    "image_sizes": {
+      "small": { "width": 480 },
+      "medium": { "width": 800 },
+      "large": { "width": 1600 }
+    }
+  }
+}

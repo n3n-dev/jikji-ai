@@ -1,0 +1,5 @@
+<nav class="pagination" aria-label="목록 페이지" data-page="{{page}}" data-pages="{{pages}}" data-base="{{page_url 1}}">
+  {{#if prev}}<a href="{{page_url prev}}" rel="prev" aria-label="이전 페이지">‹</a>{{else}}<span class="pagination-disabled" aria-disabled="true" aria-label="이전 페이지">‹</span>{{/if}}
+  <span class="pagination-numbers"><span aria-current="page">{{page}}</span><span class="pagination-total"> / {{pages}}</span></span>
+  {{#if next}}<a href="{{page_url next}}" rel="next" aria-label="다음 페이지">›</a>{{else}}<span class="pagination-disabled" aria-disabled="true" aria-label="다음 페이지">›</span>{{/if}}
+</nav>

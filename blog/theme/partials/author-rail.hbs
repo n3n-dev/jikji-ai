@@ -1,0 +1,1 @@
+<aside class="author-rail" aria-label="작성자 소개">{{#foreach authors}}<div class="author-profile">{{#if profile_image}}<img class="avatar" src="{{img_url profile_image size="small"}}" alt="" width="64" height="64">{{/if}}<a class="author-name" href="{{url}}">{{name}}</a>{{#if bio}}<p>{{bio}}</p>{{/if}}<a class="author-more" href="{{url}}">작성 글 보기 ↗</a></div>{{/foreach}}</aside>
