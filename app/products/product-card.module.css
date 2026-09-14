@@ -1,0 +1,46 @@
+@property --product-border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--product-border-angle),
+    transparent 0% 65%,
+    rgb(159 122 94 / 25%) 76%,
+    rgb(212 165 116 / 65%) 84%,
+    rgb(159 122 94 / 25%) 92%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.card:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  animation: border-orbit 4s linear infinite;
+}
+
+@keyframes border-orbit {
+  to { --product-border-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::after {
+    transition: none;
+  }
+  .card:is(:hover, :focus-visible)::after {
+    animation: none;
+  }
+}

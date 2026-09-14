@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import styles from './product-card.module.css';
 import {
   Activity,
   ArrowRight,
@@ -15,7 +16,6 @@ import {
   KeyRound,
   Lock,
   Plug,
-  RefreshCw,
   Search,
   Server,
   Shield,
@@ -218,7 +218,7 @@ function ProductCard({ product }: { product: Product }) {
       href="https://console.jikji.ai/"
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex min-h-[236px] flex-col overflow-hidden rounded-lg border border-white/10 bg-[#151515] p-7 text-left transition-colors hover:border-[#9F7A5E]/45 focus:outline-none focus:ring-2 focus:ring-[#9F7A5E]/35"
+      className={`${styles.card} group relative flex min-h-[236px] flex-col overflow-hidden rounded-lg border border-white/10 bg-[#151515] p-7 text-left transition-colors duration-200 hover:bg-[#1C1B1A] hover:border-[#9F7A5E]/25 focus-visible:bg-[#1C1B1A] focus:outline-none focus:ring-2 focus:ring-[#9F7A5E]/35 motion-reduce:transition-none`}
       style={{
         boxShadow:
           'inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 40px rgba(0,0,0,0.22)',
@@ -227,16 +227,16 @@ function ProductCard({ product }: { product: Product }) {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-[radial-gradient(ellipse_80%_65%_at_50%_-20%,rgba(255,255,255,0.12),rgba(255,255,255,0.03)_45%,transparent_72%)]" />
       <div className="flex items-start justify-between gap-4">
         <Icon
-          className="relative h-8 w-8 stroke-[2.3] text-[#E4E4E7]"
+          className="relative h-5 w-5 shrink-0 stroke-[2.3] text-[#E4E4E7]"
           aria-hidden="true"
         />
         <ProductStatusBadge productName={product.name} />
       </div>
       <div className="relative mt-8 flex-1">
-        <h3 className="text-[21px] font-bold leading-tight text-white">
+          <h3 className="text-[19px] font-semibold leading-tight text-white">
           {product.name}
         </h3>
-        <p className="mt-3 text-[15px] leading-7 text-white/55">
+          <p className="mt-3 text-[15px] leading-[1.4] text-white/55">
           {product.description}
         </p>
       </div>
@@ -316,10 +316,26 @@ export function ProductCatalog() {
     );
   };
 
-  const resetCatalog = () => {
-    setQuery('');
+  const resetCategories = () => {
     setSelectedCategories([]);
   };
+
+  const searchInput = (
+    <div className="relative">
+      <Search
+        className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/70"
+        aria-hidden="true"
+      />
+      <input
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        aria-label="서비스 검색"
+        placeholder="서비스명 또는 키워드로 검색"
+        className="h-12 w-full rounded-md border border-white/10 bg-[#151515] px-4 pr-12 text-[15px] text-white outline-none transition-colors placeholder:text-white/35 focus:border-[#9F7A5E]/50"
+        style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08)' }}
+      />
+    </div>
+  );
 
   return (
     <section
@@ -331,18 +347,20 @@ export function ProductCatalog() {
     >
       <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-6 px-4 py-6 lg:grid-cols-[260px_1fr] lg:px-8">
         <aside className="hidden lg:block">
-          <div className="sticky top-[96px] max-h-[calc(100vh-120px)] overflow-y-auto rounded-lg border border-white/10 bg-[#111113]/70 p-5">
+          <div className="sticky top-[96px] max-h-[calc(100vh-120px)] space-y-4 overflow-y-auto">
+          <div className="rounded-lg border border-white/10 bg-[#111113]/70 p-5">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-base font-bold text-white">
                 서비스 카테고리
               </h2>
               <button
                 type="button"
-                onClick={resetCatalog}
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-[#1A1B1E] text-white/70 transition-colors hover:border-[#9F7A5E]/35 hover:text-white"
-                aria-label="카탈로그 초기화"
+                onClick={resetCategories}
+                disabled={isShowingAllCategories}
+                className="min-h-9 rounded-full border border-white/10 bg-[#1A1B1E] px-3 text-xs text-white/80 transition-colors enabled:hover:border-[#9F7A5E]/35 enabled:hover:text-white disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                aria-label="카테고리 초기화"
               >
-                <RefreshCw className="h-4 w-4" />
+                초기화
               </button>
             </div>
             <div className="space-y-3">
@@ -362,25 +380,13 @@ export function ProductCatalog() {
               ))}
             </div>
           </div>
+          {searchInput}
+          </div>
         </aside>
 
         <div className="min-w-0">
-          <div className="mb-6 flex flex-col gap-4">
-            <div className="relative">
-              <Search
-                className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/70"
-                aria-hidden="true"
-              />
-              <input
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="검색어를 입력해 주세요"
-                className="h-12 w-full rounded-md border border-white/10 bg-[#151515] px-4 pr-12 text-[15px] text-white outline-none transition-colors placeholder:text-white/35 focus:border-[#9F7A5E]/50"
-                style={{
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08)',
-                }}
-              />
-            </div>
+          <div className="mb-6 flex flex-col gap-4 lg:hidden">
+            {searchInput}
 
             <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 lg:hidden">
               {categories.map((category) => (
@@ -400,9 +406,12 @@ export function ProductCatalog() {
             </div>
           </div>
 
-          <div className="mb-7">
-            <p className="text-[17px] font-bold text-white">
-              AI 도입부터 서비스 구현까지 End-to-End AI 솔루션을 제공합니다.
+          <div className="mb-10">
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Products
+            </h1>
+            <p className="mt-3 text-base font-normal leading-relaxed text-white/65 sm:text-lg">
+              AI 인프라부터 모델 개발과 서비스 운영까지, 필요한 서비스를 한곳에서 만나보세요.
             </p>
           </div>
 
@@ -414,12 +423,9 @@ export function ProductCatalog() {
             <div className="space-y-12">
               {featuredProducts.length > 0 && (
                 <section id="featured" className="scroll-mt-28">
-                  <div className="mb-5 flex items-center gap-4">
-                    <Sparkles className="h-10 w-10 text-white" />
-                    <h1 className="text-3xl font-bold tracking-normal text-white">
-                      Featured
-                    </h1>
-                  </div>
+                  <h2 className="mb-5 text-xl font-bold tracking-normal text-white">
+                    Featured
+                  </h2>
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
                     {featuredProducts.map((product) => (
                       <ProductCard
@@ -433,7 +439,7 @@ export function ProductCatalog() {
 
               {groupedProducts.map((group) => (
                 <section key={group.id} id={group.id} className="scroll-mt-28">
-                  <h2 className="mb-5 text-2xl font-bold tracking-normal text-white">
+                  <h2 className="mb-5 text-xl font-bold tracking-normal text-white">
                     {group.label}
                   </h2>
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
