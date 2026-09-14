@@ -12,7 +12,7 @@ export function scrollToSection(href: string) {
     const top =
       el.getBoundingClientRect().top +
       window.scrollY -
-      (window.innerHeight - el.offsetHeight) / 2;
+      (id === 'pricing' ? 88 : (window.innerHeight - el.offsetHeight) / 2);
     window.scrollTo({ top, behavior: 'smooth' });
   }
 }

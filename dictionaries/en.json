@@ -39,12 +39,16 @@
       "href": "#infrastructure",
       "items": [
         {
-          "label": "Sovereign Region",
+          "label": "AI Edge Centers",
           "href": "#infrastructure"
         },
         {
           "label": "Enterprise Isolation",
           "href": "#isolation"
+        },
+        {
+          "label": "Pricing",
+          "href": "#pricing"
         }
       ]
     },
