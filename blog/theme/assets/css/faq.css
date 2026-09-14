@@ -1,0 +1,51 @@
+/* Shared by Ghost Toggle cards after their native details enhancement. */
+.gh-content .jikji-faq-item {
+  margin-block: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.gh-content .jikji-faq-item + .jikji-faq-item { border-top: 1px solid var(--line); }
+.gh-content .jikji-faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.25rem;
+  padding: .875rem 1rem;
+  list-style: none;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.jikji-faq-question::-webkit-details-marker { display: none; }
+.jikji-faq-question::after {
+  content: '';
+  flex: 0 0 .625rem;
+  width: .625rem;
+  height: .625rem;
+  margin: 0 .25rem .25rem;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg);
+}
+.jikji-faq-item[open] > .jikji-faq-question::after { transform: rotate(225deg); margin-block: .25rem 0; }
+.jikji-faq-question:hover { color: var(--accent); }
+.jikji-faq-question:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; border-radius: .25rem; }
+.gh-content .jikji-faq-answer {
+  margin: 0 1rem 1rem;
+  padding: .875rem 1rem;
+  border-radius: 1rem;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: .875rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.gh-content .jikji-faq-answer > :first-child { margin-top: 0; }
+.gh-content .jikji-faq-answer > :last-child { margin-bottom: 0; }
