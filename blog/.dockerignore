@@ -1,0 +1,16 @@
+*
+!theme/
+!theme/**
+!deploy/
+!deploy/images/
+!deploy/images/**
+!deploy/routes.yaml
+!services/
+!services/views/
+!services/views/server.mjs
+!services/views/counter.mjs
+**/.env*
+**/.secrets*
+**/*.pem
+**/*.key
+**/.DS_Store

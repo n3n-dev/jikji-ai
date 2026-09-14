@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: jikji-blog
+resources:
+  - ../base
+  # Remove mysql when using an existing MySQL 8 database.
+  - ../mysql
+  - namespace.yaml
+  - ingress.yaml
+  # Add ../metrics after provisioning its Content API Secret.
+configMapGenerator:
+  - name: ghost-config
+    literals:
+      - GHOST_URL=https://example.com/blog
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=ghost
+      - DB_USER=ghost
+      - MAIL_FROM=blog@example.com
+      - SMTP_HOST=smtp.example.com
+      - SMTP_PORT=587
+      - SMTP_SECURE=false
+      - SMTP_USER=blog@example.com
+      - BLOG_ORIGIN=https://example.com
+images:
+  - name: jikji-ghost
+    newName: registry.example.com/team/jikji-ghost
+    newTag: release-1
+  - name: jikji-blog-metrics
+    newName: registry.example.com/team/jikji-blog-metrics
+    newTag: release-1

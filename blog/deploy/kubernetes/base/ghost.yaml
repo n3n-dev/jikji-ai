@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ghost-content
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests: {storage: 10Gi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ghost
+spec:
+  selector: {app: jikji-ghost}
+  ports: [{name: http, port: 2368, targetPort: http}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost
+spec:
+  replicas: 1
+  strategy: {type: Recreate}
+  selector:
+    matchLabels: {app: jikji-ghost}
+  template:
+    metadata:
+      labels: {app: jikji-ghost}
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 60
+      securityContext: {runAsUser: 1000, runAsGroup: 1000, fsGroup: 1000, runAsNonRoot: true}
+      containers:
+        - name: ghost
+          image: jikji-ghost:6.62.0
+          ports: [{name: http, containerPort: 2368}]
+          envFrom:
+            - configMapRef: {name: ghost-config}
+          env:
+            - name: DB_PASSWORD
+              valueFrom: {secretKeyRef: {name: ghost-secrets, key: DB_PASSWORD}}
+            - name: SMTP_PASSWORD
+              valueFrom: {secretKeyRef: {name: ghost-secrets, key: SMTP_PASSWORD}}
+          volumeMounts:
+            - {name: content, mountPath: /var/lib/ghost/content}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities: {drop: [ALL]}
+          resources:
+            requests: {cpu: 250m, memory: 512Mi}
+            limits: {cpu: "2", memory: 2Gi}
+          startupProbe:
+            exec: {command: [node, /opt/jikji/healthcheck.mjs]}
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            exec: {command: [node, /opt/jikji/healthcheck.mjs]}
+            periodSeconds: 15
+            timeoutSeconds: 5
+          livenessProbe:
+            tcpSocket: {port: http}
+            periodSeconds: 30
+            failureThreshold: 5
+      volumes:
+        - name: content
+          persistentVolumeClaim: {claimName: ghost-content}
