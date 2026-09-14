@@ -1,0 +1,13 @@
+<div class="article-actions">
+  <a class="back-link" href="{{@site.url}}/{{section}}/">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M5 12h14"/></svg>
+    <span>{{label}} 목록</span>
+  </a>
+  <button class="article-share" type="button" data-article-share>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    <span>공유하기</span>
+    <span data-share-count hidden title="링크 복사 성공 횟수 (30분 내 중복 제외)"></span>
+  </button>
+  <p class="share-status" role="status" aria-live="polite"></p>
+  <input class="share-url" type="url" aria-label="복사할 글 주소" readonly hidden>
+</div>

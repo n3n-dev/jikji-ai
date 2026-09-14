@@ -27,7 +27,10 @@
     <p class="footer-copyright">© {{date format="YYYY"}} {{@custom.company_name}}. All rights reserved.</p>
   </div></footer>
   {{#is "post, page"}}<script src="{{asset "js/faq.js"}}" defer></script>{{/is}}
+  {{#is "post, page"}}<script src="{{asset "js/prism.js"}}" defer></script>{{/is}}
   <script src="{{asset "js/content.js"}}" defer></script>
+  {{#is "post"}}<script src="{{asset "js/author-bio.js"}}" defer></script>{{/is}}
+  {{#is "post"}}<script src="{{asset "js/views.js"}}" defer></script>{{/is}}
   {{ghost_foot}}
 </body>
 </html>

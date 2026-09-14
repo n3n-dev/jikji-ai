@@ -1,3 +1,30 @@
+// Share the current article without tracking parameters or heading fragments.
+document.querySelectorAll('[data-article-share]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const row = button.closest('.article-actions');
+    const status = row.querySelector('.share-status');
+    const input = row.querySelector('.share-url');
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.hash = '';
+    try {
+      await navigator.clipboard.writeText(url.href);
+      input.hidden = true;
+      status.textContent = '링크를 복사했습니다.';
+    } catch {
+      status.textContent = '아래 주소를 선택해 복사해 주세요.';
+      input.value = url.href;
+      input.hidden = false;
+      input.focus();
+      input.select();
+      return;
+    }
+    // Emitted only after the clipboard API confirms success, not on click.
+    // Analytics failures must never change the copy-success message.
+    document.dispatchEvent(new Event('jikji:share-copied'));
+  });
+});
+
 // Enhance server-rendered previous/next links with up to five page numbers.
 document.querySelectorAll('.pagination[data-pages]').forEach((nav) => {
   const page = Number(nav.dataset.page);
@@ -62,7 +89,44 @@ if (toc && headings.length) {
     list.append(item);
   });
   toc.append(list);
-  toc.closest('.toc-rail').hidden = false;
+  const tocRail = toc.closest('.toc-rail');
+  const articleLayout = tocRail.closest('.article-layout');
+  tocRail.hidden = false;
+
+  const links = [...list.querySelectorAll('a')];
+  let activeIndex = -1;
+  let framePending = false;
+  const updateCurrentSection = () => {
+    framePending = false;
+    const railStyle = getComputedStyle(tocRail);
+    // Use the original grid position so hiding the title cannot toggle stickiness.
+    tocRail.classList.toggle('is-stuck', railStyle.position === 'sticky'
+      && articleLayout.getBoundingClientRect().top < parseFloat(railStyle.top));
+    // Match anchor scrolling, including any space reserved for the site header.
+    const readingLine = (parseFloat(getComputedStyle(headings[0]).scrollMarginTop) || 32) + 1;
+    let nextIndex = -1;
+    headings.forEach((heading, index) => {
+      if (heading.getBoundingClientRect().top <= readingLine) nextIndex = index;
+    });
+    if (nextIndex === activeIndex) return;
+    links.forEach((link, index) => {
+      if (index === nextIndex) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    activeIndex = nextIndex;
+  };
+  const scheduleSectionUpdate = () => {
+    if (framePending) return;
+    framePending = true;
+    requestAnimationFrame(updateCurrentSection);
+  };
+  window.addEventListener('scroll', scheduleSectionUpdate, {passive: true});
+  window.addEventListener('resize', scheduleSectionUpdate);
+  window.addEventListener('hashchange', scheduleSectionUpdate);
+  window.addEventListener('pageshow', scheduleSectionUpdate);
+  // Images and embeds can move section headings after the initial render.
+  new ResizeObserver(scheduleSectionUpdate).observe(document.querySelector('.article-main'));
+  scheduleSectionUpdate();
 }
 // Keep wide tables readable and keyboard-scrollable without moving the page.
 document.querySelectorAll('.gh-content table').forEach((table) => {
