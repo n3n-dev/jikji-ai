@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{asset "css/screen.css"}}">
   <link rel="stylesheet" href="{{asset "css/tech.css"}}">
   <link rel="stylesheet" href="{{asset "css/company-nav.css"}}">
+  <link rel="stylesheet" href="{{asset "css/faq.css"}}">
   {{ghost_head}}
 </head>
 <body class="{{body_class}}">
@@ -25,6 +26,7 @@
     <nav class="footer-column" aria-label="RSS 피드"><strong>Stay connected</strong><a href="{{@site.url}}/blog/rss/">Blog RSS ↗</a><a href="{{@site.url}}/news/rss/">News RSS ↗</a></nav>
     <p class="footer-copyright">© {{date format="YYYY"}} {{@custom.company_name}}. All rights reserved.</p>
   </div></footer>
+  {{#is "post, page"}}<script src="{{asset "js/faq.js"}}" defer></script>{{/is}}
   <script src="{{asset "js/content.js"}}" defer></script>
   {{ghost_foot}}
 </body>
