@@ -1,0 +1,3 @@
+{{#get "posts" filter="primary_tag:{{primary_tag.slug}}+id:-{{id}}" limit="2" include="authors,tags"}}
+  {{#if posts}}<section class="read-next" aria-labelledby="read-next-title"><h2 id="read-next-title">이어서 읽어보세요</h2><div class="read-next-grid">{{#foreach posts}}<a class="read-next-link" href="{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time><h3>{{title}}</h3><span aria-hidden="true">읽어보기 ↗</span></a>{{/foreach}}</div></section>{{/if}}
+{{/get}}

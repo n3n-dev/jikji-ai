@@ -18,5 +18,25 @@ services:
       - ./theme:/var/lib/ghost/content/themes/jikji-blog:ro
       - ./config/routes.yaml:/var/lib/ghost/content/settings/routes.yaml:ro
       - ./config/redirects.yaml:/var/lib/ghost/content/data/redirects.yaml:ro
+  views:
+    # Opt-in only: docker compose --profile views up -d views
+    profiles: ["views"]
+    image: ghost:6.62.0-alpine
+    user: node
+    entrypoint: ["node", "/app/server.mjs"]
+    restart: unless-stopped
+    depends_on:
+      - ghost
+    ports:
+      - "127.0.0.1:2369:2369"
+    environment:
+      VIEWS_DB: /var/lib/ghost/content/views.db
+      GHOST_DB: /ghost-content/data/ghost.db
+      BLOG_ORIGIN: http://localhost:2368
+    volumes:
+      - ./services/views:/app:ro
+      - views-data:/var/lib/ghost/content
+      - ghost-content:/ghost-content:ro
 volumes:
   ghost-content:
+  views-data:

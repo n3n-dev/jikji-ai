@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{meta_title}}</title>
+  <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+  <link rel="stylesheet" href="{{asset "css/tech.css"}}">
+  <link rel="stylesheet" href="{{asset "css/company-nav.css"}}">
+  <link rel="stylesheet" href="{{asset "css/faq.css"}}">
+  {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="company-header"><div class="company-header-inner">
+    <a class="brand" href="{{> "company-url"}}/" aria-label="JIKJI 회사 홈페이지">
+      {{> "brand"}}
+    </a>
+    {{> "company-nav"}}
+    <button class="company-menu-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="company-navigation">☰</button>
+  </div></header>
+  <main id="main" class="shell" tabindex="-1">{{{body}}}</main>
+  <footer class="footer-surface"><div class="site-footer shell">
+    <div class="footer-intro"><a class="brand" href="{{@site.url}}"><img class="footer-logo" src="{{asset "images/jikji-logo-footer.svg"}}" alt="JIKJI" width="138" height="32"></a><p>직지의 다양한 이야기를 나누고,<br>다음 가능성을 함께 만듭니다.</p></div>
+    <nav class="footer-column" aria-label="콘텐츠"><strong>Explore</strong><a href="{{@site.url}}/blog/">Blog</a><a href="{{@site.url}}/news/">News</a><a href="{{@site.url}}/about/">About</a></nav>
+    <nav class="footer-column" aria-label="RSS 피드"><strong>Stay connected</strong><a href="{{@site.url}}/blog/rss/">Blog RSS ↗</a><a href="{{@site.url}}/news/rss/">News RSS ↗</a></nav>
+    <p class="footer-copyright">© {{date format="YYYY"}} {{@custom.company_name}}. All rights reserved.</p>
+  </div></footer>
+  {{#is "post, page"}}<script src="{{asset "js/faq.js"}}" defer></script>{{/is}}
+  {{#is "post, page"}}<script src="{{asset "js/prism.js"}}" defer></script>{{/is}}
+  <script src="{{asset "js/content.js"}}" defer></script>
+  {{#is "post"}}<script src="{{asset "js/author-bio.js"}}" defer></script>{{/is}}
+  {{#is "post"}}<script src="{{asset "js/views.js"}}" defer></script>{{/is}}
+  {{ghost_foot}}
+</body>
+</html>

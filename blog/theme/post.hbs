@@ -1,0 +1,12 @@
+{{!< default}}
+{{#post}}
+  {{#match primary_tag.slug "news"}}
+    {{> "news-detail"}}
+  {{else}}
+    {{#match primary_tag.slug "blog"}}
+      {{> "blog-detail"}}
+    {{else}}
+      <article class="article {{post_class}}"><header class="article-header"><p class="eyebrow">ARTICLE</p><h1>{{title}}</h1></header>{{> "article-content"}}</article>
+    {{/match}}
+  {{/match}}
+{{/post}}

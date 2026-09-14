@@ -1,0 +1,6 @@
+<nav class="content-tabs" aria-label="콘텐츠 종류">
+  <a href="{{@site.url}}/" {{#match active "all"}}aria-current="page"{{/match}}>All Post</a>
+  <a href="{{@site.url}}/news/" {{#match active "news"}}aria-current="page"{{/match}}>News</a>
+  <a href="{{@site.url}}/blog/" {{#match active "blog"}}aria-current="page"{{/match}}>Blog</a>
+  <a class="blog-search" href="#/search" data-ghost-search aria-label="블로그 글 검색" title="블로그 글 검색"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></svg></a>
+</nav>

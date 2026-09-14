@@ -1,0 +1,3 @@
+{{#get "tags" limit="12" filter="visibility:public+slug:-[blog,news]" include="count.posts" order="count.posts desc"}}
+{{#if tags}}<section class="topics" aria-label="주제별 글"><nav aria-label="주제별 글"><ul>{{#foreach tags}}<li><a href="{{url}}">{{name}}</a></li>{{/foreach}}</ul></nav></section>{{/if}}
+{{/get}}

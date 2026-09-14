@@ -1,0 +1,14 @@
+{{!< default}}
+<header class="page-heading">
+  <h1>All Post</h1>
+  <p class="lede">기술과 제품, 브랜드와 사람. 직지가 만들어가는 다양한 이야기와 새로운 소식을 전합니다.</p>
+</header>
+{{> "content-tabs" active="all"}}
+{{!-- 주제 태그 예약 위치: 콘텐츠와 유의미한 태그가 쌓이면 아래 호출의 주석을 해제합니다.
+태그 데이터와 partials/topics.hbs, .topics 스타일은 유지합니다.
+{{> "topics"}}
+--}}
+<section class="archive-home" aria-label="게시물 목록">
+    <div class="post-grid">{{#foreach posts}}{{> "card" heading="3"}}{{else}}<p class="empty-state">첫 번째 이야기를 준비하고 있습니다.</p>{{/foreach}}</div>
+  {{pagination}}
+</section>
