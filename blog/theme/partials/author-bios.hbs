@@ -1,0 +1,15 @@
+<aside class="author-bios" aria-label="작성자 소개">
+  {{#foreach authors}}
+    <div class="author-bio-card" data-author-profile>
+      {{#if profile_image}}
+        <img class="author-bio-avatar" src="{{profile_image}}" alt="" width="56" height="56" loading="lazy">
+      {{else}}
+        <svg class="author-bio-avatar" width="56" height="56" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#e5f1fa"/><circle cx="32" cy="24" r="11" fill="#5ea5ea"/><path d="M12 60v-5c0-12 9-20 20-20s20 8 20 20v5" fill="#357bb3"/></svg>
+      {{/if}}
+      <div class="author-bio-info">
+        <div class="author-bio-heading"><a href="{{url}}">{{name}}</a><span class="author-bio-team" data-author-team hidden></span></div>
+        {{#if bio}}<p class="author-bio-text" data-author-bio>{{bio}}</p>{{/if}}
+      </div>
+    </div>
+  {{/foreach}}
+</aside>

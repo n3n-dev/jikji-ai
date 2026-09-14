@@ -1,7 +1,8 @@
 <article class="article {{post_class}}">
-  <header class="article-header"><a class="eyebrow" href="{{@site.url}}/blog/">BLOG</a><h1>{{title}}</h1>{{#if custom_excerpt}}<p class="lede">{{custom_excerpt}}</p>{{/if}}<p class="article-meta">{{authors}} <span aria-hidden="true">·</span> <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time> <span aria-hidden="true">·</span> {{reading_time minute="1분 읽기" minutes="%분 읽기"}}</p></header>
-  <div class="article-layout">{{> "author-rail"}}<div class="article-main">{{> "article-content"}}
-  <footer class="article-footer">{{tags separator=" "}}<a class="back-link" href="{{@site.url}}/blog/">← Blog 목록</a></footer>
+  <header class="article-header"><span class="eyebrow">BLOG</span><h1>{{title}}</h1><p class="article-meta">{{authors}} <span aria-hidden="true">·</span> <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time> {{> "article-views"}}</p></header>
+  <div class="article-layout"><div class="article-main">{{> "article-content"}}
+  {{> "author-bios"}}
+  <footer class="article-footer">{{!-- Tags are hidden until needed. Restore: {{tags separator=" "}} --}}{{> "article-actions" section="blog" label="Blog"}}</footer>
   {{> "read-next"}}
   </div><aside class="toc-rail" aria-label="이 글의 목차" hidden><p>이 글의 목차</p><nav class="article-toc"></nav></aside></div>
 </article>
