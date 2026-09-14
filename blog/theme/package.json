@@ -9,7 +9,8 @@
   "config": {
     "custom": {
       "company_name": {"type":"text","default":"JIKJI"},
-      "company_url": {"type":"text","default":"https://jikji.ai"}
+      "company_url": {"type":"text","default":"https://jikji.ai"},
+      "views_api_url": {"type":"text","default":"","description":"View/share counter endpoint. Leave empty until the server is connected."}
     },
     "posts_per_page": 9,
     "card_assets": true,
