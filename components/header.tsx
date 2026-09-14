@@ -187,8 +187,15 @@ function MobileNavSection({
         >
           {section.label}
         </NavLink>
-        <button onClick={() => setIsOpen(!isOpen)} className="p-2">
+        <button
+          type="button"
+          aria-label={`${section.label} submenu`}
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex min-h-11 min-w-11 items-center justify-center rounded-md p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
           <ChevronDown
+            aria-hidden="true"
             className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           />
         </button>
