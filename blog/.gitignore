@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.local/
+.env*
+*.db
+*.sqlite*
+*.log
+.DS_Store
+content/
+backups/

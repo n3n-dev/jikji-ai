@@ -1,0 +1,22 @@
+name: jikjiblog-dev
+services:
+  ghost:
+    image: ghost:6.62.0-alpine
+    user: node
+    ports:
+      - "127.0.0.1:2368:2368"
+    environment:
+      NODE_ENV: development
+      url: http://localhost:2368
+      database__client: sqlite3
+      database__connection__filename: /var/lib/ghost/content/data/ghost.db
+      mail__transport: Direct
+      privacy__useUpdateCheck: "false"
+      privacy__useGravatar: "false"
+    volumes:
+      - ghost-content:/var/lib/ghost/content
+      - ./theme:/var/lib/ghost/content/themes/jikji-blog:ro
+      - ./config/routes.yaml:/var/lib/ghost/content/settings/routes.yaml:ro
+      - ./config/redirects.yaml:/var/lib/ghost/content/data/redirects.yaml:ro
+volumes:
+  ghost-content:
