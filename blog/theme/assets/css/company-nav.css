@@ -16,13 +16,13 @@
 .company-actions { display: flex; align-items: center; justify-self: end; gap: 12px; }
 .company-primary > a, .company-actions > a { display: flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 500; text-decoration: none; white-space: nowrap; }
 .company-header .company-primary > a, .company-header summary { color: #8e9399; }
-.company-header .company-primary > a:hover, .company-header summary:hover, .company-primary > a[aria-current] { color: #e3e5e8; }
-.company-primary > a[aria-current] { box-shadow: inset 0 -2px #9f7a5e; }
+.company-header .company-primary > a:hover, .company-header summary:hover { color: #e3e5e8; }
+.company-header .company-primary > a[aria-current] { color: #fff; }
 .company-menu-toggle { display: none; }
 .content-tabs .blog-search { margin-left: auto; width: 44px; min-height: 44px; align-items: center; justify-content: center; }
 .company-nav > a, .company-dropdown > summary { display: flex; align-items: center; min-height: 44px; color: #60646d; font-size: 14px; font-weight: 500; text-decoration: none; white-space: nowrap; cursor: pointer; }
 .company-nav a:hover, .company-dropdown > summary:hover { color: #151518; }
-.company-nav > a[aria-current] { color: #151518; box-shadow: inset 0 -2px currentColor; }
+
 .company-dropdown { position: relative; }
 .company-dropdown > summary { list-style: none; gap: 8px; }
 .company-dropdown > summary::-webkit-details-marker { display: none; }
