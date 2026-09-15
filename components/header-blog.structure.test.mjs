@@ -5,12 +5,12 @@ import {readFileSync} from 'node:fs';
 const header = readFileSync(new URL('./header.tsx', import.meta.url), 'utf8');
 
 test('Blog precedes Company in the shared desktop/mobile navigation', () => {
-  assert.match(header, /\{ label: 'Blog', href: '\/blog\/' \},\s*t\.nav\.company/);
+  assert.match(header, /\{ label: 'Blog', href: 'https:\/\/blog\.jikji\.ai\/' \},\s*t\.nav\.company/);
   assert.equal((header.match(/navSections\.map\(/g) || []).length, 2);
 });
 
-test('Blog uses the same-origin public path with no localhost fallback', () => {
-  assert.match(header, /label: 'Blog', href: '\/blog\/'/);
+test('Blog links to the live Ghost site with no localhost fallback', () => {
+  assert.match(header, /label: 'Blog', href: 'https:\/\/blog\.jikji\.ai\/'/);
   assert.doesNotMatch(header, /localhost:2368|NEXT_PUBLIC_BLOG_URL/);
 });
 
