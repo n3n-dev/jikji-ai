@@ -1,4 +1,6 @@
-.company-footer { padding: 48px 0; border-top: 1px solid rgb(255 255 255 / 20%); background: #000; color: #fff; font-family: 'JIKJI Header Inter', Arial, sans-serif; font-size: 14px; line-height: 20px; }
+body { min-height: 100svh; display: flex; flex-direction: column; }
+body > main { flex: 1 0 auto; }
+.company-footer { flex-shrink: 0; padding: 48px 0; border-top: 1px solid rgb(255 255 255 / 20%); background: #000; color: #fff; font-family: 'JIKJI Header Inter', Arial, sans-serif; font-size: 14px; line-height: 20px; }
 .company-footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 32px; }
 .company-footer-brand-info { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
 .company-footer-logo { display: block; width: 68px; height: 15px; max-width: none; }
