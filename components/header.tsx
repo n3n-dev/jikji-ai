@@ -32,12 +32,14 @@ function NavLink({
   children,
   onClick,
   external,
+  current,
 }: {
   href: string;
   className?: string;
   children: React.ReactNode;
   onClick?: () => void;
   external?: boolean;
+  current?: boolean;
 }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -45,6 +47,7 @@ function NavLink({
   if (external || !href.startsWith('#')) {
     return (
       <Link
+        aria-current={current ? 'location' : undefined}
         href={href}
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
@@ -57,6 +60,7 @@ function NavLink({
   }
   return (
     <a
+      aria-current={current ? 'location' : undefined}
       href={href}
       className={className}
       onClick={(e) => {
@@ -75,6 +79,14 @@ function NavLink({
   );
 }
 
+function isCurrentSection(pathname: string, href: string) {
+  const path = pathname.replace(/\/$/, '') || '/';
+  if (href === '#infrastructure') return path === '/';
+  if (!href.startsWith('/') || href.startsWith('//')) return false;
+  const target = href.split('#')[0].replace(/\/$/, '') || '/';
+  return path === target || (target !== '/' && path.startsWith(`${target}/`));
+}
+
 function DesktopDropdown({
   section,
   isLight,
@@ -82,13 +94,15 @@ function DesktopDropdown({
   section: NavSection;
   isLight: boolean;
 }) {
+  const pathname = usePathname();
+  const isCurrent = isCurrentSection(pathname, section.href);
   const linkCls = isLight
-    ? 'flex items-center gap-1 text-sm font-medium text-black/60 hover:text-black transition-colors py-6'
-    : 'flex items-center gap-1 text-sm font-medium text-[#8E9399] hover:text-[#E3E5E8] transition-colors py-6';
+    ? 'flex items-center gap-1 text-sm font-medium text-black/60 hover:text-black aria-[current]:text-black transition-colors py-6'
+    : 'flex items-center gap-1 text-sm font-medium text-[#8E9399] hover:text-[#E3E5E8] aria-[current]:text-white transition-colors py-6';
 
   if (!section.items || section.items.length === 0) {
     return (
-      <NavLink href={section.href} className={linkCls}>
+      <NavLink href={section.href} className={linkCls} current={isCurrent}>
         {section.label}
       </NavLink>
     );
@@ -96,7 +110,7 @@ function DesktopDropdown({
 
   return (
     <div className="relative group/nav">
-      <NavLink href={section.href} className={linkCls}>
+      <NavLink href={section.href} className={linkCls} current={isCurrent}>
         {section.label}
         {!section.hideChevron && (
           <ChevronDown className="w-3 h-3 opacity-50 group-hover/nav:rotate-180 transition-transform" />
@@ -160,6 +174,8 @@ function MobileNavSection({
   closeMenu: () => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isCurrent = isCurrentSection(pathname, section.href);
 
   if (!section.items || section.items.length === 0) {
     return (
@@ -168,7 +184,8 @@ function MobileNavSection({
           <NavLink
             href={section.href}
             onClick={closeMenu}
-            className="font-medium flex-1"
+            current={isCurrent}
+            className="font-medium flex-1 aria-[current]:text-white"
           >
             {section.label}
           </NavLink>
@@ -183,7 +200,8 @@ function MobileNavSection({
         <NavLink
           href={section.href}
           onClick={closeMenu}
-          className="font-medium flex-1"
+          current={isCurrent}
+          className="font-medium flex-1 aria-[current]:text-white"
         >
           {section.label}
         </NavLink>
