@@ -1,6 +1,6 @@
 {
   "name": "jikji-blog",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Korean editorial theme for JIKJI Blog and News.",
   "author": { "name": "JIKJI", "email": "theme-maintainer@example.invalid" },
   "license": "UNLICENSED",
@@ -8,7 +8,6 @@
   "engines": { "ghost": ">=6.0.0 <7.0.0" },
   "config": {
     "custom": {
-      "company_name": {"type":"text","default":"JIKJI"},
       "company_url": {"type":"text","default":"https://jikji.ai"},
       "views_api_url": {"type":"text","default":"","description":"View/share counter endpoint. Leave empty until the server is connected."}
     },

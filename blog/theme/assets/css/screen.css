@@ -50,7 +50,7 @@ h2 { font-size: 1.75rem; }
 .card-byline { font-size: .8125rem; color: var(--muted); }
 .featured-section .story-card { max-width: 52rem; }
 .featured-section .card-title { font-size: 2rem; }
-.empty-state { grid-column: 1 / -1; padding: 2rem; margin: 0; background: var(--surface); color: var(--muted); }
+.empty-state { grid-column: 1 / -1; padding: 2rem; margin: 0; background: transparent; color: var(--muted); text-align: center; }
 .pagination { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-block: 1.5rem; margin-top: 3rem; }
 .pagination a { min-height: 2.75rem; }
 .article { padding-block: 3rem; }
