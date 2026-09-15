@@ -361,8 +361,8 @@ export function Header() {
   const navSections = [
     t.nav.ai_infrastructure,
     { label: t.nav.products.label, href: '/products' },
-    t.nav.company,
     { label: 'Blog', href: '/blog/' },
+    t.nav.company,
   ];
 
   return (
