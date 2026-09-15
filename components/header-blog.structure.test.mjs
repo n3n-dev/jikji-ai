@@ -4,8 +4,8 @@ import {readFileSync} from 'node:fs';
 
 const header = readFileSync(new URL('./header.tsx', import.meta.url), 'utf8');
 
-test('Blog follows Company in the shared desktop/mobile navigation', () => {
-  assert.match(header, /t\.nav\.company,\s*\{ label: 'Blog', href: '\/blog\/' \}/);
+test('Blog precedes Company in the shared desktop/mobile navigation', () => {
+  assert.match(header, /\{ label: 'Blog', href: '\/blog\/' \},\s*t\.nav\.company/);
   assert.equal((header.match(/navSections\.map\(/g) || []).length, 2);
 });
 
