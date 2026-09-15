@@ -29,6 +29,11 @@ jobs:
           cache-dependency-path: blog/package-lock.json
       - run: npm ci
       - run: npm test
+      - uses: azure/setup-kubectl@v4
+        with:
+          version: v1.34.1
+      - run: node deploy/validate.mjs
+      - run: bash -n deploy/compose/backup.sh
       - run: docker compose config --quiet
       - run: npm run check:theme
       - run: node --check theme/assets/js/content.js
