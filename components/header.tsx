@@ -361,7 +361,7 @@ export function Header() {
   const navSections = [
     t.nav.ai_infrastructure,
     { label: t.nav.products.label, href: '/products' },
-    { label: 'Blog', href: '/blog/' },
+    { label: 'Blog', href: 'https://blog.jikji.ai/' },
     t.nav.company,
   ];
 

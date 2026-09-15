@@ -1,18 +1,19 @@
 import type { Metadata } from 'next';
-import { I18nProvider } from '@/components/i18n-provider';
-import { BlogComingSoon } from './coming-soon';
 
 export const metadata: Metadata = {
-  title: '직지랩스 블로그 준비 중',
-  description: '직지랩스의 AI 기술과 새로운 소식을 이곳에서 전해드릴게요.',
-  alternates: { canonical: '/blog/', languages: { ko: '/blog/', en: '/blog/' } },
+  title: '직지랩스 블로그',
+  description: '직지랩스의 AI 기술과 새로운 소식',
+  alternates: { canonical: 'https://blog.jikji.ai/' },
   robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
 };
 
 export default function BlogPage() {
   return (
-    <I18nProvider>
-      <BlogComingSoon />
-    </I18nProvider>
+    <main className="flex min-h-screen items-center justify-center bg-black text-white">
+      <meta httpEquiv="refresh" content="0;url=https://blog.jikji.ai/" />
+      <a href="https://blog.jikji.ai/" className="underline underline-offset-4">
+        직지랩스 블로그로 이동 · Visit JIKJI Labs Blog
+      </a>
+    </main>
   );
 }
