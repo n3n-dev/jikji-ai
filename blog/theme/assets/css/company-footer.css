@@ -1,0 +1,36 @@
+body { min-height: 100svh; display: flex; flex-direction: column; }
+body > main { flex: 1 0 auto; }
+.company-footer { flex-shrink: 0; padding: 48px 0; border-top: 1px solid rgb(255 255 255 / 20%); background: #000; color: #fff; font-family: 'JIKJI Header Inter', Arial, sans-serif; font-size: 14px; line-height: 20px; }
+.company-footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 16px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 32px; }
+.company-footer-brand-info { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
+.company-footer-logo { display: block; width: 68px; height: 15px; max-width: none; }
+.company-footer p { margin: 0; }
+.company-footer-info { display: flex; flex-direction: column; gap: 16px; color: rgb(255 255 255 / 50%); }
+.company-footer-details { display: flex; flex-direction: column; gap: 4px; }
+.company-footer-name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.company-footer-company { color: rgb(255 255 255 / 80%); font-weight: 500; }
+.company-footer-divider { margin: 0 8px; color: rgb(255 255 255 / 20%); }
+.company-footer-controls { display: flex; align-items: center; gap: 8px; }
+.company-footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+.company-footer-rss { display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 16px; font-size: 12px; line-height: 20px; }
+.company-footer-rss a { color: rgb(255 255 255 / 50%); text-decoration: none; white-space: nowrap; }
+.company-footer-rss a:hover { color: #fff; }
+.company-footer-rss a:focus-visible { outline: 2px solid rgb(255 255 255 / 40%); outline-offset: 4px; }
+.company-footer-control { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 12px; margin: 0; border: 1px solid rgb(255 255 255 / 20%); border-radius: 6px; background: transparent; color: rgb(255 255 255 / 70%); font: inherit; font-weight: 500; white-space: nowrap; cursor: pointer; transition: color .15s, background-color .15s, border-color .15s; }
+.company-footer-control:hover { background: rgb(255 255 255 / 5%); color: #fff; border-color: rgb(255 255 255 / 30%); }
+.company-footer-control:focus-visible { outline: 2px solid rgb(255 255 255 / 40%); outline-offset: 2px; }
+.company-footer-control svg { flex-shrink: 0; }
+.company-footer-family { position: relative; }
+.company-footer-chevron { color: rgb(255 255 255 / 60%); transform: rotate(180deg); transition: transform .15s; }
+.company-footer-control[aria-expanded='true'] .company-footer-chevron { transform: none; }
+.company-footer-family-menu { position: absolute; right: 0; bottom: 100%; z-index: 20; width: 240px; max-width: calc(100vw - 32px); padding: 0; margin: 0 0 8px; overflow: hidden; border-radius: 8px; border: 1px solid rgb(255 255 255 / 20%); background: #000; box-shadow: 0 25px 50px -12px rgb(0 0 0 / 40%); list-style: none; }
+.company-footer-family-menu[hidden] { display: none; }
+.company-footer-family-menu a { display: flex; min-height: 48px; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; color: rgb(255 255 255 / 80%); text-decoration: none; }
+.company-footer-family-menu a:hover, .company-footer-family-menu a:focus-visible { color: #fff; background: rgb(255 255 255 / 10%); }
+.company-footer-family-menu a:focus-visible { outline: 2px solid rgb(255 255 255 / 40%); outline-offset: -2px; }
+.company-footer-family-text { display: flex; flex-direction: column; gap: 2px; font-size: 13px; line-height: 16px; }
+.company-footer-family-text strong { font-size: 14px; line-height: 20px; font-weight: 600; color: #fff; }
+.company-footer-family-menu svg { flex-shrink: 0; color: rgb(255 255 255 / 60%); }
+@media (min-width: 640px) { .company-footer-inner { padding-inline: 24px; } }
+@media (min-width: 1024px) { .company-footer-inner { padding-inline: 32px; flex-direction: row; } }
+@media (prefers-reduced-motion: reduce) { .company-footer-control, .company-footer-chevron { transition: none; } }

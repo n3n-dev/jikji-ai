@@ -1,4 +1,4 @@
 <div class="post-grid">
   {{#foreach posts}}{{> "card" heading="2"}}{{else}}<p class="empty-state">아직 공개된 글이 없습니다. 곧 새로운 이야기로 찾아뵙겠습니다.</p>{{/foreach}}
 </div>
-{{pagination}}
+{{#if posts}}{{pagination}}{{/if}}
