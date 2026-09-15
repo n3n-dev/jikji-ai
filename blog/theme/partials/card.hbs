@@ -8,6 +8,8 @@
   {{/if}}
   <div class="card-meta"><span class="eyebrow">{{#match primary_tag.slug "news"}}News{{else}}{{#match primary_tag.slug "blog"}}Blog{{else}}Article{{/match}}{{/match}}</span></div>
   <h{{heading}} class="card-title"><a href="{{url}}">{{title}}</a></h{{heading}}>
+  {{#match primary_tag.slug "news"}}{{else}}
   <p class="card-excerpt">{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt characters="180"}}{{/if}}</p>
-  <p class="card-byline">{{authors separator=" / "}} <span aria-hidden="true">·</span> <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time></p>
+  {{/match}}
+  <p class="card-byline">{{#match primary_tag.slug "news"}}{{else}}{{authors separator=" / "}} <span aria-hidden="true">·</span> {{/match}}<time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY.MM.DD"}}</time></p>
 </article>
