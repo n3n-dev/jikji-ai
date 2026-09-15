@@ -81,7 +81,7 @@ h1, h2, h3 { letter-spacing: -.02em; text-wrap: balance; }
 .featured-strip h2 a { text-decoration: none; }
 .feature-spark { font-size: 4.5rem; line-height: 1; color: var(--accent); }
 .page-heading { text-align: center; border: 0; padding-block: 3rem; margin-bottom: 0; }
-.page-heading h1 { font-size: 3rem; margin-block: 0 1rem; }
+.page-heading h1 { font-size: 32px; margin-block: 0 1rem; }
 .page-heading .lede { margin-inline: auto; font-size: 16px; }
 .topics { margin-bottom: 2rem; }
 .topics h2 { margin: 0 0 1rem; font-size: 1.5rem; }
@@ -212,7 +212,6 @@ h1, h2, h3 { letter-spacing: -.02em; text-wrap: balance; }
   .values-section { padding-block: 1rem 2rem; }
   .section-heading h2 { font-size: 1.75rem; }
   .section-description { font-size: .9375rem; }
-  .page-heading h1 { font-size: 2.5rem; }
   .article-layout { display: flex; flex-direction: column; gap: 2rem; }
   .article-main, .author-rail, .toc-rail { width: 100%; }
   .toc-rail { order: -1; position: static; padding: 1rem; background: var(--surface); border-radius: .5rem; }
