@@ -9,6 +9,6 @@
 {{> "topics"}}
 --}}
 <section class="archive-home" aria-label="게시물 목록">
-    <div class="post-grid">{{#foreach posts}}{{> "card" heading="3"}}{{else}}<p class="empty-state">아직 공개된 글이 없습니다. 곧 새로운 이야기로 찾아뵙겠습니다.</p>{{/foreach}}</div>
+    <div class="post-grid">{{#foreach posts}}{{#match slug "coming-soon"}}{{#get "posts" filter="slug:-coming-soon" limit="1"}}{{#unless posts}}{{> "card" heading="3"}}{{/unless}}{{/get}}{{else}}{{> "card" heading="3"}}{{/match}}{{else}}<p class="empty-state">아직 공개된 글이 없습니다. 곧 새로운 이야기로 찾아뵙겠습니다.</p>{{/foreach}}</div>
   {{#if posts}}{{pagination}}{{/if}}
 </section>
