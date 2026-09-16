@@ -73,7 +73,7 @@ h1, h2, h3 { letter-spacing: -.02em; text-wrap: balance; }
 .card-meta .eyebrow { font-size: .875rem; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--accent); }
 .card-meta time { color: var(--muted); }
 .card-title { font-size: 1.25rem; font-weight: 700; line-height: 1.4; letter-spacing: -.015em; text-wrap: wrap; margin-block: .5rem 0; }
-.card-excerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: .9375rem; color: #737e8e; line-height: 1.4; margin-block: .5rem 0; }
+.card-excerpt { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; font-size: .9375rem; color: #737e8e; line-height: 1.4; margin-block: .5rem 0; }
 .card-byline { font-size: .875rem; color: #737e8e; line-height: 1.5; margin-block: .5rem 0; }
 .card-byline a { text-decoration: none; }
 .featured-strip { display: flex; justify-content: space-between; align-items: center; gap: 2rem; background: var(--blue-soft); padding: 2rem 2.5rem; border-radius: .75rem; margin-block: 1rem; }
