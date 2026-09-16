@@ -12,10 +12,6 @@ body > main { flex: 1 0 auto; }
 .company-footer-divider { margin: 0 8px; color: rgb(255 255 255 / 20%); }
 .company-footer-controls { display: flex; align-items: center; gap: 8px; }
 .company-footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
-.company-footer-rss { display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 16px; font-size: 12px; line-height: 20px; }
-.company-footer-rss a { color: rgb(255 255 255 / 50%); text-decoration: none; white-space: nowrap; }
-.company-footer-rss a:hover { color: #fff; }
-.company-footer-rss a:focus-visible { outline: 2px solid rgb(255 255 255 / 40%); outline-offset: 4px; }
 .company-footer-control { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 12px; margin: 0; border: 1px solid rgb(255 255 255 / 20%); border-radius: 6px; background: transparent; color: rgb(255 255 255 / 70%); font: inherit; font-weight: 500; white-space: nowrap; cursor: pointer; transition: color .15s, background-color .15s, border-color .15s; }
 .company-footer-control:hover { background: rgb(255 255 255 / 5%); color: #fff; border-color: rgb(255 255 255 / 30%); }
 .company-footer-control:focus-visible { outline: 2px solid rgb(255 255 255 / 40%); outline-offset: 2px; }
