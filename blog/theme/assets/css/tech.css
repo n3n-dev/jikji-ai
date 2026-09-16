@@ -72,7 +72,7 @@ h1, h2, h3 { letter-spacing: -.02em; text-wrap: balance; }
 .news-section .card-cover, .tag-news .card-cover { background: #edf5fc; color: #194b78; }
 .card-meta .eyebrow { font-size: .875rem; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--accent); }
 .card-meta time { color: var(--muted); }
-.card-title { font-size: 1.25rem; font-weight: 700; line-height: 1.4; letter-spacing: -.015em; text-wrap: wrap; margin-block: .5rem 0; width: 100%; box-sizing: border-box; padding-right: 12px; word-break: normal; overflow-wrap: anywhere; }
+.card-title { font-size: 1.25rem; font-weight: 700; line-height: 1.4; letter-spacing: -.015em; text-wrap: wrap; margin-block: .25rem 0; width: 100%; box-sizing: border-box; padding-right: 12px; word-break: normal; overflow-wrap: anywhere; }
 .card-excerpt { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; font-size: .9375rem; color: #737e8e; line-height: 1.4; margin-block: .5rem 0; }
 .card-byline { font-size: .875rem; color: #737e8e; line-height: 1.5; margin-block: .5rem 0; }
 .card-byline a { text-decoration: none; }
@@ -83,6 +83,7 @@ h1, h2, h3 { letter-spacing: -.02em; text-wrap: balance; }
 .page-heading { text-align: center; border: 0; padding-block: 3rem; margin-bottom: 0; }
 .page-heading h1 { font-size: 32px; margin-block: 0 1rem; }
 .page-heading .lede { margin-inline: auto; font-size: 16px; }
+.blog-heading .lede, .news-heading .lede { display: none; }
 .topics { margin-bottom: 2rem; }
 .topics h2 { margin: 0 0 1rem; font-size: 1.5rem; }
 .topics ul { list-style: none; display: flex; flex-wrap: wrap; gap: .75rem; padding: 0; margin: 0; }
