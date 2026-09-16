@@ -1,4 +1,4 @@
 <div class="post-grid">
-  {{#foreach posts}}{{#match slug "coming-soon"}}{{#get "posts" filter="slug:-coming-soon" limit="1"}}{{#unless posts}}{{> "card" heading="2"}}{{/unless}}{{/get}}{{else}}{{> "card" heading="2"}}{{/match}}{{else}}<p class="empty-state">아직 공개된 글이 없습니다. 곧 새로운 이야기로 찾아뵙겠습니다.</p>{{/foreach}}
+  {{#foreach posts}}{{#match slug "coming-soon"}}{{#get "posts" filter="slug:-coming-soon" limit="1"}}{{#unless posts}}{{#with ../}}{{> "card" heading="2"}}{{/with}}{{/unless}}{{/get}}{{else}}{{> "card" heading="2"}}{{/match}}{{else}}<p class="empty-state">아직 공개된 글이 없습니다. 곧 새로운 이야기로 찾아뵙겠습니다.</p>{{/foreach}}
 </div>
 {{#if posts}}{{pagination}}{{/if}}
