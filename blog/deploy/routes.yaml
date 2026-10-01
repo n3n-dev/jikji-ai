@@ -1,0 +1,19 @@
+# Ghost adds the public URL prefix. With GHOST_URL=https://example.com/blog,
+# these become /blog/, /blog/posts/, /blog/news/ (never /blog/blog/).
+routes:
+  /:
+    controller: channel
+    template: home
+    filter: primary_tag:[blog,news]
+collections:
+  /posts/:
+    permalink: /posts/{slug}/
+    template: blog
+    filter: primary_tag:blog
+  /news/:
+    permalink: /news/{slug}/
+    template: news
+    filter: primary_tag:news
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

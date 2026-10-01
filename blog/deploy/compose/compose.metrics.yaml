@@ -1,0 +1,29 @@
+# Add after creating a Ghost Content API key. No Admin API key is used.
+services:
+  metrics:
+    image: ${METRICS_IMAGE:?Set METRICS_IMAGE}
+    build:
+      context: ../..
+      dockerfile: deploy/images/Metrics.Dockerfile
+    restart: unless-stopped
+    stop_grace_period: 30s
+    ports:
+      - "127.0.0.1:${METRICS_BIND_PORT:-2369}:2369"
+    environment:
+      GHOST_URL: ${GHOST_URL:?Set GHOST_URL}
+      BLOG_ORIGIN: ${BLOG_ORIGIN:?Set BLOG_ORIGIN}
+      GHOST_CONTENT_API_KEY: ${GHOST_CONTENT_API_KEY:?Set GHOST_CONTENT_API_KEY}
+    volumes:
+      - metrics:/data
+    healthcheck:
+      test: [CMD, node, -e, 'const s=require("node:net").connect(2369,"127.0.0.1",()=>s.end());s.on("error",()=>process.exit(1));s.setTimeout(3000,()=>process.exit(1));']
+      interval: 30s
+      timeout: 5s
+      retries: 5
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+volumes:
+  metrics:
