@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s | JIKJI',
   },
   description:
-    'Accelerate Your AI Solutions with N3N. 복잡한 인프라 관리 없이 데이터센터부터 AI 서비스까지 한 번에 구축하세요.',
+    'Accelerate Your AI with Jikji Labs. AI 인프라와 GPU Cloud로 AI 확장을 더 빠르고 효율적으로 지원합니다.',
   keywords: [
     'AI',
     'Machine Learning',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'JIKJI AI',
     title: 'JIKJI AI - AI 솔루션 가속화 플랫폼',
     description:
-      'Accelerate Your AI Solutions with N3N. 복잡한 인프라 관리 없이 데이터센터부터 AI 서비스까지 한 번에 구축하세요.',
+      'Accelerate Your AI with Jikji Labs. AI 인프라와 GPU Cloud로 AI 확장을 더 빠르고 효율적으로 지원합니다.',
     images: [
       {
         url: './jikji_og_image.png',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'JIKJI AI - AI 솔루션 가속화 플랫폼',
-    description: 'Accelerate Your AI Solutions with N3N',
+    description: 'Accelerate Your AI with Jikji Labs',
     images: ['/images/og-image.png'],
   },
   robots: {
